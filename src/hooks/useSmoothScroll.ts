@@ -12,7 +12,7 @@ export const useSmoothScroll = () => {
         const element = document.querySelector(hash)
         if (element) {
           const headerHeight = 100 // Account for fixed header
-          const elementPosition = element.offsetTop - headerHeight
+          const elementPosition = (element as HTMLElement).offsetTop - headerHeight
           
           window.scrollTo({
             top: elementPosition,
@@ -39,7 +39,7 @@ export const useSmoothScroll = () => {
     const element = document.getElementById(sectionId)
     if (element) {
       const headerHeight = 100 // Account for fixed header
-      const elementPosition = element.offsetTop - headerHeight
+      const elementPosition = (element as HTMLElement).offsetTop - headerHeight
       
       window.scrollTo({
         top: elementPosition,
