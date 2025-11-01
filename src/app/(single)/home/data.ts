@@ -7,8 +7,7 @@ import testimonial2 from '@/assets/img/testimonial/vl-testimonial-auth-1.2.png'
 import testimonial3 from '@/assets/img/testimonial/vl-testimonial-auth-1.3.png'
 import team1 from '@/assets/img/team/vl-team-1.1.jpg'
 import team2 from '@/assets/img/team/vl-team-1.2.jpg'
-import team3 from '@/assets/img/team/vl-team-1.3.png'
-import team4 from '@/assets/img/team/vl-team-1.4.png'
+
 import placeholder from '@/assets/img/team/placeholder.png'
 
 type TabType = {

@@ -44,7 +44,7 @@ const blogData = [
 ]
 
 const BlogsPage = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const [, setHoveredCard] = useState<number | null>(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
 

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import Link from 'next/link'
 import { Container } from 'react-bootstrap'
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaEnvelope, FaMapMarkerAlt, FaPhone, FaArrowRight } from 'react-icons/fa'
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import logo1Img from '@/assets/img/logo/vl-logo-1.1.png'
 
@@ -251,8 +251,8 @@ const HomeFooter = () => {
                   </div>
                 </div>
                 <p className="footer-description">
-                  Empowering Afghanistan's future through AI education and technology. 
-                  Building tomorrow's tech leaders and creating opportunities for sustainable growth.
+                  Empowering Afghanistan&apos;s future through AI education and technology. 
+                  Building tomorrow&apos;s tech leaders and creating opportunities for sustainable growth.
                 </p>
                 <div className="footer-social">
                   <a href="#" className="social-link" aria-label="Facebook">

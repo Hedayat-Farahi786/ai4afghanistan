@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
 export const useSmoothScroll = () => {
-  const router = useRouter()
+
 
   useEffect(() => {
     const handleHashChange = () => {

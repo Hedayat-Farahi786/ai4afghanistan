@@ -7,7 +7,7 @@ import { FaArrowRight, FaClock, FaMapMarkerAlt, FaCalendarPlus, FaCalendarAlt, F
 
 const EventArea = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [cardsPerView, setCardsPerView] = useState(2)
+  const [, setCardsPerView] = useState(2)
   
   const events = [
     {

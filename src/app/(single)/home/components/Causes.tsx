@@ -4,7 +4,7 @@ import { FaArrowRight } from 'react-icons/fa'
 import { LuBrain, LuUsers } from 'react-icons/lu'
 import { BiCodeAlt } from 'react-icons/bi'
 import { Col, Container, Row } from 'react-bootstrap'
-import Link from 'next/link'
+
 import Image from 'next/image'
 import causes1 from '@/assets/img/cause/causes1.jpg'
 import causes2 from '@/assets/img/cause/causes2.jpg'
@@ -94,7 +94,7 @@ const Causes = () => {
             Building Afghanistan's AI Future
           </h2>
           <p style={{ color: '#666', fontSize: '16px', maxWidth: '500px', margin: '0 auto' }}>
-            We're just getting started. Join us in creating opportunities for Afghan youth through AI education.
+            We&apos;re just getting started. Join us in creating opportunities for Afghan youth through AI education.
           </p>
         </div>
         

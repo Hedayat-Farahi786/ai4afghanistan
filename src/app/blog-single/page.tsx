@@ -2,13 +2,13 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaCalendarAlt, FaUser, FaClock, FaArrowLeft, FaShare, FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa'
+import { FaCalendarAlt, FaUser, FaClock, FaArrowLeft, FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa'
 import Blog1 from '@/assets/img/blog/blog1.jpg'
 import Blog2 from '@/assets/img/blog/blog2.jpeg'
 import Blog3 from '@/assets/img/blog/blog3.webp'
 
 const BlogSingle = () => {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [, setIsLoaded] = useState(false)
 
   useEffect(() => {
     setIsLoaded(true)

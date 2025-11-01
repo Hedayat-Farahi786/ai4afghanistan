@@ -211,7 +211,7 @@ const Contact = () => {
             <h2 className="contact-title section-title-divider">Contact AI4Afghanistan</h2>
             <p className="contact-description">
               Ready to join our mission? Have questions about our programs? 
-              We'd love to hear from you and explore how we can work together.
+              We&apos;d love to hear from you and explore how we can work together.
             </p>
           </div>
 

@@ -93,7 +93,7 @@ const Hero = () => {
                       Empowering Afghan <span style={{background: '#089a45', padding: '2px 26px 2px 12px', clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)', display: 'inline-block'}}>Youth</span> Through AI Innovation
                     </h1>
                     <p style={{fontSize: '18px', fontWeight: '400', lineHeight: '1.6', marginBottom: '28px'}}>
-                      We're training the next generation of Afghan innovators.<br/>
+                      We&apos;re training the next generation of Afghan innovators.<br/>
                       Real skills, real opportunities, real change.
                     </p>
                     <div className="vl-hero-btn">
@@ -141,7 +141,7 @@ const Hero = () => {
                     </h1>
                     <p style={{fontSize: '18px', fontWeight: '400', lineHeight: '1.6', marginBottom: '32px'}}>
                       Afghanistan deserves a place in the digital future.<br/>
-                      We're making it happen, one student at a time.
+                      We&apos;re making it happen, one student at a time.
                     </p>
                     <div className="vl-hero-btn">
                       <a href="/pages/contact" className="header-btn1" style={{fontSize: '16px', fontWeight: '600', padding: '14px 28px'}}>

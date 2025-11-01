@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react'
-import Image from 'next/image'
+
 import Link from 'next/link'
-import { FaCalendarAlt, FaMapMarkerAlt, FaClock, FaArrowLeft, FaSearch, FaUserPlus, FaCalendarPlus } from 'react-icons/fa'
+import { FaMapMarkerAlt, FaClock, FaArrowLeft, FaSearch, FaUserPlus, FaCalendarPlus } from 'react-icons/fa'
 
 const eventsData = [
   {

@@ -202,7 +202,7 @@ const ContactPage = () => {
             <h1 className="contact-title">Contact AI4Afghanistan</h1>
             <p className="contact-description">
               Ready to join our mission? Have questions about our programs? 
-              We'd love to hear from you and explore how we can work together.
+              We&apos;d love to hear from you and explore how we can work together.
             </p>
           </div>
 

@@ -1,9 +1,9 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaCalendarAlt, FaUser, FaArrowRight, FaClock } from 'react-icons/fa'
-import { Container } from 'react-bootstrap'
+
 import Blog1 from '@/assets/img/blog/blog1.jpg'
 import Blog2 from '@/assets/img/blog/blog2.jpeg'
 import Blog3 from '@/assets/img/blog/blog3.webp'
@@ -45,7 +45,7 @@ const blogData = [
 ]
 
 const Blog = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const [, setHoveredCard] = useState<number | null>(null)
   
   const handleCardClick = (slug: string) => {
     // Add a small delay for the click animation
@@ -377,7 +377,7 @@ const Blog = () => {
           </div>
           
           <div className="blog-grid">
-            {blogData.map((post, index) => (
+            {blogData.map((post) => (
               <article 
                 key={post.id} 
                 className="blog-card blog-card-loading"
