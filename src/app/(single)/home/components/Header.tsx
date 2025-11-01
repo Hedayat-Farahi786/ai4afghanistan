@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 import React from 'react'
+import { useRouter, usePathname } from 'next/navigation'
 import logo1Img from '@/assets/img/logo/vl-logo-1.1.png'
 import useScrollEvent from '@/hooks/useScrollEvent'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
@@ -12,15 +13,22 @@ import { Col, Container, Row } from 'react-bootstrap'
 const Header = () => {
   const { scrollY } = useScrollEvent()
   const { scrollToSection } = useSmoothScroll()
+  const router = useRouter()
+  const pathname = usePathname()
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault()
-    if (window.location.pathname === '/home') {
+    if (pathname === '/home') {
       scrollToSection(sectionId)
     } else {
-      window.location.href = `/home#${sectionId}`
+      router.push(`/home#${sectionId}`)
     }
   }
+
+  const handleLogoClick = () => {
+    router.push('/home')
+  }
+
   return (
     <>
       <header>
@@ -29,7 +37,7 @@ const Header = () => {
             <Row>
               <Col lg={12}>
                 <div className="header-elements header-elements-1">
-                  <div className="site-logo" style={{display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer'}} onClick={() => window.location.href = '/home'}>
+                  <div className="site-logo" style={{display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer'}} onClick={handleLogoClick}>
                       <Image src={logo1Img} alt='logo1Img' width={54} height={54} priority style={{ objectFit: 'contain', display: 'block'}} />
                     <div style={{display: 'flex', flexDirection: 'column'}}>
                       <span className="logo-text">AI<span className="logo-number">4</span>Afghanistan</span>

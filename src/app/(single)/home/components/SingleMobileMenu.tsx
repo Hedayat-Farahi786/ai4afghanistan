@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { useRouter, usePathname } from 'next/navigation'
 import logo1 from '@/assets/img/logo/vl-logo-1.1.png'
 import footerLogo1 from '@/assets/img/logo/vl-footer-logo-1.1.png'
 import { FaBars, FaEnvelope, FaFacebookF, FaInstagram, FaLinkedinIn, FaLocationDot, FaPhoneVolume, FaXmark, FaYoutube } from 'react-icons/fa6'
@@ -13,14 +14,16 @@ import { Col, Container } from 'react-bootstrap'
 const SingleMobileMenu = () => {
   const { isOpen, toggle } = useToggle()
   const { scrollToSection } = useSmoothScroll()
+  const router = useRouter()
+  const pathname = usePathname()
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault()
     toggle() // Close mobile menu
-    if (window.location.pathname === '/home') {
+    if (pathname === '/home') {
       scrollToSection(sectionId)
     } else {
-      window.location.href = `/home#${sectionId}`
+      router.push(`/home#${sectionId}`)
     }
   }
   return (
@@ -42,7 +45,7 @@ const SingleMobileMenu = () => {
       <div className={`mobile-sidebar mobile-sidebar1 ${isOpen && 'mobile-menu-active'}`}>
         <div className="logosicon-area">
           <div className="logos">
-            <Image src={footerLogo1} alt='footerLogo1' />
+            <Image src={footerLogo1} alt='footerLogo1' loading="lazy" />
           </div>
           <div onClick={toggle} className="menu-close">
             <FaXmark className="fa-solid fa-xmark" />

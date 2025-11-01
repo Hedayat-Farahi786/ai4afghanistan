@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { FaLinkedin, FaInstagram, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { FaXTwitter, FaEnvelope } from "react-icons/fa6";
@@ -7,6 +8,7 @@ import { teamData } from '../data';
 import { Container } from 'react-bootstrap';
 
 const Team = () => {
+  const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(4);
   const [typingText, setTypingText] = useState<{[key: number]: string}>({});
@@ -63,7 +65,7 @@ const Team = () => {
   };
 
   const handleMemberClick = (memberIndex: number) => {
-    window.location.href = `/team/${memberIndex + 1}`;
+    router.push(`/team/${memberIndex + 1}`);
   };
 
   return (

@@ -1,5 +1,6 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaCalendarAlt, FaUser, FaArrowRight, FaClock } from 'react-icons/fa'
@@ -46,12 +47,27 @@ const blogData = [
 
 const Blog = () => {
   const [, setHoveredCard] = useState<number | null>(null)
-  
+  const [isMounted, setIsMounted] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    // Delay mounting to prevent image flash during initial page load
+    const timer = setTimeout(() => {
+      setIsMounted(true)
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [])
+
   const handleCardClick = (slug: string) => {
-    // Add a small delay for the click animation
-    setTimeout(() => {
-      window.location.href = slug
-    }, 150)
+    router.push(slug)
+  }
+
+  if (!isMounted) {
+    return (
+      <section id="blog" className="blog-section" style={{ minHeight: '400px' }}>
+        <div className="blog-container" />
+      </section>
+    )
   }
 
   return (
@@ -62,6 +78,8 @@ const Blog = () => {
           background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
           position: relative;
           overflow: hidden;
+          isolation: isolate;
+          contain: layout style paint;
         }
         .blog-section::before {
           content: '';
@@ -388,12 +406,14 @@ const Blog = () => {
               >
                 <div className="blog-image-container">
                   <Link href={post.slug}>
-                    <Image 
-                      src={post.image} 
+                    <Image
+                      src={post.image}
                       alt={post.title}
                       className="blog-image"
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      loading="lazy"
+                      quality={75}
                     />
                   </Link>
                   <span className="blog-category">{post.category}</span>

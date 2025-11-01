@@ -472,6 +472,10 @@ const BlogSingle = () => {
 
       <div className="blog-single-page">
         <div className="blog-single-container">
+          <Link href="/blogs" className="blog-back-link" style={{marginBottom: '30px', display: 'inline-flex'}}>
+            <FaArrowLeft />
+            Back to Blogs
+          </Link>
           <div className="blog-single-content">
             <article className="blog-main">
               <div className="blog-header-image">
@@ -486,10 +490,6 @@ const BlogSingle = () => {
               </div>
               
               <div className="blog-content-wrapper">
-                <Link href="/#blog" className="blog-back-link">
-                  <FaArrowLeft />
-                  Back to Blog
-                </Link>
                 
                 <h1 className="blog-title">{blogPost.title}</h1>
                 
@@ -536,11 +536,12 @@ const BlogSingle = () => {
                 {relatedPosts.map((post) => (
                   <Link key={post.id} href={`/blog/${post.id}`} className="related-post">
                     <div className="related-post-image">
-                      <Image 
-                        src={post.image} 
+                      <Image
+                        src={post.image}
                         alt={post.title}
                         width={80}
                         height={60}
+                        loading="lazy"
                       />
                     </div>
                     <div className="related-post-content">

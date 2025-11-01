@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
-    "fix-all": "node scripts/fix-lint.js"
+    "fix-all": "node scripts/fix-lint.js",
+    "postbuild": "next-build-stats"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",

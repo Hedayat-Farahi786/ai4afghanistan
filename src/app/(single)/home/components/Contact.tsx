@@ -241,7 +241,7 @@ const Contact = () => {
             
             <Col lg={5} md={5}>
               <div className="contact-svg">
-                <Image src={contactSvg} alt="Contact Illustration" className="contact-illustration" />
+                <Image src={contactSvg} alt="Contact Illustration" className="contact-illustration" loading="lazy" />
               </div>
             </Col>
           </Row>

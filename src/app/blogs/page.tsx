@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaCalendarAlt, FaUser, FaClock, FaArrowRight, FaArrowLeft, FaSearch } from 'react-icons/fa'
@@ -44,12 +45,13 @@ const blogData = [
 ]
 
 const BlogsPage = () => {
+  const router = useRouter()
   const [, setHoveredCard] = useState<number | null>(null)
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('All')
 
   const categories = ['All', 'Education', 'Success Stories', 'Vision']
-  
+
   const filteredBlogs = blogData.filter(blog => {
     const matchesSearch = blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
@@ -58,9 +60,7 @@ const BlogsPage = () => {
   })
 
   const handleCardClick = (slug: string) => {
-    setTimeout(() => {
-      window.location.href = slug
-    }, 150)
+    router.push(slug)
   }
 
   return (

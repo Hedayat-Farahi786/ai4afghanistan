@@ -25,7 +25,7 @@ const About = () => {
               <div className="vl-about-grid">
                 <div className="vl-about-icon-box mb-30">
                   <div className="vl-about-icon">
-                    <span><Image src={aboutIcons1} alt='AI Training' /></span>
+                    <span><Image src={aboutIcons1} alt='AI Training' loading="lazy" /></span>
                   </div>
                   <div className="vl-icon-content">
                     <h3 className="title" style={{color: '#174555'}}><Link href="/pages/service" style={{color: '#174555', textDecoration: 'none'}}>Comprehensive AI Training Programs</Link></h3>
@@ -34,7 +34,7 @@ const About = () => {
                 </div>
                 <div className="vl-about-icon-box mb-30">
                   <div className="vl-about-icon">
-                    <span><Image src={aboutIcons2} alt='Community Impact' /></span>
+                    <span><Image src={aboutIcons2} alt='Community Impact' loading="lazy" /></span>
                   </div>
                   <div className="vl-icon-content">
                     <h3 className="title" style={{color: '#174555'}}><Link href="/pages/service" style={{color: '#174555', textDecoration: 'none'}}>Building Afghanistan's Tech Future</Link></h3>
@@ -46,7 +46,7 @@ const About = () => {
           </Col>
           <Col lg={4} md={6} className="mb-30">
             <div className="vl-about-large-thumb reveal" style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px', cursor: 'pointer' }}>
-              <Image className="w-100" src={about1} alt='about1' />
+              <Image className="w-100" src={about1} alt='about1' loading="lazy" />
               <div className="image-overlay" style={{
                 position: 'absolute',
                 bottom: 0,
@@ -67,7 +67,7 @@ const About = () => {
               </div>
               <div className="vl-about-sm-thumb d-none d-md-block" style={{ position: 'relative', display: 'inline-block', borderRadius: '8px', cursor: 'pointer', overflow: 'hidden' }}>
                 <div style={{ position: 'relative' }}>
-                  <Image className="w-100" src={about2} alt='about2' />
+                  <Image className="w-100" src={about2} alt='about2' loading="lazy" />
                   <div className="image-overlay" style={{
                     position: 'absolute',
                     top: 0,
