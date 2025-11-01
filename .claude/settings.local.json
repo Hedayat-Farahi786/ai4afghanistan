@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(del postcss.config.js)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(\"/c/Users/heday/dev/next/ai4afghanistan/PERFORMANCE_REPORT.txt\")"
     ],
     "deny": [],
     "ask": []

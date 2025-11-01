@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, memo, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -45,30 +45,68 @@ const blogData = [
   }
 ]
 
+// Memoized blog card component to prevent unnecessary re-renders
+const BlogCard = memo(({ post, onCardClick, onMouseEnter, onMouseLeave }: any) => (
+  <article
+    className="blog-card blog-card-loading"
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
+    onClick={() => onCardClick(post.slug)}
+  >
+    <div className="blog-image-container">
+      <Link href={post.slug}>
+        <Image
+          src={post.image}
+          alt={post.title}
+          className="blog-image"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          loading="lazy"
+          quality={75}
+        />
+      </Link>
+      <span className="blog-category">{post.category}</span>
+    </div>
+
+    <div className="blog-content">
+      <div className="blog-meta">
+        <div className="blog-meta-item">
+          <FaCalendarAlt className="blog-meta-icon" />
+          <span>{post.date}</span>
+        </div>
+        <div className="blog-meta-item">
+          <FaUser className="blog-meta-icon" />
+          <span>{post.author}</span>
+        </div>
+        <div className="blog-meta-item">
+          <FaClock className="blog-meta-icon" />
+          <span>{post.readTime}</span>
+        </div>
+      </div>
+
+      <h3 className="blog-card-title">
+        <Link href={post.slug}>{post.title}</Link>
+      </h3>
+
+      <p className="blog-excerpt">{post.excerpt}</p>
+
+      <Link href={post.slug} className="blog-read-more">
+        Read More
+        <FaArrowRight className="blog-read-more-icon" />
+      </Link>
+    </div>
+  </article>
+))
+
+BlogCard.displayName = 'BlogCard'
+
 const Blog = () => {
   const [, setHoveredCard] = useState<number | null>(null)
-  const [isMounted, setIsMounted] = useState(false)
   const router = useRouter()
 
-  useEffect(() => {
-    // Delay mounting to prevent image flash during initial page load
-    const timer = setTimeout(() => {
-      setIsMounted(true)
-    }, 100)
-    return () => clearTimeout(timer)
-  }, [])
-
-  const handleCardClick = (slug: string) => {
+  const handleCardClick = useCallback((slug: string) => {
     router.push(slug)
-  }
-
-  if (!isMounted) {
-    return (
-      <section id="blog" className="blog-section" style={{ minHeight: '400px' }}>
-        <div className="blog-container" />
-      </section>
-    )
-  }
+  }, [router])
 
   return (
     <>
@@ -394,59 +432,16 @@ const Blog = () => {
               <FaArrowRight className="view-all-icon" />
             </Link>
           </div>
-          
+
           <div className="blog-grid">
             {blogData.map((post) => (
-              <article 
-                key={post.id} 
-                className="blog-card blog-card-loading"
+              <BlogCard
+                key={post.id}
+                post={post}
+                onCardClick={handleCardClick}
                 onMouseEnter={() => setHoveredCard(post.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                onClick={() => handleCardClick(post.slug)}
-              >
-                <div className="blog-image-container">
-                  <Link href={post.slug}>
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      className="blog-image"
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      loading="lazy"
-                      quality={75}
-                    />
-                  </Link>
-                  <span className="blog-category">{post.category}</span>
-                </div>
-                
-                <div className="blog-content">
-                  <div className="blog-meta">
-                    <div className="blog-meta-item">
-                      <FaCalendarAlt className="blog-meta-icon" />
-                      <span>{post.date}</span>
-                    </div>
-                    <div className="blog-meta-item">
-                      <FaUser className="blog-meta-icon" />
-                      <span>{post.author}</span>
-                    </div>
-                    <div className="blog-meta-item">
-                      <FaClock className="blog-meta-icon" />
-                      <span>{post.readTime}</span>
-                    </div>
-                  </div>
-                  
-                  <h3 className="blog-card-title">
-                    <Link href={post.slug}>{post.title}</Link>
-                  </h3>
-                  
-                  <p className="blog-excerpt">{post.excerpt}</p>
-                  
-                  <Link href={post.slug} className="blog-read-more">
-                    Read More
-                    <FaArrowRight className="blog-read-more-icon" />
-                  </Link>
-                </div>
-              </article>
+              />
             ))}
           </div>
         </div>

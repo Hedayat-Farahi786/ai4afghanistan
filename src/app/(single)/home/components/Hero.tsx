@@ -72,8 +72,8 @@ const Hero = () => {
                       <Image src={titleIcon} alt='titleIcon' width={16} height={16} loading="eager"/>
                       Bringing AI to Afghanistan
                     </h5>
-                    <h1 className="vl-title text-anime-style-3" style={{fontSize: '62px', fontWeight: '800', lineHeight: '1.1', marginBottom: '20px', maxWidth: '700px'}}>
-                      Empowering Afghan <span style={{background: '#089a45', padding: '2px 26px 2px 12px', clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)', display: 'inline-block'}}>Youth</span> Through AI Innovation
+                    <h1 className="vl-title text-anime-style-3" style={{fontSize: '58px', fontWeight: '800', lineHeight: '1.15', marginBottom: '20px', maxWidth: '800px'}}>
+                      Empowering Afghan<br/><span style={{background: '#089a45', padding: '2px 26px 2px 12px', clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)', display: 'inline-block'}}>Youth</span> Through<br/>AI Innovation
                     </h1>
                     <p style={{fontSize: '18px', fontWeight: '400', lineHeight: '1.6', marginBottom: '28px'}}>
                       We&apos;re training the next generation of Afghan innovators.<br/>

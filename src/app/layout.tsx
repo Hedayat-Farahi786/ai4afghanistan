@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Outfit, Poppins } from 'next/font/google';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import "slick-carousel/slick/slick.css";
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/autoplay'
@@ -16,7 +15,7 @@ import PerformanceMonitor from './performance';
 
 const outfit = Outfit({
   subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  weight: ['400', '600', '700'],
   variable: '--font-outfit',
   display: 'swap',
   preload: true,
@@ -26,8 +25,8 @@ const outfit = Outfit({
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  style: ['normal', 'italic'],
+  weight: ['400', '600', '700'],
+  style: ['normal'],
   variable: '--font-poppins',
   display: 'swap',
   preload: true,

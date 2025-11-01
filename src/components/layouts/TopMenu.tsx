@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { memo } from 'react'
 import { FaAngleDown } from 'react-icons/fa6'
 import demo1Img from '@/assets/img/demo/vl-demo1.1.png'
 import demo2Img from '@/assets/img/demo/vl-demo-1.2.png'
@@ -10,7 +10,7 @@ import demo5Img from '@/assets/img/demo/vl-demo-1.5.png'
 import { Col, Row } from 'react-bootstrap'
 import { FaArrowRight } from 'react-icons/fa6'
 
-const TopMenu = () => {
+const TopMenu = memo(() => {
   return (
     <ul>
       <li>
@@ -111,6 +111,8 @@ const TopMenu = () => {
       </li>
     </ul>
   )
-}
+})
+
+TopMenu.displayName = 'TopMenu'
 
 export default TopMenu

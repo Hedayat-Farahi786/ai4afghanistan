@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import gallerySearch from '@/assets/img/icons/vl-gallery-search-1.1.svg'
 import Image from 'next/image'
 import galleryImg1 from '@/assets/img/gallery/vl-gallery-1.1.png'
@@ -12,7 +12,7 @@ import {Col, Container, Row} from 'react-bootstrap'
 import Link from 'next/link'
 import GlightBox from "@/components/GlightBox";
 
-const Gallery = () => {
+const Gallery = memo(() => {
     return (
         <section id='gallery' className="vl-gallery sp2">
             <Container>
@@ -100,6 +100,8 @@ const Gallery = () => {
             </Container>
         </section>
     )
-}
+})
+
+Gallery.displayName = 'Gallery'
 
 export default Gallery

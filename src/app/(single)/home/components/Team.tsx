@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { FaLinkedin, FaInstagram, FaChevronLeft, FaChevronRight } from "react-icons/fa";
@@ -13,7 +13,10 @@ const Team = () => {
   const [itemsPerView, setItemsPerView] = useState(4);
   const [typingText, setTypingText] = useState<{[key: number]: string}>({});
   const [isTyping, setIsTyping] = useState<{[key: number]: boolean}>({});
-  const [hoverTimeout, setHoverTimeout] = useState<{[key: number]: NodeJS.Timeout}>({});
+
+  // Use refs instead of state for timeouts/intervals to prevent memory leaks
+  const timeoutsRef = useRef<{[key: number]: NodeJS.Timeout}>({});
+  const intervalsRef = useRef<{[key: number]: NodeJS.Timeout}>({});
 
   useEffect(() => {
     const updateItemsPerView = () => {
@@ -27,38 +30,60 @@ const Team = () => {
     return () => window.removeEventListener('resize', updateItemsPerView);
   }, []);
 
+  // Cleanup all timers on unmount to prevent memory leaks
+  useEffect(() => {
+    return () => {
+      Object.values(timeoutsRef.current).forEach(timeout => clearTimeout(timeout));
+      Object.values(intervalsRef.current).forEach(interval => clearInterval(interval));
+    };
+  }, []);
+
   const maxSlide = Math.max(0, teamData.length - itemsPerView);
   const nextSlide = () => setCurrentIndex(prev => Math.min(prev + 1, maxSlide));
   const prevSlide = () => setCurrentIndex(prev => Math.max(prev - 1, 0));
 
   const startTyping = (index: number, text: string) => {
-    if (hoverTimeout[index]) clearTimeout(hoverTimeout[index]);
-    
+    // Clear existing timeout and interval for this index
+    if (timeoutsRef.current[index]) {
+      clearTimeout(timeoutsRef.current[index]);
+    }
+    if (intervalsRef.current[index]) {
+      clearInterval(intervalsRef.current[index]);
+    }
+
     setTypingText(prev => ({...prev, [index]: ''}));
     setIsTyping(prev => ({...prev, [index]: false}));
-    
+
     const timeout = setTimeout(() => {
       setIsTyping(prev => ({...prev, [index]: true}));
-      
+
       let i = 0;
-      const timer = setInterval(() => {
+      const interval = setInterval(() => {
         if (i < text.length) {
           setTypingText(prev => ({...prev, [index]: text.slice(0, i + 1)}));
           i++;
         } else {
-          clearInterval(timer);
+          clearInterval(interval);
+          delete intervalsRef.current[index];
           setIsTyping(prev => ({...prev, [index]: false}));
         }
       }, 20);
+
+      intervalsRef.current[index] = interval;
     }, 500);
-    
-    setHoverTimeout(prev => ({...prev, [index]: timeout}));
+
+    timeoutsRef.current[index] = timeout;
   };
 
   const resetTyping = (index: number) => {
-    if (hoverTimeout[index]) {
-      clearTimeout(hoverTimeout[index]);
-      setHoverTimeout(prev => ({...prev, [index]: undefined}));
+    // Properly clean up all timers
+    if (timeoutsRef.current[index]) {
+      clearTimeout(timeoutsRef.current[index]);
+      delete timeoutsRef.current[index];
+    }
+    if (intervalsRef.current[index]) {
+      clearInterval(intervalsRef.current[index]);
+      delete intervalsRef.current[index];
     }
     setTypingText(prev => ({...prev, [index]: ''}));
     setIsTyping(prev => ({...prev, [index]: false}));
