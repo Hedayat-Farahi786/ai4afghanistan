@@ -41,7 +41,6 @@ const HomeFooter = dynamic(() => import('@/components/layouts/Footer/HomeFooter'
 })
 
 const HomeSinglePage = () => {
-  // Initialize smooth scroll functionality
   useSmoothScroll()
 
   return (

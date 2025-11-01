@@ -61,10 +61,10 @@
         }
         & .vl-title{
             color: var(--ztc-text-text-1);
-            font-size: var(--ztc-font-size-font-s90);
-            line-height: var(--ztc-specing-height92);
-            font-weight: var(--ztc-weight-bold);
-            font-family: var(--ztc-family-font2);
+            font-size: 58px !important;
+            line-height: 1.1 !important;
+            font-weight: 700 !important;
+            font-family: var(--font-outfit) !important;
             padding-top: 16px;
             padding-bottom: 16px;
             transform: translateX(250px);
@@ -72,12 +72,12 @@
             opacity: 0;
             visibility: hidden;
             @media #{$md}{
-                font-size: var(--ztc-font-size-font-s55);
-                line-height: var(--ztc-specing-height55);
+                font-size: 55px !important;
+                line-height: 1.1 !important;
             }
             @media #{$xs}{
-                font-size: var(--ztc-font-size-font-s48);
-                line-height: var(--ztc-specing-height50);
+                font-size: 48px !important;
+                line-height: 1.1 !important;
             }
         }
 

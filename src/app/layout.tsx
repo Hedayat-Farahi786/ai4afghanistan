@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, Poppins } from 'next/font/google';
+import { Outfit } from 'next/font/google';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'swiper/css'
@@ -15,19 +15,8 @@ import PerformanceMonitor from './performance';
 
 const outfit = Outfit({
   subsets: ['latin'],
-  weight: ['400', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-outfit',
-  display: 'swap',
-  preload: true,
-  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
-  adjustFontFallback: true,
-});
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  style: ['normal'],
-  variable: '--font-poppins',
   display: 'swap',
   preload: true,
   fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
@@ -73,13 +62,13 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <meta name="theme-color" content="#174555" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" />
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" />
         <style dangerouslySetInnerHTML={{__html: `
           * {
-            font-family: var(--font-outfit), var(--font-poppins), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+            font-family: var(--font-outfit), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
           }
           body, html {
-            font-family: var(--font-outfit), var(--font-poppins), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+            font-family: var(--font-outfit), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
           }
           #__next-loading {
             position: fixed;
@@ -132,7 +121,7 @@ export default function RootLayout({
           }
         `}} />
       </head>
-      <body className={`homepage1-body ${outfit.variable} ${poppins.variable}`} style={{fontFamily: 'var(--font-outfit), var(--font-poppins)'}}>
+      <body className={`homepage1-body ${outfit.variable}`} style={{fontFamily: 'var(--font-outfit)'}}>
         <div id="__next-loading">
           <div>
             <img

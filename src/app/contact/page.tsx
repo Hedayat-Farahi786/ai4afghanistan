@@ -6,6 +6,11 @@ import TopBanner from '@/components/layouts/TopBanner'
 import HomeFooter from '@/components/layouts/Footer/HomeFooter'
 
 const ContactPage = () => {
+  const [isVisible, setIsVisible] = React.useState(false)
+  
+  React.useEffect(() => {
+    setIsVisible(true)
+  }, [])
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,6 +35,16 @@ const ContactPage = () => {
       <style jsx global>{`
         body {
           background: #174555 !important;
+        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .contact-section {
           background: #ffffff !important;
@@ -81,6 +96,11 @@ const ContactPage = () => {
           padding: 40px;
           box-shadow: 0 8px 32px rgba(0,0,0,0.1);
           border: 1px solid #e9ecef;
+          animation: fadeInUp 0.6s ease forwards;
+          opacity: 0;
+        }
+        .contact-form.visible {
+          opacity: 1;
         }
         .form-group {
           margin-bottom: 24px;
@@ -131,11 +151,19 @@ const ContactPage = () => {
           transform: translateY(-2px);
           box-shadow: 0 8px 25px rgba(8, 154, 69, 0.3);
         }
+        .submit-btn:active {
+          transform: translateY(0);
+        }
         .contact-info {
           background: #f8f9fa;
           border-radius: 20px;
           padding: 40px;
           height: 100%;
+          animation: fadeInUp 0.6s ease 0.2s forwards;
+          opacity: 0;
+        }
+        .contact-info.visible {
+          opacity: 1;
         }
         .contact-info-title {
           color: #174555;
@@ -208,7 +236,7 @@ const ContactPage = () => {
 
           <Row>
             <Col lg={8} md={7}>
-              <form className="contact-form" onSubmit={handleSubmit}>
+              <form className={`contact-form ${isVisible ? 'visible' : ''}`} onSubmit={handleSubmit}>
                 <Row>
                   <Col md={6}>
                     <div className="form-group">
@@ -273,7 +301,7 @@ const ContactPage = () => {
             </Col>
             
             <Col lg={4} md={5}>
-              <div className="contact-info">
+              <div className={`contact-info ${isVisible ? 'visible' : ''}`}>
                 <h3 className="contact-info-title">Contact Information</h3>
                 
                 <div className="contact-item">

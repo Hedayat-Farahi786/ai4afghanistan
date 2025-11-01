@@ -258,6 +258,21 @@ const BlogsPage = () => {
           border: 1px solid rgba(8, 154, 69, 0.1);
           position: relative;
           cursor: pointer;
+          animation: fadeInUp 0.6s ease forwards;
+          opacity: 0;
+        }
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         
         .blog-card:hover {

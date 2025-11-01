@@ -151,7 +151,7 @@ const Causes = () => {
                   </h4>
                 </div>
                 <p style={{ color: '#666 !important', fontSize: '15px', lineHeight: 1.6, marginBottom: '0', flex: 1 }}>
-                  Comprehensive AI and machine learning training programs designed to empower Afghan youth with cutting-edge skills.
+                  Latest AI and ML training programs designed to empower Afghan youth with cutting-edge skills.
                 </p>
               </div>
             </div>

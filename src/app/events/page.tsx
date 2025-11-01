@@ -254,6 +254,22 @@ const EventsPage = () => {
           display: flex;
           flex-direction: column;
           width: 100%;
+          animation: fadeInUp 0.6s ease forwards;
+          opacity: 0;
+        }
+        .event-card:nth-child(1) { animation-delay: 0.1s; }
+        .event-card:nth-child(2) { animation-delay: 0.2s; }
+        .event-card:nth-child(3) { animation-delay: 0.3s; }
+        .event-card:nth-child(4) { animation-delay: 0.4s; }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         
         .event-card:hover {

@@ -61,7 +61,7 @@ const BlogCard = memo(({ post, onCardClick, onMouseEnter, onMouseLeave }: any) =
           className="blog-image"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          loading="lazy"
+          loading="eager"
           quality={75}
         />
       </Link>
@@ -213,6 +213,13 @@ const Blog = () => {
           height: 100%;
           object-fit: cover;
           transition: transform 0.6s ease;
+          opacity: 0;
+          animation: fadeInImage 0.5s ease forwards;
+        }
+        @keyframes fadeInImage {
+          to {
+            opacity: 1;
+          }
         }
         .blog-card:hover .blog-image {
           transform: scale(1.08);
