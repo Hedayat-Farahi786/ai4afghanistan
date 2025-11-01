@@ -1,0 +1,213 @@
+'use client'
+import Image from 'next/image'
+import React from 'react'
+import logo1Img from '@/assets/img/logo/vl-logo-1.1.png'
+import useScrollEvent from '@/hooks/useScrollEvent'
+import { useSmoothScroll } from '@/hooks/useSmoothScroll'
+import Link from 'next/link'
+import SingleMobileMenu from './SingleMobileMenu'
+import { FaArrowRight } from 'react-icons/fa6'
+import { Col, Container, Row } from 'react-bootstrap'
+
+const Header = () => {
+  const { scrollY } = useScrollEvent()
+  const { scrollToSection } = useSmoothScroll()
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault()
+    if (window.location.pathname === '/home') {
+      scrollToSection(sectionId)
+    } else {
+      window.location.href = `/home#${sectionId}`
+    }
+  }
+  return (
+    <>
+      <header>
+        <div className={`header-area homepage1 header header-sticky d-none d-lg-block mt-16 ${scrollY > 100 && 'sticky'}`} id="header">
+          <Container>
+            <Row>
+              <Col lg={12}>
+                <div className="header-elements header-elements-1">
+                  <div className="site-logo" style={{display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer'}} onClick={() => window.location.href = '/home'}>
+                      <Image src={logo1Img} alt='logo1Img' width={54} height={54} priority style={{ objectFit: 'contain', display: 'block'}} />
+                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                      <span className="logo-text">AI<span className="logo-number">4</span>Afghanistan</span>
+                      <span className="logo-slogan">we grow beyond boundaries</span>
+                    </div>
+                  </div>
+                  <div className="main-menu">
+                    <ul>
+                      <li><a href="/home#about" onClick={(e) => handleNavClick(e, 'about')}>About</a></li>
+                      <li><a href="/home#programs" onClick={(e) => handleNavClick(e, 'programs')}>Programs</a></li>
+                      <li><a href="/home#events" onClick={(e) => handleNavClick(e, 'events')}>Events</a></li>
+                      <li><a href="/home#team" onClick={(e) => handleNavClick(e, 'team')}>Team</a></li>
+                      <li><a href="/home#donate" onClick={(e) => handleNavClick(e, 'donate')}>Donate</a></li>
+                      <li><a href="/home#blog" onClick={(e) => handleNavClick(e, 'blog')}>Blog</a></li>
+                      <li><a href="/home#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a></li>
+                    </ul>
+                  </div>
+                  <div className="btn-area">
+                    <a 
+                      href="/home#donate" 
+                      className="volunteer-btn-custom"
+                      onClick={(e) => handleNavClick(e, 'donate')}
+                    >
+                      Donate 
+                      <span>
+                        <FaArrowRight />
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      </header>
+      <SingleMobileMenu />
+      <style jsx global>{`
+        .logo-text {
+          font-size: 1.2rem !important;
+          font-weight: 700 !important;
+          color: #fafafa !important;
+          line-height: 1.2 !important;
+        }
+        .logo-number {
+          color: #089a45 !important;
+          font-weight: 700 !important;
+          margin: 0 2px !important;
+        }
+        .logo-slogan {
+          font-size: 0.69rem !important;
+          color: #eee !important;
+          font-weight: 400 !important;
+          margin-top: 2px !important;
+        }
+        .volunteer-btn-custom {
+          background: rgba(255, 255, 255, 0.1) !important;
+          backdrop-filter: blur(12px) !important;
+          -webkit-backdrop-filter: blur(12px) !important;
+          color: #ffffff !important;
+          font-size: 16px !important;
+          font-weight: 700 !important;
+          padding: 8px 8px 8px 20px !important;
+          border-radius: 50px !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          gap: 8px !important;
+          text-decoration: none !important;
+          position: relative !important;
+          z-index: 1 !important;
+          transition: all 0.3s ease !important;
+          border: 1px solid rgba(255, 255, 255, 0.2) !important;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+        }
+        .header-area.homepage1.sticky .volunteer-btn-custom {
+          background: rgba(255, 255, 255, 0.15) !important;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        }
+
+        .volunteer-btn-custom:hover {
+          color: #ffffff !important;
+          background: rgba(255, 255, 255, 0.2) !important;
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+          transform: translateY(-2px) !important;
+        }
+
+        .volunteer-btn-custom span {
+          background: #089a45 !important;
+          color: #ffffff !important;
+          height: 36px !important;
+          width: 36px !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          border-radius: 50px !important;
+          transition: all 0.3s ease !important;
+        }
+        .header-elements {
+          padding: 8px 10px !important;
+        }
+        .main-menu ul li a {
+          position: relative !important;
+          transition: all 0.3s ease !important;
+        }
+        .main-menu ul li a::after {
+          content: '' !important;
+          position: absolute !important;
+          bottom: -5px !important;
+          left: 50% !important;
+          width: 0 !important;
+          height: 2px !important;
+          background: #089a45 !important;
+          transition: all 0.3s ease !important;
+          transform: translateX(-50%) !important;
+        }
+        .homepage1-body .header-area.homepage1 .header-elements .main-menu ul li:hover > a {
+          color: #fafafa !important;
+        }
+        .homepage1-body .header-area.homepage1 .header-elements .main-menu ul li:hover > a::after {
+          width: 80% !important;
+          background: #089a45 !important;
+        }
+        .header-area {
+          border: none !important;
+          border-bottom: none !important;
+        }
+        .header-elements {
+          border: none !important;
+        }
+        .header-area.homepage1.sticky {
+          background: rgba(23, 69, 85, 0.9) !important;
+          backdrop-filter: blur(10px) !important;
+          border-radius: 50px !important;
+          margin: 8px auto 0 auto !important;
+          width: 80% !important;
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+          top: 0 !important;
+          padding: 4px 0 !important;
+          animation: slideDownFromTop 0.5s ease-out !important;
+        }
+        @keyframes slideDownFromTop {
+          0% {
+            transform: translateX(-50%) translateY(-100%);
+            opacity: 0;
+          }
+          100% {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+          }
+        }
+        .header-area.homepage1.sticky .header-elements {
+          border-radius: 50px !important;
+          padding: 4px 2px !important;
+          display: flex !important;
+          justify-content: space-between !important;
+          align-items: center !important;
+        }
+        .site-logo img,
+        .header-area .site-logo img,
+        .header-elements .site-logo img,
+        .header-area.homepage1 .site-logo img,
+        .homepage1-body .header-area.homepage1 .site-logo img {
+          width: 54px !important;
+          height: 54px !important;
+          max-width: 54px !important;
+          max-height: 54px !important;
+          min-width: 54px !important;
+          min-height: 54px !important;
+          object-fit: contain !important;
+          flex-shrink: 0 !important;
+        }
+        .site-logo {
+          flex-shrink: 0 !important;
+        }
+      `}</style>
+    </>
+  )
+}
+
+export default Header

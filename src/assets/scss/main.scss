@@ -1,0 +1,14 @@
+@forward 'theme';
+@forward 'components';
+@forward 'layout';
+@forward 'utils/fast-animations';
+@forward 'utils/color-override';
+
+// Global Poppins font application
+* {
+  font-family: var(--font-poppins), 'Poppins', sans-serif !important;
+}
+
+body, html {
+  font-family: var(--font-poppins), 'Poppins', sans-serif !important;
+}

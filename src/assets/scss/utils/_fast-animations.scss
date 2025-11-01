@@ -1,0 +1,57 @@
+// Fast Animations Override
+// Button animations - faster
+.btn-area .header-btn1 {
+  transition: 0.15s !important;
+}
+.vl-hero-btn .header-btn1 {
+  transition: 700ms !important;
+}
+.home-btn-2 .btn-2 {
+  transition: 0.15s !important;
+}
+.primary-btn-3 {
+  transition: 0.15s !important;
+}
+
+// Keyframe animations - faster
+.aniamtion-key-1 {
+  animation-duration: 1.5s !important;
+}
+.aniamtion-key-2 {
+  animation-duration: 1.25s !important;
+}
+.aniamtion-key-3 {
+  animation-duration: 0.65s !important;
+}
+.aniamtion-key-4 {
+  animation-duration: 0.8s !important;
+}
+.aniamtion-key-5 {
+  animation-duration: 0.75s !important;
+  transition: all 0.2s ease-in-out !important;
+}
+.aniamtion-key-6 {
+  animation-duration: 0.95s !important;
+}
+.aniamtion-key-7 {
+  animation-duration: 0.65s !important;
+}
+
+// Pulse animation - faster
+.pulse-border {
+  animation-duration: 750ms !important;
+}
+.video-play-button:before {
+  animation: pulse-border 550ms ease-out infinite !important;
+}
+
+// General transitions - faster
+input[type="radio"] {
+  transition: border-color 0.15s ease, background-color 0.15s ease !important;
+}
+a, button {
+  transition: 0.15s !important;
+}
+.loading {
+  animation: rotate-loading 0.75s linear 0s infinite normal !important;
+}

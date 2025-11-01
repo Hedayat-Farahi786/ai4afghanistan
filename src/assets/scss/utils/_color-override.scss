@@ -1,0 +1,164 @@
+// Global zoom and clean color override
+html {
+  zoom: 0.95 !important;
+}
+
+:root {
+  --ztc-text-text-1: #fff !important;
+  --ztc-text-text-2: #089a45 !important;
+  --ztc-text-text-3: #089a45 !important;
+  --ztc-text-text-4: #174555 !important;
+  --ztc-text-text-5: #089a45 !important;
+  --ztc-text-text-6: #174555 !important;
+  --ztc-text-text-7: #174555 !important;
+  --ztc-text-text-8: #089a45 !important;
+  --ztc-text-text-9: #089a45 !important;
+  --ztc-text-text-10: #174555 !important;
+  --ztc-text-text-11: #089a45 !important;
+  --ztc-text-text-12: #174555 !important;
+  --ztc-text-text-13: #089a45 !important;
+  --ztc-text-text-14: #174555 !important;
+  --ztc-text-text-15: #089a45 !important;
+  --ztc-text-text-16: #089a45 !important;
+  --ztc-bg-bg-1: #fff !important;
+  --ztc-bg-bg-2: #089a45 !important;
+  --ztc-bg-bg-3: #174555 !important;
+  --ztc-bg-bg-4: #f8fdf9 !important;
+  --ztc-bg-bg-5: #f0f7f2 !important;
+  --ztc-bg-bg-6: #e8f4eb !important;
+  --ztc-bg-bg-7: #f0f7f2 !important;
+  --ztc-bg-bg-8: #e8f4eb !important;
+}
+
+// All buttons white text
+.btn-area .header-btn1,
+.vl-hero-btn .header-btn1,
+.home-btn-2 .btn-2,
+.primary-btn-3,
+.btn5 .btn-priamry1,
+.btn-primary2,
+.vl-about-btn .btn-primary2,
+.btn-area4 .header-btn1,
+button,
+.btn {
+  background: #174555 !important;
+  color: #fff !important;
+  border-color: #174555 !important;
+}
+
+.btn-area .header-btn1 span,
+.vl-hero-btn .header-btn1 span,
+button span {
+  background: #089a45 !important;
+  color: #fff !important;
+}
+
+// Clean subtle backgrounds
+.vl-section-title-1 .subtitle,
+.vl-section-title-2 .subtitle,
+.vl-section-title-3 .subtitle,
+.vl-section-title4 .subtitle,
+.vl-section-title5 .subtitle {
+  background: rgba(8, 154, 69, 0.1) !important;
+  color: #089a45 !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  font-weight: 500 !important;
+}
+
+// Headers and titles
+h1, h2, h3, h4, h5, h6,
+.title,
+.heading,
+.vl-section-title-1 .title,
+.vl-section-title-2 .title,
+.vl-section-title-3 .title {
+  color: #174555 !important;
+}
+
+// Text content - better readability
+p, span, div {
+  color: #666 !important;
+}
+
+// Specific overrides for better contrast
+.vl-section-title-1 .subtitle,
+.vl-section-title-2 .subtitle,
+.vl-section-title-3 .subtitle {
+  color: #089a45 !important;
+}
+
+// Links
+a {
+  color: #174555 !important;
+}
+a:hover {
+  color: #089a45 !important;
+}
+
+// Cards and boxes
+.vl-single-team-box,
+.vl-single-blg-item,
+.vl-testimonial-box,
+.vl-contact-box,
+.vl-single-work-box {
+  background: #fff !important;
+  border: 1px solid rgba(8, 154, 69, 0.1) !important;
+}
+
+// Remove all other colors
+* {
+  border-color: rgba(8, 154, 69, 0.2) !important;
+}
+
+// Hero section - force white text and icons
+.vl-banner *,
+.vl-hero-slider *,
+.vl-hero-section-title *,
+.vl-hero-social *,
+.vl-hero-bg * {
+  color: #fff !important;
+}
+
+.vl-banner i,
+.vl-hero-slider i,
+.vl-hero-section-title i,
+.vl-hero-social i,
+.vl-banner svg,
+.vl-hero-slider svg,
+.vl-hero-section-title svg,
+.vl-hero-social svg {
+  color: #fff !important;
+  fill: #fff !important;
+}
+
+// Navbar - force white text
+.header-area *,
+.header-elements *,
+.main-menu *,
+.vl-header-top * {
+  color: #fff !important;
+}
+
+.header-area i,
+.header-elements i,
+.main-menu i,
+.header-area svg,
+.header-elements svg,
+.main-menu svg {
+  color: #fff !important;
+  fill: #fff !important;
+}
+
+// Footer
+.vl-footer-bg-1,
+.vl-footer-bg-2,
+.vl-footer-bg-3 {
+  background: #089a45 !important;
+}
+
+.vl-footer-widget-1 .vl-footer-content,
+.vl-footer-widget-2 .title,
+.vl-footer-widget-3 .title {
+  color: #fff !important;
+}
