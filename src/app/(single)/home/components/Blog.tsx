@@ -262,8 +262,8 @@ const Blog = () => {
           display: inline-flex;
           align-items: center;
           gap: 4px;
-          background: #666;
-          color: #fafafa !important;
+          background: ##E6F5EC !important;
+          color: #089a45 !important;
           padding: 6px 12px;
           border-radius: 15px;
           text-decoration: none;
@@ -271,10 +271,11 @@ const Blog = () => {
           font-size: 12px;
           transition: all 0.3s ease;
           white-space: nowrap;
+          opacity: 1;
         }
         
         .view-all-btn:hover {
-          background: #089a45;
+          background: #089a45 !important;
           color: #fafafa !important;
           transform: translateY(-1px);
         }

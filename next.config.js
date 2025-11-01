@@ -9,16 +9,6 @@ const nextConfig = {
   images: {
     domains: ['flagcdn.com'],
   },
-  experimental: {
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
-  },
 }
 
 module.exports = nextConfig
