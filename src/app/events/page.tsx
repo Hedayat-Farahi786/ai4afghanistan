@@ -61,7 +61,7 @@ const EventsPage = () => {
 
   const categories = ['All', 'Launch', 'Workshop', 'Mentorship', 'Bootcamp']
   
-  const addToCalendar = (event) => {
+  const addToCalendar = (event: typeof eventsData[0]) => {
     const startDate = new Date(`${event.month} ${event.date}, ${event.year} ${event.time}`)
     const endDate = new Date(startDate.getTime() + 2 * 60 * 60 * 1000)
     
