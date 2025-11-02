@@ -25,9 +25,8 @@ const TopBanner = () => {
         }
         .topbar {
           background: #174555 !important;
-          padding: 2px 0 !important;
+          padding: 8px 0 !important;
           font-size: 9px !important;
-          margin-top: 16px !important;
         }
         .topbar-content {
           display: flex !important;

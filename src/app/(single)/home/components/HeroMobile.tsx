@@ -62,30 +62,28 @@ const HeroMobile = () => {
               </ul>
             </div>
           </div>
-          <Container style={{position: 'relative', zIndex: 2, height: '100vh', display: 'flex', alignItems: 'center'}}>
-            <Row>
-              <Col xs={12}>
-                <div className="vl-hero-section-title" style={{textAlign: 'left'}}>
-                  <h5 className="vl-subtitle" style={{fontSize: '14px', fontWeight: '500', marginBottom: '16px', display: 'inline-flex', alignItems: 'center', gap: '8px', width: 'auto', border: 'none'}}>
-                    <Image src={titleIcon} alt='titleIcon' width={16} height={16} loading="eager"/>
-                    Bringing AI to Afghanistan
-                  </h5>
-                  <h1 className="vl-title text-anime-style-3" style={{fontSize: '58px', fontWeight: '700', lineHeight: '1.1', marginBottom: '20px', maxWidth: '800px'}}>
-                    Empowering Afghan<br/><span style={{background: '#089a45', padding: '2px 26px 2px 12px', clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)', display: 'inline-block', transition: 'all 0.3s ease'}}>Youth</span> Through<br/>AI Innovation
-                  </h1>
-                  <p style={{fontSize: '18px', fontWeight: '400', lineHeight: '1.6', marginBottom: '28px'}}>
-                    We&apos;re training the next generation of Afghan innovators.<br/>
-                    Real skills, real opportunities, real change.
-                  </p>
-                  <div className="vl-hero-btn">
-                    <a href="/pages/contact" className="header-btn1" style={{fontSize: '16px', fontWeight: '600', padding: '14px 28px'}}>
-                      Join Our Mission <span><FaArrowRight/></span>
-                    </a>
-                  </div>
+          <div style={{position: 'relative', zIndex: 2, height: '100vh', display: 'flex', alignItems: 'center', padding: '0 16px', margin: '0 16px', transform: 'translateY(-40px)'}}>
+            <div style={{width: '100%', maxWidth: '480px', margin: '0 auto'}}>
+              <div className="vl-hero-section-title" style={{textAlign: 'left'}}>
+                <h5 className="vl-subtitle" style={{fontSize: '11px', fontWeight: '500', marginBottom: '12px', display: 'inline-flex', alignItems: 'center', gap: '6px', width: 'auto', border: 'none'}}>
+                  <Image src={titleIcon} alt='titleIcon' width={14} height={14} loading="eager"/>
+                  Bringing AI to Afghanistan
+                </h5>
+                <h1 className="vl-title text-anime-style-3" style={{fontSize: '36px', fontWeight: '700', lineHeight: '1.1', marginBottom: '18px', maxWidth: '100%'}}>
+                  Empowering Afghan<br/><span style={{background: '#089a45', padding: '2px 20px 2px 8px', clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)', display: 'inline-block', transition: 'all 0.3s ease'}}>Youth</span> Through<br/>AI Innovation
+                </h1>
+                <p style={{fontSize: '14px', fontWeight: '400', lineHeight: '1.6', marginBottom: '20px'}}>
+                  We&apos;re training the next generation of Afghan innovators.<br/>
+                  Real skills, real opportunities, real change.
+                </p>
+                <div className="vl-hero-btn">
+                  <a href="/pages/contact" className="header-btn1" style={{fontSize: '13px', fontWeight: '600', padding: '10px 16px'}}>
+                    Join Our Mission <span><FaArrowRight/></span>
+                  </a>
                 </div>
-              </Col>
-            </Row>
-          </Container>
+              </div>
+            </div>
+          </div>
         </div>
       </Slider>
 
@@ -114,9 +112,17 @@ const HeroMobile = () => {
           font-size: 58px !important;
         }
         
-        .topbar {
-          display: block !important;
+        .vl-banner-mobile .vl-title {
+          font-size: 30px !important;
         }
+        
+        @media (max-width: 991px) {
+          .topbar {
+            display: none !important;
+          }
+        }
+        
+
         
         .header-btn1 {
           background: #089a45 !important;

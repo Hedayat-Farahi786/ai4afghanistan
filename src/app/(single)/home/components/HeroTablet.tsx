@@ -66,19 +66,19 @@ const HeroTablet = () => {
             <Row>
               <Col lg={7}>
                 <div className="vl-hero-section-title" style={{textAlign: 'left'}}>
-                  <h5 className="vl-subtitle" style={{fontSize: '14px', fontWeight: '500', marginBottom: '16px', display: 'inline-flex', alignItems: 'center', gap: '8px', width: 'auto', border: 'none'}}>
-                    <Image src={titleIcon} alt='titleIcon' width={16} height={16} loading="eager"/>
+                  <h5 className="vl-subtitle" style={{fontSize: '13px', fontWeight: '500', marginBottom: '15px', display: 'inline-flex', alignItems: 'center', gap: '7px', width: 'auto', border: 'none'}}>
+                    <Image src={titleIcon} alt='titleIcon' width={15} height={15} loading="eager"/>
                     Bringing AI to Afghanistan
                   </h5>
-                  <h1 className="vl-title text-anime-style-3" style={{fontSize: '58px', fontWeight: '700', lineHeight: '1.1', marginBottom: '20px', maxWidth: '800px'}}>
-                    Empowering Afghan<br/><span style={{background: '#089a45', padding: '2px 26px 2px 12px', clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)', display: 'inline-block', transition: 'all 0.3s ease'}}>Youth</span> Through<br/>AI Innovation
+                  <h1 className="vl-title text-anime-style-3" style={{fontSize: '52px', fontWeight: '700', lineHeight: '1.1', marginBottom: '19px', maxWidth: '800px'}}>
+                    Empowering Afghan<br/><span style={{background: '#089a45', padding: '2px 24px 2px 11px', clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)', display: 'inline-block', transition: 'all 0.3s ease'}}>Youth</span> Through<br/>AI Innovation
                   </h1>
-                  <p style={{fontSize: '18px', fontWeight: '400', lineHeight: '1.6', marginBottom: '28px'}}>
+                  <p style={{fontSize: '17px', fontWeight: '400', lineHeight: '1.6', marginBottom: '26px'}}>
                     We&apos;re training the next generation of Afghan innovators.<br/>
                     Real skills, real opportunities, real change.
                   </p>
                   <div className="vl-hero-btn">
-                    <a href="/pages/contact" className="header-btn1" style={{fontSize: '16px', fontWeight: '600', padding: '14px 28px'}}>
+                    <a href="/pages/contact" className="header-btn1" style={{fontSize: '15px', fontWeight: '600', padding: '13px 26px'}}>
                       Join Our Mission <span><FaArrowRight/></span>
                     </a>
                   </div>
