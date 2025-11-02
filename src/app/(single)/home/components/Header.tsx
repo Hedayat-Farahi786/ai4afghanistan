@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import logo1Img from '@/assets/img/logo/vl-logo-1.1.png'
 import useScrollEvent from '@/hooks/useScrollEvent'
@@ -15,6 +15,54 @@ const Header = () => {
   const { scrollToSection } = useSmoothScroll()
   const router = useRouter()
   const pathname = usePathname()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return (
+      <>
+        <header>
+          <div className="header-area homepage1 header header-sticky d-none d-lg-block mt-16" id="header">
+            <Container>
+              <Row>
+                <Col lg={12}>
+                  <div className="header-elements header-elements-1">
+                    <div className="site-logo" style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
+                      <Image src={logo1Img} alt='logo1Img' width={54} height={54} priority style={{ objectFit: 'contain', display: 'block'}} />
+                      <div style={{display: 'flex', flexDirection: 'column'}}>
+                        <span className="logo-text">AI<span className="logo-number">4</span>Afghanistan</span>
+                        <span className="logo-slogan">we grow beyond boundaries</span>
+                      </div>
+                    </div>
+                    <div className="main-menu">
+                      <ul>
+                        <li><a href="/home#about">About</a></li>
+                        <li><a href="/home#programs">Programs</a></li>
+                        <li><a href="/home#events">Events</a></li>
+                        <li><a href="/home#team">Team</a></li>
+                        <li><a href="/home#donate">Donate</a></li>
+                        <li><a href="/home#blog">Blog</a></li>
+                        <li><a href="/home#contact">Contact</a></li>
+                      </ul>
+                    </div>
+                    <div className="btn-area">
+                      <a href="/home#donate" className="volunteer-btn-custom">
+                        Donate <span><FaArrowRight /></span>
+                      </a>
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+        </header>
+        <SingleMobileMenu />
+      </>
+    )
+  }
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault()

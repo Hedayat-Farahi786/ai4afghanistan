@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import logo1 from '@/assets/img/logo/vl-logo-1.1.png'
 import footerLogo1 from '@/assets/img/logo/vl-footer-logo-1.1.png'
@@ -16,6 +16,15 @@ const SingleMobileMenu = () => {
   const { scrollToSection } = useSmoothScroll()
   const router = useRouter()
   const pathname = usePathname()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault()

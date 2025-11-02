@@ -72,7 +72,7 @@ const Hero = () => {
                       <Image src={titleIcon} alt='titleIcon' width={16} height={16} loading="eager"/>
                       Bringing AI to Afghanistan
                     </h5>
-                    <h1 className="vl-title text-anime-style-3" style={{fontSize: '68px !important', fontWeight: '700', lineHeight: '1.1', marginBottom: '20px', maxWidth: '800px'}}>
+                    <h1 className="vl-title text-anime-style-3" style={{fontSize: '58px', fontWeight: '700', lineHeight: '1.1', marginBottom: '20px', maxWidth: '800px'}}>
                       Empowering Afghan<br/><span style={{background: '#089a45', padding: '2px 26px 2px 12px', clipPath: 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)', display: 'inline-block', transition: 'all 0.3s ease'}}>Youth</span> Through<br/>AI Innovation
                     </h1>
                     <p style={{fontSize: '18px', fontWeight: '400', lineHeight: '1.6', marginBottom: '28px'}}>
@@ -100,7 +100,10 @@ const Hero = () => {
             <FaMouse style={{fontSize: '24px', animation: 'bounce 2s infinite'}} />
           </div>
         </div>
-        <style jsx>{`
+        <style jsx global>{`
+          .vl-title {
+            font-size: 58px !important;
+          }
           @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
               transform: translateY(0);

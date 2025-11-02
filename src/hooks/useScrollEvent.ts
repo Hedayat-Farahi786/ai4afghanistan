@@ -8,8 +8,15 @@ const useScrollEvent = () => {
     scrollHeight: 0,
   })
   const rafIdRef = useRef<number | null>(null)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
+
     const handleScroll = () => {
       // Cancel any pending animation frame to prevent stacking
       if (rafIdRef.current !== null) {
@@ -46,7 +53,7 @@ const useScrollEvent = () => {
         cancelAnimationFrame(rafIdRef.current)
       }
     }
-  }, [])
+  }, [mounted])
 
   return scrollState
 }
