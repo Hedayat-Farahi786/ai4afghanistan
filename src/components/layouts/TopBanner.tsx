@@ -28,6 +28,22 @@ const TopBanner = () => {
           padding: 8px 0 !important;
           font-size: 9px !important;
         }
+        .topbar,
+        .topbar *,
+        .topbar a,
+        .topbar span,
+        .topbar svg,
+        .topbar-content,
+        .topbar-content *,
+        .topbar-left,
+        .topbar-left *,
+        .topbar-item,
+        .topbar-item *,
+        .language-trigger,
+        .language-trigger * {
+          color: #fafafa !important;
+          fill: #fafafa !important;
+        }
         .topbar-content {
           display: flex !important;
           justify-content: space-between !important;

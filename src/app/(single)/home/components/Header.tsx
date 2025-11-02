@@ -225,6 +225,10 @@ const Header = () => {
         .header-area {
           border: none !important;
           border-bottom: none !important;
+          z-index: 99999 !important;
+        }
+        header {
+          z-index: 99999 !important;
         }
         .header-elements {
           border: none !important;
@@ -258,6 +262,14 @@ const Header = () => {
           display: flex !important;
           justify-content: space-between !important;
           align-items: center !important;
+        }
+        .header-area.homepage1 .main-menu ul li a,
+        .header-area.homepage1.sticky .main-menu ul li a {
+          color: #fafafa !important;
+        }
+        .volunteer-btn-custom,
+        .volunteer-btn-custom span svg {
+          color: #fafafa !important;
         }
         .site-logo img,
         .header-area .site-logo img,
