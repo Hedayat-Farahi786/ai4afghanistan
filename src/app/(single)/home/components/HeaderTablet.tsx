@@ -30,7 +30,7 @@ const HeaderTablet = () => {
                   <div className="site-logo-tablet">
                     <Image src={logo1Img} alt='logo1Img' width={48} height={48} priority />
                     <div className="logo-text-tablet">
-                      <span className="logo-text">AI<span className="logo-number">4</span>Afghanistan</span>
+                      <span className="logo-text">AI <span className="logo-number">for</span> Afghanistan</span>
                       <span className="logo-slogan">we grow beyond boundaries</span>
                     </div>
                   </div>
@@ -71,7 +71,7 @@ const HeaderTablet = () => {
                 <div className="site-logo-tablet" onClick={handleLogoClick}>
                   <Image src={logo1Img} alt='logo1Img' width={48} height={48} priority />
                   <div className="logo-text-tablet">
-                    <span className="logo-text">AI<span className="logo-number">4</span>Afghanistan</span>
+                    <span className="logo-text">AI <span className="logo-number">for</span> Afghanistan</span>
                     <span className="logo-slogan">we grow beyond boundaries</span>
                   </div>
                 </div>
@@ -128,23 +128,27 @@ const HeaderTablet = () => {
         }
         
         .logo-text-tablet .logo-text {
-          font-size: 1.1rem !important;
+          font-size: 0.8rem !important;
           font-weight: 700 !important;
           color: #fafafa !important;
           line-height: 1.2 !important;
+          width: 130px !important;
+          text-align: left !important;
         }
         
         .logo-text-tablet .logo-number {
-          color: #089a45 !important;
+          color: #fafafa !important;
           font-weight: 700 !important;
-          margin: 0 2px !important;
         }
         
         .logo-text-tablet .logo-slogan {
-          font-size: 0.65rem !important;
+          font-size: 0.45rem !important;
           color: #eee !important;
           font-weight: 400 !important;
           margin-top: 2px !important;
+          width: 130px !important;
+          text-align: left !important;
+          letter-spacing: 0.5px !important;
         }
         
         .volunteer-btn-tablet {

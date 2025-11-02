@@ -36,6 +36,12 @@ const Donation = () => {
           background: white;
           padding: 80px 0;
         }
+        .donation-main-container {
+          width: 80%;
+          margin: 0 auto;
+          padding: 0 15px;
+          max-width: 1200px;
+        }
         .donation-content {
           padding: 0 20px;
         }
@@ -183,30 +189,140 @@ const Donation = () => {
             transform: translateY(-20px);
           }
         }
+        /* Tablet Styles */
+        @media (max-width: 1024px) {
+          .donation-main-container {
+            width: 90%;
+          }
+        }
+        
         @media (max-width: 768px) {
+          .donation-main-container {
+            width: 95%;
+            padding: 0 10px;
+          }
+          
           .donation-section {
             padding: 60px 0;
           }
-          .donation-content {
-            max-width: 100%;
+          
+          .section-title {
             margin-bottom: 40px;
           }
+          
+          .section-title h2 {
+            font-size: 28px !important;
+          }
+          
+          .section-title p {
+            font-size: 14px !important;
+          }
+          
+          .donation-content {
+            padding: 0 15px;
+            margin-bottom: 30px;
+          }
+          
           .amount-grid {
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
           }
+          
           .illustration-area {
-            padding: 20px;
-            min-height: auto;
+            padding: 15px;
+            margin-top: 0;
           }
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 576px) {
+          .donation-main-container {
+            width: 90%;
+            padding: 0 8px;
+          }
+          
+          .donation-section {
+            padding: 50px 0;
+          }
+          
           .section-title {
-            margin-bottom: 50px;
+            margin-bottom: 30px;
+          }
+          
+          .section-title h5 {
+            font-size: 12px !important;
+          }
+          
+          .section-title h2 {
+            font-size: 24px !important;
+            margin-bottom: 12px !important;
+          }
+          
+          .section-title p {
+            font-size: 13px !important;
+          }
+          
+          .donation-content {
+            padding: 0 10px;
+            margin-bottom: 25px;
+          }
+          
+          .donation-content h3 {
+            font-size: 18px !important;
+          }
+          
+          .donation-content p {
+            font-size: 13px !important;
+          }
+          
+          .amount-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+          }
+          
+          .amount-option {
+            padding: 8px 4px;
+            font-size: 12px;
+            min-height: 32px;
+          }
+          
+          .custom-amount {
+            padding: 8px 12px;
+            font-size: 12px;
+            min-height: 32px;
+          }
+          
+          .donate-button {
+            padding: 10px 16px;
+            font-size: 13px;
+            min-height: 40px;
+          }
+          
+          .impact-list h4 {
+            font-size: 14px !important;
+          }
+          
+          .impact-item {
+            font-size: 11px;
+          }
+          
+          .illustration-area {
+            padding: 10px;
+          }
+          
+          .illustration-area h3 {
+            font-size: 16px !important;
+            margin-top: 12px !important;
+          }
+          
+          .illustration-area p {
+            font-size: 12px !important;
           }
         }
       `}</style>
       
       <section id="donate" className="donation-section">
-        <Container>
+        <div className="donation-main-container">
           <div className="section-title">
             <h5 style={{ color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block' }} className="donation-subtitle">
               Make a Difference
@@ -338,7 +454,7 @@ const Donation = () => {
               </div>
             </Col>
           </Row>
-        </Container>
+        </div>
       </section>
     </>
   )

@@ -51,9 +51,10 @@ const CtaArea = () => {
           opacity: 0.4 !important;
         }
         .cta-container {
+          width: 80% !important;
           max-width: 800px !important;
           margin: 0 auto !important;
-          padding: 0 20px !important;
+          padding: 0 15px !important;
           position: relative !important;
           z-index: 1 !important;
         }
@@ -82,14 +83,14 @@ const CtaArea = () => {
           background: #089a45 !important;
         }
         .cta-title {
-          font-size: clamp(28px, 4vw, 42px) !important;
+          font-size: 28px !important;
           font-weight: 700 !important;
           line-height: 1.2 !important;
           margin-bottom: 20px !important;
           color: #174555 !important;
         }
         .cta-description {
-          font-size: 16px !important;
+          font-size: 14px !important;
           line-height: 1.6 !important;
           margin-bottom: 40px !important;
           opacity: 0.9 !important;
@@ -184,31 +185,110 @@ const CtaArea = () => {
         }
         
         .cta-title-number {
-          color: #089a45 !important;
+          color: #174555 !important;
           font-weight: 700 !important;
         }
         
+        /* Tablet Styles */
+        @media (max-width: 1024px) {
+          .cta-container {
+            width: 90% !important;
+          }
+        }
+        
         @media (max-width: 768px) {
+          .cta-container {
+            width: 95% !important;
+            padding: 0 10px !important;
+          }
+          
           .cta-section {
             padding: 60px 0 !important;
           }
-          .cta-container {
-            padding: 0 16px !important;
+          
+          .cta-title {
+            font-size: 24px !important;
           }
+          
+          .cta-description {
+            font-size: 13px !important;
+            margin-bottom: 30px !important;
+          }
+          
           .form-group {
             flex-direction: row !important;
-            padding: 6px !important;
+            padding: 5px !important;
             border-radius: 50px !important;
           }
+          
           .email-input {
-            padding: 16px 20px !important;
-            height: 52px !important;
+            padding: 14px 18px !important;
+            height: 46px !important;
+            font-size: 14px !important;
             min-width: 0 !important;
           }
+          
           .submit-btn {
             border-radius: 50px !important;
-            height: 52px !important;
-            padding: 8px 8px 8px 16px !important;
+            height: 46px !important;
+            padding: 6px 6px 6px 14px !important;
+            font-size: 14px !important;
+          }
+          
+          .submit-btn-icon {
+            height: 32px !important;
+            width: 32px !important;
+          }
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 576px) {
+          .cta-container {
+            width: 90% !important;
+            padding: 0 8px !important;
+          }
+          
+          .cta-section {
+            padding: 50px 0 !important;
+          }
+          
+          .cta-subtitle {
+            font-size: 12px !important;
+          }
+          
+          .cta-title {
+            font-size: 20px !important;
+            margin-bottom: 15px !important;
+          }
+          
+          .cta-description {
+            font-size: 12px !important;
+            margin-bottom: 25px !important;
+          }
+          
+          .cta-form {
+            max-width: 100% !important;
+          }
+          
+          .form-group {
+            padding: 4px !important;
+          }
+          
+          .email-input {
+            padding: 12px 16px !important;
+            height: 40px !important;
+            font-size: 13px !important;
+          }
+          
+          .submit-btn {
+            height: 40px !important;
+            padding: 4px 4px 4px 12px !important;
+            font-size: 12px !important;
+          }
+          
+          .submit-btn-icon {
+            height: 28px !important;
+            width: 28px !important;
           }
         }
       `}</style>
@@ -218,7 +298,7 @@ const CtaArea = () => {
           <div className="cta-container">
             <div className="cta-content">
               <h5 className="cta-subtitle">Newsletter</h5>
-              <h2 className="cta-title">Stay Updated with AI<span className="cta-title-number">4</span>Afghanistan</h2>
+              <h2 className="cta-title">Stay Updated with AI <span className="cta-title-number">for</span> Afghanistan</h2>
               <p className="cta-description">
                 Subscribe to our newsletter and get the latest news, program updates, success stories, 
                 and exclusive insights delivered straight to your inbox.

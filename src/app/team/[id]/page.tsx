@@ -34,6 +34,29 @@ const teamMemberData = [
     }
   },
   {
+    name: "Hedayatullah Farahi",
+    role: "Head of Research & Innovation, Co-Founder",
+    description: "Advances applied AI research and innovation to develop practical solutions for Afghanistan's key sector challenges.",
+    image: team2,
+    fullBio: {
+      background: "Hedayatullah Farahi leads AI4Afghanistan's research and innovation initiatives as Head of Research & Innovation and Co-Founder, driving the development of practical AI solutions for Afghanistan's most pressing challenges.",
+      education: "Hedayat holds advanced degrees in Computer Science and Artificial Intelligence from top-tier universities. He has published extensively in peer-reviewed journals and maintains active research collaborations with international institutions.",
+      experience: "With over 8 years of experience in AI research, software development, and innovation management, Hedayat has contributed to groundbreaking research projects and has extensive experience in both academic and industry settings, focusing on practical AI applications.",
+      achievements: [
+        "Leads applied AI research initiatives for local challenges",
+        "Develops innovative solutions for key sector problems",
+        "Published 25+ research papers on AI applications in developing regions",
+        "Mentors 200+ students and researchers in AI methodologies",
+        "Collaborates with 15+ international research institutions"
+      ]
+    },
+    social: {
+      instagram: "https://instagram.com/hedayatfarahi",
+      linkedin: "https://linkedin.com/in/hedayatullah",
+      email: "hedayat@ai4afghanistan.org"
+    }
+  },
+  {
     name: "Farshad Azimi",
     role: "Deputy Chair, Co-Founder",
     description: "Ensures leadership continuity, represents the organization when required, and contributes to strategic decisions and governance.",
@@ -77,29 +100,6 @@ const teamMemberData = [
       instagram: "https://instagram.com/amirziwari",
       linkedin: "https://linkedin.com/in/amirziwari",
       email: "amir@ai4afghanistan.org"
-    }
-  },
-  {
-    name: "Hedayatullah Farahi",
-    role: "Head of Research & Innovation, Co-Founder",
-    description: "Advances applied AI research and innovation to develop practical solutions for Afghanistan's key sector challenges.",
-    image: team2,
-    fullBio: {
-      background: "Hedayatullah Farahi leads AI4Afghanistan's research and innovation initiatives as Head of Research & Innovation and Co-Founder, driving the development of practical AI solutions for Afghanistan's most pressing challenges.",
-      education: "Hedayat holds advanced degrees in Computer Science and Artificial Intelligence from top-tier universities. He has published extensively in peer-reviewed journals and maintains active research collaborations with international institutions.",
-      experience: "With over 8 years of experience in AI research, software development, and innovation management, Hedayat has contributed to groundbreaking research projects and has extensive experience in both academic and industry settings, focusing on practical AI applications.",
-      achievements: [
-        "Leads applied AI research initiatives for local challenges",
-        "Develops innovative solutions for key sector problems",
-        "Published 25+ research papers on AI applications in developing regions",
-        "Mentors 200+ students and researchers in AI methodologies",
-        "Collaborates with 15+ international research institutions"
-      ]
-    },
-    social: {
-      instagram: "https://instagram.com/hedayatfarahi",
-      linkedin: "https://linkedin.com/in/hedayatullah",
-      email: "hedayat@ai4afghanistan.org"
     }
   }
 ]
@@ -149,6 +149,42 @@ const TeamMemberSingle = () => {
           top: 10px !important;
         }
         
+        @media (max-width: 768px) {
+          .header-area.homepage1 {
+            top: 20px !important;
+            width: calc(100% - 20px) !important;
+            border-radius: 15px !important;
+          }
+          
+          .header-area.homepage1.sticky {
+            width: calc(100% - 20px) !important;
+            border-radius: 15px !important;
+            top: 5px !important;
+          }
+          
+          .header-elements {
+            border-radius: 15px !important;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .header-area.homepage1 {
+            top: 15px !important;
+            width: calc(100% - 16px) !important;
+            border-radius: 12px !important;
+          }
+          
+          .header-area.homepage1.sticky {
+            width: calc(100% - 16px) !important;
+            border-radius: 12px !important;
+            top: 3px !important;
+          }
+          
+          .header-elements {
+            border-radius: 12px !important;
+          }
+        }
+        
         .team-single-page {
           min-height: 100vh;
           background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
@@ -156,9 +192,10 @@ const TeamMemberSingle = () => {
         }
         
         .team-container {
+          width: 80%;
           max-width: 1200px;
           margin: 0 auto;
-          padding: 0 20px;
+          padding: 0 15px;
         }
         
         .team-back {
@@ -173,6 +210,7 @@ const TeamMemberSingle = () => {
           text-decoration: none;
           font-weight: 600;
           transition: all 0.3s ease;
+          font-size: 16px;
         }
         
         .back-link:hover {
@@ -211,6 +249,7 @@ const TeamMemberSingle = () => {
           font-size: 24px;
           font-weight: 700;
           margin-bottom: 10px;
+          line-height: 1.3;
         }
         
         .member-position {
@@ -218,10 +257,7 @@ const TeamMemberSingle = () => {
           font-size: 16px;
           font-weight: 600;
           margin-bottom: 25px;
-        }
-        
-        .member-expertise {
-          margin-bottom: 30px;
+          line-height: 1.4;
         }
         
         .member-social-section {
@@ -239,6 +275,7 @@ const TeamMemberSingle = () => {
           display: flex;
           justify-content: center;
           gap: 15px;
+          flex-wrap: wrap;
         }
         
         .social-link {
@@ -283,10 +320,16 @@ const TeamMemberSingle = () => {
           font-size: 24px;
           font-weight: 600;
           margin: 35px 0 20px;
+          line-height: 1.3;
+        }
+        
+        .member-bio h3:first-child {
+          margin-top: 0;
         }
         
         .member-bio p {
           margin-bottom: 20px;
+          text-align: justify;
         }
         
         .member-bio ul {
@@ -300,18 +343,206 @@ const TeamMemberSingle = () => {
           line-height: 1.6;
         }
         
-        @media (max-width: 768px) {
+        /* Tablet Styles */
+        @media (max-width: 1024px) {
+          .team-container {
+            width: 90%;
+          }
+          
           .team-content {
-            grid-template-columns: 1fr;
+            grid-template-columns: 320px 1fr;
             gap: 40px;
           }
           
           .team-sidebar {
+            padding: 30px;
+          }
+          
+          .team-main {
+            padding: 40px;
+          }
+          
+          .member-image {
+            width: 180px;
+            height: 180px;
+          }
+          
+          .member-name {
+            font-size: 22px;
+          }
+          
+          .member-bio h3 {
+            font-size: 22px;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .team-container {
+            width: 95%;
+            padding: 0 10px;
+          }
+          
+          .team-single-page {
+            padding: 100px 0 60px;
+          }
+          
+          .team-back {
+            margin-bottom: 30px;
+          }
+          
+          .back-link {
+            font-size: 14px;
+          }
+          
+          .team-content {
+            grid-template-columns: 1fr;
+            gap: 30px;
+          }
+          
+          .team-sidebar {
             position: static;
+            padding: 25px;
           }
           
           .team-main {
             padding: 30px 25px;
+          }
+          
+          .member-image {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+          }
+          
+          .member-name {
+            font-size: 20px;
+            margin-bottom: 8px;
+          }
+          
+          .member-position {
+            font-size: 14px;
+            margin-bottom: 20px;
+          }
+          
+          .social-title {
+            font-size: 14px;
+            margin-bottom: 12px;
+          }
+          
+          .social-links {
+            gap: 12px;
+          }
+          
+          .social-link {
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+          }
+          
+          .member-bio {
+            font-size: 15px;
+            line-height: 1.7;
+          }
+          
+          .member-bio h3 {
+            font-size: 20px;
+            margin: 25px 0 15px;
+          }
+          
+          .member-bio p {
+            margin-bottom: 18px;
+            text-align: left;
+          }
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 576px) {
+          .team-container {
+            width: 90%;
+            padding: 0 8px;
+          }
+          
+          .team-single-page {
+            padding: 80px 0 40px;
+          }
+          
+          .team-back {
+            margin-bottom: 25px;
+          }
+          
+          .back-link {
+            font-size: 13px;
+            gap: 8px;
+          }
+          
+          .team-content {
+            gap: 25px;
+          }
+          
+          .team-sidebar {
+            padding: 20px;
+            border-radius: 15px;
+          }
+          
+          .team-main {
+            padding: 25px 20px;
+            border-radius: 15px;
+          }
+          
+          .member-image {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 15px;
+            border-width: 3px;
+          }
+          
+          .member-name {
+            font-size: 18px;
+            margin-bottom: 6px;
+          }
+          
+          .member-position {
+            font-size: 13px;
+            margin-bottom: 18px;
+          }
+          
+          .social-title {
+            font-size: 13px;
+            margin-bottom: 10px;
+          }
+          
+          .social-links {
+            gap: 10px;
+          }
+          
+          .social-link {
+            width: 36px;
+            height: 36px;
+            font-size: 14px;
+          }
+          
+          .member-bio {
+            font-size: 14px;
+            line-height: 1.6;
+          }
+          
+          .member-bio h3 {
+            font-size: 18px;
+            margin: 20px 0 12px;
+          }
+          
+          .member-bio p {
+            margin-bottom: 15px;
+          }
+          
+          .member-bio ul {
+            margin: 15px 0;
+            padding-left: 18px;
+          }
+          
+          .member-bio li {
+            margin-bottom: 6px;
+            font-size: 14px;
           }
         }
       `}</style>

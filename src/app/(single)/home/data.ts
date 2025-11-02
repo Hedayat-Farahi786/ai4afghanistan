@@ -179,6 +179,15 @@ export const teamData: TeamType[] = [
     email: "sirat@ai4afghanistan.org"
   },
   {
+    name: "Hedayatullah Farahi",
+    role: "Head of Research & Innovation, Co-Founder",
+    description: "Advances applied AI research and innovation to develop practical solutions for Afghanistan's key sector challenges.",
+    image: team2,
+    instagram: "https://instagram.com/hedayatfarahi",
+    linkedin: "https://linkedin.com/in/hedayatullah",
+    email: "hedayat@ai4afghanistan.org"
+  },
+  {
     name: "Farshad Azimi",
     role: "Deputy Chair, Co-Founder",
     description: "Ensures leadership continuity, represents the organization when required, and contributes to strategic decisions and governance.",
@@ -195,15 +204,6 @@ export const teamData: TeamType[] = [
     instagram: "https://instagram.com/amirziwari",
     linkedin: "https://linkedin.com/in/amirziwari",
     email: "amir@ai4afghanistan.org"
-  },
-  {
-    name: "Hedayatullah Farahi",
-    role: "Head of Research & Innovation, Co-Founder",
-    description: "Advances applied AI research and innovation to develop practical solutions for Afghanistan's key sector challenges.",
-    image: team2,
-    instagram: "https://instagram.com/hedayatfarahi",
-    linkedin: "https://linkedin.com/in/hedayatullah",
-    email: "hedayat@ai4afghanistan.org"
   },
   {
     name: "Mir Mazhar Kawyani",

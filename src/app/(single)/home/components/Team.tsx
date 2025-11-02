@@ -3,9 +3,9 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { FaLinkedin, FaInstagram, FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { FaXTwitter, FaEnvelope } from "react-icons/fa6";
+import { FaXTwitter, FaEnvelope, FaArrowRight } from "react-icons/fa6";
 import { teamData } from '../data';
-import { Container } from 'react-bootstrap';
+
 
 const Team = () => {
   const router = useRouter();
@@ -13,17 +13,25 @@ const Team = () => {
   const [itemsPerView, setItemsPerView] = useState(4);
   const [typingText, setTypingText] = useState<{[key: number]: string}>({});
   const [isTyping, setIsTyping] = useState<{[key: number]: boolean}>({});
-
+  const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [activeTooltip, setActiveTooltip] = useState<number | null>(null);
   // Use refs instead of state for timeouts/intervals to prevent memory leaks
   const timeoutsRef = useRef<{[key: number]: NodeJS.Timeout}>({});
   const intervalsRef = useRef<{[key: number]: NodeJS.Timeout}>({});
 
   useEffect(() => {
     const updateItemsPerView = () => {
-      if (window.innerWidth < 576) setItemsPerView(1);
-      else if (window.innerWidth < 768) setItemsPerView(2);
-      else if (window.innerWidth < 992) setItemsPerView(3);
-      else setItemsPerView(4);
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      if (mobile) {
+        setItemsPerView(4);
+      } else {
+        if (window.innerWidth < 576) setItemsPerView(1);
+        else if (window.innerWidth < 768) setItemsPerView(2);
+        else if (window.innerWidth < 992) setItemsPerView(3);
+        else setItemsPerView(4);
+      }
     };
     updateItemsPerView();
     window.addEventListener('resize', updateItemsPerView);
@@ -93,6 +101,20 @@ const Team = () => {
     router.push(`/team/${memberIndex + 1}`);
   };
 
+  const handleTooltipToggle = (index: number) => {
+    if (activeTooltip === index) {
+      setActiveTooltip(null);
+      resetTyping(index);
+    } else {
+      setActiveTooltip(index);
+      startTyping(index, teamData[index].description);
+    }
+  };
+
+  const displayedMembers = isMobile ? (showAll ? teamData : teamData.slice(0, 4)) : teamData.slice(currentIndex, currentIndex + itemsPerView);
+
+
+
   return (
     <>
       <style jsx global>{`
@@ -101,6 +123,12 @@ const Team = () => {
           background: #f8f9fa;
           position: relative;
           overflow: visible;
+        }
+        .team-main-container {
+          width: 80%;
+          margin: 0 auto;
+          padding: 0 15px;
+          max-width: 1200px;
         }
         .team-subtitle::after {
           content: '' !important;
@@ -372,6 +400,92 @@ const Team = () => {
             display: none;
           }
         }
+        @media (max-width: 768px) {
+          .team-main-container {
+            width: 95%;
+            padding: 0 10px;
+          }
+        }
+        .team-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          padding: 0 20px;
+        }
+        .team-card-mobile {
+          height: auto !important;
+          cursor: default !important;
+        }
+        .team-card-mobile:hover {
+          transform: none !important;
+        }
+        .team-actions {
+          display: flex;
+          gap: 8px;
+          margin-top: auto;
+        }
+        .team-action-btn {
+          flex: 1;
+          padding: 6px 12px;
+          border: none;
+          border-radius: 8px;
+          font-size: 11px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        .info-btn {
+          background: #f8f9fa;
+          color: #174555;
+        }
+        .info-btn:hover {
+          background: #089a45;
+          color: white;
+        }
+        .profile-btn {
+          background: #174555;
+          color: white;
+        }
+        .profile-btn:hover {
+          background: #089a45;
+        }
+        .team-tooltip-mobile {
+          position: static !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+          margin-top: 12px;
+          width: 100% !important;
+          transform: none !important;
+          background: #f8f9fa !important;
+          color: #174555 !important;
+          border: 1px solid #e9ecef;
+        }
+        .team-tooltip-mobile::after {
+          display: none;
+        }
+        .team-tooltip-mobile .typing-text {
+          color: #174555 !important;
+        }
+        .team-tooltip-mobile .typing-cursor {
+          background-color: #174555 !important;
+        }
+        .show-more-btn {
+          background: #089a45;
+          color: white;
+          border: none;
+          padding: 8px 16px;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .show-more-btn:hover {
+          background: #174555;
+        }
         @media (max-width: 575px) {
           .team-card {
             flex: 0 0 100%;
@@ -379,83 +493,140 @@ const Team = () => {
           .team-container {
             padding: 60px 20px 20px;
           }
+          .team-main-container {
+            width: 90%;
+            padding: 0 8px;
+          }
+          .team-grid {
+            grid-template-columns: 1fr;
+            padding: 0 10px;
+          }
         }
       `}</style>
       
       <section id="team" className="team-section">
-        <Container>
+        <div className="team-main-container">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
             <h5 style={{ color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block' }} className="team-subtitle">
               Our Team
             </h5>
-            <h2 style={{ color: '#174555', fontSize: '36px', fontWeight: 700, marginBottom: '16px' }}>
+            <h2 style={{ color: '#174555', fontSize: '28px', fontWeight: 700, marginBottom: '16px' }}>
               Meet Our Dedicated Team
             </h2>
-            <p style={{ color: '#666', fontSize: '16px', maxWidth: '600px', margin: '0 auto' }}>
+            <p style={{ color: '#666', fontSize: '14px', maxWidth: '550px', margin: '0 auto' }}>
               Our passionate team of educators, technologists, and community leaders working together to empower Afghan youth through AI and technology education.
             </p>
           </div>
           
           <div style={{ position: 'relative' }}>
-            <div className="team-container">
-              <div className="team-track">
-                {teamData.slice(currentIndex, currentIndex + itemsPerView).map((member, idx) => (
-                  <div 
-                    key={idx} 
-                    className="team-card"
-                    onMouseEnter={() => startTyping(currentIndex + idx, member.description)}
-                    onMouseLeave={() => resetTyping(currentIndex + idx)}
-                    onClick={() => handleMemberClick(currentIndex + idx)}
-                  >
-                    <div className="team-image">
-                      <Image 
-                        src={member.image} 
-                        alt={member.name}
-                        fill
-                        style={{ objectFit: 'cover' }}
-                      />
-                    </div>
-                    <div className="team-content">
-                      <div>
-                        <h3 className="team-name">{member.name}</h3>
-                        <div className="team-divider"></div>
-                        <p className="team-role">{member.role}</p>
+            {isMobile ? (
+              <div className="team-grid">
+                {displayedMembers.map((member, idx) => {
+                  const memberIndex = showAll ? idx : idx;
+                  return (
+                    <div key={idx} className="team-card team-card-mobile">
+                      <div className="team-image">
+                        <Image 
+                          src={member.image} 
+                          alt={member.name}
+                          fill
+                          style={{ objectFit: 'cover' }}
+                        />
                       </div>
-                      <div className="team-social">
-                        {member.instagram && (
-                          <a href={member.instagram} className="team-social-link" target="_blank" rel="noopener noreferrer">
-                            <FaInstagram />
-                          </a>
-                        )}
-                        {member.linkedin && (
-                          <a href={member.linkedin} className="team-social-link" target="_blank" rel="noopener noreferrer">
-                            <FaLinkedin />
-                          </a>
-                        )}
-                        {member.twitter && (
-                          <a href={member.twitter} className="team-social-link" target="_blank" rel="noopener noreferrer">
-                            <FaXTwitter />
-                          </a>
-                        )}
-                        {member.email && (
-                          <a href={`mailto:${member.email}`} className="team-social-link">
-                            <FaEnvelope />
-                          </a>
-                        )}
+                      <div className="team-content">
+                        <div>
+                          <h3 className="team-name">{member.name}</h3>
+                          <div className="team-divider"></div>
+                          <p className="team-role">{member.role}</p>
+                        </div>
+                        <div className="team-actions">
+                          <button 
+                            className="team-action-btn info-btn"
+                            onClick={() => handleTooltipToggle(memberIndex)}
+                          >
+                            Info
+                          </button>
+                          <button 
+                            className="team-action-btn profile-btn"
+                            onClick={() => handleMemberClick(memberIndex)}
+                          >
+                            Profile
+                          </button>
+                        </div>
                       </div>
+                      {activeTooltip === memberIndex && (
+                        <div className="team-tooltip team-tooltip-mobile">
+                          <span className="typing-text">
+                            {typingText[memberIndex] || ''}
+                            {isTyping[memberIndex] && <span className="typing-cursor">|</span>}
+                          </span>
+                        </div>
+                      )}
                     </div>
-                    <div className="team-tooltip">
-                      <span className="typing-text">
-                        {typingText[currentIndex + idx] || ''}
-                        {isTyping[currentIndex + idx] && <span className="typing-cursor">|</span>}
-                      </span>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
-            </div>
+            ) : (
+              <div className="team-container">
+                <div className="team-track">
+                  {displayedMembers.map((member, idx) => (
+                    <div 
+                      key={idx} 
+                      className="team-card"
+                      onMouseEnter={() => startTyping(currentIndex + idx, member.description)}
+                      onMouseLeave={() => resetTyping(currentIndex + idx)}
+                      onClick={() => handleMemberClick(currentIndex + idx)}
+                    >
+                      <div className="team-image">
+                        <Image 
+                          src={member.image} 
+                          alt={member.name}
+                          fill
+                          style={{ objectFit: 'cover' }}
+                        />
+                      </div>
+                      <div className="team-content">
+                        <div>
+                          <h3 className="team-name">{member.name}</h3>
+                          <div className="team-divider"></div>
+                          <p className="team-role">{member.role}</p>
+                        </div>
+                        <div className="team-social">
+                          {member.instagram && (
+                            <a href={member.instagram} className="team-social-link" target="_blank" rel="noopener noreferrer">
+                              <FaInstagram />
+                            </a>
+                          )}
+                          {member.linkedin && (
+                            <a href={member.linkedin} className="team-social-link" target="_blank" rel="noopener noreferrer">
+                              <FaLinkedin />
+                            </a>
+                          )}
+                          {member.twitter && (
+                            <a href={member.twitter} className="team-social-link" target="_blank" rel="noopener noreferrer">
+                              <FaXTwitter />
+                            </a>
+                          )}
+                          {member.email && (
+                            <a href={`mailto:${member.email}`} className="team-social-link">
+                              <FaEnvelope />
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                      <div className="team-tooltip">
+                        <span className="typing-text">
+                          {typingText[currentIndex + idx] || ''}
+                          {isTyping[currentIndex + idx] && <span className="typing-cursor">|</span>}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
             
-            {maxSlide > 0 && (
+            {!isMobile && maxSlide > 0 && (
               <>
                 <button 
                   className="team-nav prev"
@@ -475,7 +646,18 @@ const Team = () => {
             )}
           </div>
           
-          {maxSlide > 0 && (
+          {isMobile && teamData.length > 4 && (
+            <div style={{ textAlign: 'center', marginTop: '30px' }}>
+              <button 
+                className="show-more-btn"
+                onClick={() => setShowAll(!showAll)}
+              >
+                {showAll ? 'Show Less' : 'Show More'} <FaArrowRight size={12} />
+              </button>
+            </div>
+          )}
+          
+          {!isMobile && maxSlide > 0 && (
             <div className="team-dots">
               {Array.from({ length: maxSlide + 1 }, (_, idx) => (
                 <button
@@ -486,7 +668,7 @@ const Team = () => {
               ))}
             </div>
           )}
-        </Container>
+        </div>
       </section>
     </>
   )

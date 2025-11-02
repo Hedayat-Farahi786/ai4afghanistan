@@ -17,6 +17,12 @@ const Contact = () => {
           background: #ffffff !important;
           padding: 80px 0;
         }
+        .contact-main-container {
+          width: 80%;
+          margin: 0 auto;
+          padding: 0 15px;
+          max-width: 1200px;
+        }
         .contact-header {
           text-align: center;
           margin-bottom: 60px;
@@ -31,7 +37,7 @@ const Contact = () => {
         }
         .contact-title {
           color: #174555;
-          font-size: clamp(28px, 4vw, 36px);
+          font-size: 28px;
           font-weight: 700;
           line-height: 1.2;
           margin-bottom: 20px;
@@ -51,7 +57,7 @@ const Contact = () => {
         }
         .contact-description {
           color: #666;
-          font-size: 16px;
+          font-size: 14px;
           line-height: 1.6;
           max-width: 600px;
           margin: 0 auto;
@@ -192,23 +198,169 @@ const Contact = () => {
           max-width: 350px;
           height: auto;
         }
+        /* Tablet Styles */
+        @media (max-width: 1024px) {
+          .contact-main-container {
+            width: 90%;
+          }
+          
+          .contact-form {
+            padding: 50px 40px;
+          }
+        }
+        
         @media (max-width: 768px) {
+          .contact-main-container {
+            width: 95%;
+            padding: 0 10px;
+          }
+          
           .contact-section {
             padding: 60px 0;
           }
-          .contact-form,
-          .contact-info {
-            padding: 30px 20px;
+          
+          .contact-header {
+            margin-bottom: 40px;
+          }
+          
+          .contact-title {
+            font-size: 24px;
+          }
+          
+          .contact-description {
+            font-size: 13px;
+          }
+          
+          .contact-form {
+            padding: 30px 25px;
             margin-bottom: 30px;
+            border-radius: 15px;
+          }
+          
+          .contact-form .form-group {
+            margin-bottom: 18px !important;
+          }
+          
+          .contact-form .form-label {
+            font-size: 13px !important;
+            margin-bottom: 6px !important;
+          }
+          
+          .contact-form .form-input {
+            padding: 14px 18px !important;
+            font-size: 14px !important;
+          }
+          
+          .form-input[type="text"], .form-input[type="email"] {
+            height: 50px;
+          }
+          
+          textarea.form-input {
+            min-height: 120px;
+            height: 120px;
+          }
+          
+          .submit-btn {
+            font-size: 16px;
+            padding: 6px 6px 6px 18px;
+          }
+          
+          .btn-icon {
+            height: 32px;
+            width: 32px;
+          }
+          
+          .contact-svg {
+            padding: 30px 20px;
+          }
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 576px) {
+          .contact-main-container {
+            width: 90%;
+            padding: 0 8px;
+          }
+          
+          .contact-section {
+            padding: 50px 0;
+          }
+          
+          .contact-header {
+            margin-bottom: 30px;
+          }
+          
+          .contact-subtitle {
+            font-size: 12px;
+          }
+          
+          .contact-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+          }
+          
+          .contact-description {
+            font-size: 12px;
+          }
+          
+          .contact-form {
+            padding: 25px 20px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+          }
+          
+          .contact-form .form-group {
+            margin-bottom: 15px !important;
+          }
+          
+          .contact-form .form-label {
+            font-size: 12px !important;
+            margin-bottom: 5px !important;
+          }
+          
+          .contact-form .form-input {
+            padding: 12px 16px !important;
+            font-size: 13px !important;
+            border-radius: 25px !important;
+          }
+          
+          .form-input[type="text"], .form-input[type="email"] {
+            height: 44px;
+          }
+          
+          textarea.form-input {
+            min-height: 100px;
+            height: 100px;
+          }
+          
+          .submit-btn {
+            font-size: 14px;
+            padding: 5px 5px 5px 16px;
+          }
+          
+          .btn-icon {
+            height: 28px;
+            width: 28px;
+          }
+          
+          .contact-svg {
+            padding: 20px 15px;
+            text-align: center;
+          }
+          
+          .contact-illustration {
+            max-width: 220px;
+            margin: 0 auto 0 85%;
+            transform: translateX(-50%);
           }
         }
       `}</style>
 
       <section id="contact" className="contact-section">
-        <Container>
+        <div className="contact-main-container">
           <div className="contact-header">
             <h5 className="contact-subtitle">Get In Touch</h5>
-            <h2 className="contact-title section-title-divider">Contact AI4Afghanistan</h2>
+            <h2 className="contact-title section-title-divider">Contact AI for Afghanistan</h2>
             <p className="contact-description">
               Ready to join our mission? Have questions about our programs? 
               We&apos;d love to hear from you and explore how we can work together.
@@ -245,7 +397,7 @@ const Contact = () => {
               </div>
             </Col>
           </Row>
-        </Container>
+        </div>
       </section>
     </>
   )

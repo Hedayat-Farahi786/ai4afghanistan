@@ -147,9 +147,10 @@ const Blog = () => {
           pointer-events: none;
         }
         .blog-container {
+          width: 80%;
           max-width: 1200px;
           margin: 0 auto;
-          padding: 0 20px;
+          padding: 0 15px;
           position: relative;
           z-index: 1;
         }
@@ -179,14 +180,14 @@ const Blog = () => {
         }
         .blog-title {
           color: #174555;
-          font-size: clamp(28px, 4vw, 42px);
+          font-size: 28px;
           font-weight: 700;
           line-height: 1.2;
           margin-bottom: 20px;
         }
         .blog-description {
           color: #666;
-          font-size: 16px;
+          font-size: 14px;
           line-height: 1.6;
           max-width: 600px;
           margin: 0 auto;
@@ -367,33 +368,150 @@ const Blog = () => {
           transform: translateX(4px);
         }
 
+        /* Tablet Styles */
+        @media (max-width: 1024px) {
+          .blog-container {
+            width: 90%;
+          }
+          
+          .blog-grid {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+          }
+        }
+        
         @media (max-width: 768px) {
+          .blog-container {
+            width: 95%;
+            padding: 0 10px;
+          }
+          
           .blog-section {
             padding: 60px 0;
           }
-          .blog-container {
-            padding: 0 16px;
-          }
+          
           .blog-header {
-            margin-bottom: 50px;
+            margin-bottom: 40px;
           }
+          
+          .blog-title {
+            font-size: 24px;
+          }
+          
+          .blog-description {
+            font-size: 13px;
+          }
+          
           .blog-grid {
             grid-template-columns: 1fr;
-            gap: 30px;
-            margin-top: 40px;
+            gap: 25px;
+            margin-top: 30px;
           }
+          
           .blog-card {
             height: auto;
-            min-height: 480px;
+            min-height: 450px;
           }
+          
           .blog-image-container {
-            height: 200px;
+            height: 180px;
           }
+          
           .blog-content {
-            padding: 24px 20px;
+            padding: 20px 18px;
           }
+          
           .blog-meta {
-            gap: 16px;
+            gap: 12px;
+          }
+          
+          .blog-meta-item {
+            font-size: 12px;
+          }
+          
+          .blog-card-title {
+            font-size: 18px;
+            min-height: 50px;
+          }
+          
+          .blog-excerpt {
+            font-size: 13px;
+          }
+        }
+        
+        /* Mobile Styles */
+        @media (max-width: 576px) {
+          .blog-container {
+            width: 90%;
+            padding: 0 8px;
+          }
+          
+          .blog-section {
+            padding: 50px 0;
+          }
+          
+          .blog-header {
+            margin-bottom: 30px;
+          }
+          
+          .blog-subtitle {
+            font-size: 12px;
+          }
+          
+          .blog-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+          }
+          
+          .blog-description {
+            font-size: 12px;
+          }
+          
+          .blog-grid {
+            gap: 20px;
+            margin-top: 25px;
+          }
+          
+          .blog-card {
+            min-height: 400px;
+            border-radius: 15px;
+          }
+          
+          .blog-image-container {
+            height: 160px;
+          }
+          
+          .blog-content {
+            padding: 18px 15px;
+          }
+          
+          .blog-meta {
+            gap: 10px;
+            flex-wrap: wrap;
+          }
+          
+          .blog-meta-item {
+            font-size: 11px;
+          }
+          
+          .blog-card-title {
+            font-size: 16px;
+            min-height: 44px;
+            margin-bottom: 12px;
+          }
+          
+          .blog-excerpt {
+            font-size: 12px;
+            margin-bottom: 18px;
+          }
+          
+          .blog-read-more {
+            font-size: 12px;
+          }
+          
+          .view-all-btn {
+            font-size: 11px;
+            padding: 5px 10px;
           }
         }
 
@@ -428,21 +546,6 @@ const Blog = () => {
           }
           100% {
             left: 100%;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .blog-grid {
-            grid-template-columns: 1fr;
-          }
-          .blog-card {
-            margin: 0 8px;
-          }
-          .blog-image-container {
-            height: 180px;
-          }
-          .blog-content {
-            padding: 20px 16px;
           }
         }
       `}</style>

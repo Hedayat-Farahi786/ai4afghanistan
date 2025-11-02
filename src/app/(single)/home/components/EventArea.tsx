@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import eventImg from '@/assets/img/event/event1.png'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import Link from 'next/link'
 import { FaArrowRight, FaClock, FaMapMarkerAlt, FaCalendarPlus, FaCalendarAlt, FaChevronUp, FaChevronDown } from 'react-icons/fa'
 
@@ -116,7 +116,7 @@ const EventArea = () => {
         .event-hero-content {
           position: relative;
           z-index: 2;
-          width: 70%;
+          width: 75%;
         }
         .event-hero h5,
         .event-hero h2,
@@ -200,8 +200,8 @@ const EventArea = () => {
         }
         .event-vertical-actions {
           display: flex;
+          flex-direction: row;
           gap: 10px;
-          flex-wrap: wrap;
           margin-top: auto;
         }
         .event-vertical-btn {
@@ -344,6 +344,13 @@ const EventArea = () => {
             max-height: 400px;
           }
         }
+        .events-container {
+          width: 80%;
+          margin: 0 auto;
+          padding: 0 15px;
+          max-width: 1200px;
+        }
+        
         @media (max-width: 768px) {
           .events-vertical-section {
             padding: 60px 0;
@@ -356,22 +363,49 @@ const EventArea = () => {
             max-height: none;
           }
           .event-vertical-actions {
-            flex-direction: column;
+            flex-direction: row;
             gap: 6px;
+          }
+          .events-container {
+            width: 95%;
+            padding: 0 10px;
+          }
+        }
+        
+        .event-hero-btn {
+          padding: 6px 12px !important;
+          font-size: 12px !important;
+        }
+        
+        @media (max-width: 768px) {
+          .event-hero-btn {
+            padding: 4px 8px !important;
+            font-size: 10px !important;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .events-container {
+            width: 90%;
+            padding: 0 8px;
+          }
+          .event-hero-btn {
+            padding: 3px 6px !important;
+            font-size: 9px !important;
           }
         }
       `}</style>
       
       <section id="events" className="events-vertical-section">
-        <Container>
+        <div className="events-container">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
             <h5 style={{ color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block' }} className="events-subtitle">
               Upcoming Events
             </h5>
-            <h2 style={{ color: '#174555', fontSize: '36px', fontWeight: 700, marginBottom: '16px' }}>
+            <h2 style={{ color: '#174555', fontSize: '28px', fontWeight: 700, marginBottom: '16px' }}>
               Join Our Community Events
             </h2>
-            <p style={{ color: '#666', fontSize: '16px', maxWidth: '500px', margin: '0 auto' }}>
+            <p style={{ color: '#666', fontSize: '14px', maxWidth: '450px', margin: '0 auto' }}>
               Educational programs and workshops designed for Afghan youth in technology.
             </p>
           </div>
@@ -405,7 +439,7 @@ const EventArea = () => {
                       </div>
                     </div>
                     <p style={{ marginBottom: '20px', fontSize: '13px', lineHeight: '1.4', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>{events[0].description}</p>
-                    <Link href="/contact" className="header-btn1">
+                    <Link href="/contact" className="header-btn1 event-hero-btn">
                       Register Now <span><FaArrowRight /></span>
                     </Link>
                   </div>
@@ -414,11 +448,8 @@ const EventArea = () => {
               
               <Col lg={6} style={{ position: 'relative' }}>
                 <div className="events-vertical-carousel">
-                <div 
-                  className="events-vertical-track"
-                  style={{ transform: `translateY(-${currentSlide * 236}px)` }}
-                >
-                  {events.map((event, idx) => (
+                <div className="events-vertical-track">
+                  {events.slice(0, 2).map((event, idx) => (
                     <div key={idx} className="event-vertical-card">
                       <div className="event-vertical-date">
                         <FaCalendarAlt className="event-vertical-date-icon" />
@@ -454,31 +485,20 @@ const EventArea = () => {
                       </div>
                     </div>
                   ))}
+                  
+                  <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                    <Link href="/events" className="view-all-btn" style={{ padding: '8px 16px', fontSize: '12px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+                      View All Events <FaArrowRight size={10} />
+                    </Link>
+                  </div>
                 </div>
                 </div>
                 
-                {events.length > 2 && (
-                  <div className="events-vertical-nav">
-                    <button 
-                      className="events-vertical-nav-btn"
-                      onClick={prevSlide}
-                      disabled={currentSlide === 0}
-                    >
-                      <FaChevronUp size={14} />
-                    </button>
-                    <button 
-                      className="events-vertical-nav-btn"
-                      onClick={nextSlide}
-                      disabled={currentSlide >= maxSlide}
-                    >
-                      <FaChevronDown size={14} />
-                    </button>
-                  </div>
-                )}
+
               </Col>
             </Row>
           </div>
-        </Container>
+        </div>
       </section>
     </>
   )

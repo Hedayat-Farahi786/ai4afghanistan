@@ -35,7 +35,7 @@ const Header = () => {
                     <div className="site-logo" style={{display: 'flex', alignItems: 'center', gap: '12px'}}>
                       <Image src={logo1Img} alt='logo1Img' width={54} height={54} priority style={{ objectFit: 'contain', display: 'block'}} />
                       <div style={{display: 'flex', flexDirection: 'column'}}>
-                        <span className="logo-text">AI<span className="logo-number">4</span>Afghanistan</span>
+                        <span className="logo-text">AI <span className="logo-number">for</span> Afghanistan</span>
                         <span className="logo-slogan">we grow beyond boundaries</span>
                       </div>
                     </div>
@@ -61,6 +61,7 @@ const Header = () => {
             </Container>
           </div>
         </header>
+        <HeaderTablet />
         <SingleMobileMenu />
       </>
     )
@@ -91,7 +92,7 @@ const Header = () => {
                   <div className="site-logo" style={{display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer'}} onClick={handleLogoClick}>
                       <Image src={logo1Img} alt='logo1Img' width={54} height={54} priority style={{ objectFit: 'contain', display: 'block'}} />
                     <div style={{display: 'flex', flexDirection: 'column'}}>
-                      <span className="logo-text">AI<span className="logo-number">4</span>Afghanistan</span>
+                      <span className="logo-text">AI <span className="logo-number">for</span> Afghanistan</span>
                       <span className="logo-slogan">we grow beyond boundaries</span>
                     </div>
                   </div>
@@ -134,21 +135,25 @@ const Header = () => {
       <SingleMobileMenu />
       <style jsx global>{`
         .logo-text {
-          font-size: 1.2rem !important;
+          font-size: 0.9rem !important;
           font-weight: 700 !important;
           color: #fafafa !important;
           line-height: 1.2 !important;
+          width: 140px !important;
+          text-align: left !important;
         }
         .logo-number {
-          color: #089a45 !important;
+          color: #fafafa !important;
           font-weight: 700 !important;
-          margin: 0 2px !important;
         }
         .logo-slogan {
-          font-size: 0.69rem !important;
+          font-size: 0.54rem !important;
           color: #eee !important;
           font-weight: 400 !important;
           margin-top: 2px !important;
+          width: 140px !important;
+          text-align: left !important;
+          letter-spacing: 0.5px !important;
         }
         .volunteer-btn-custom {
           background: rgba(255, 255, 255, 0.1) !important;

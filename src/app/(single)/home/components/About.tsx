@@ -1,26 +1,28 @@
 'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import aboutIcons1 from '@/assets/img/icons/ai-training.svg'
 import aboutIcons2 from '@/assets/img/icons/tech-future.svg'
 import about1 from '@/assets/img/about/vl-about-1.1.jpg'
 import about2 from '@/assets/img/about/vl-about-1.2.png'
 import { FaArrowRight } from 'react-icons/fa6'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 import Link from 'next/link'
 
 const About = () => {
+
+
   return (
     <>
-    <section id='about' className="vl-about-section sp2" style={{background: '#ffffff !important'}}>
-      <Container>
+      <section id='about' className="vl-about-section sp2" style={{background: '#ffffff !important'}}>
+      <div className="about-container">
         <Row>
           <Col lg={6}>
             <div className="vl-about-content">
               <div className="vl-section-title-1">
-                <h5 className="subtitle" data-aos="fade-right" data-aos-duration={800} data-aos-delay={300} style={{color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block'}}>About AI4Afghanistan</h5>
+                <h5 className="subtitle" data-aos="fade-right" data-aos-duration={300} data-aos-delay={50} style={{color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block'}}>About AI4Afghanistan</h5>
                 <h2 className="title text-anime-style-3" style={{color: '#174555'}}>Empowering Afghanistan Through AI Education</h2>
-                <p className="pb-32" data-aos="fade-right" data-aos-duration={800} data-aos-delay={300} style={{color: '#666', fontSize: '16px', lineHeight: '1.6'}}>We are dedicated to training Afghan youth in artificial intelligence and technology, creating opportunities for innovation and economic growth in Afghanistan.</p>
+                <p className="pb-32" data-aos="fade-right" data-aos-duration={300} data-aos-delay={100} style={{color: '#666', fontSize: '16px', lineHeight: '1.6'}}>We are dedicated to training Afghan youth in artificial intelligence and technology, creating opportunities for innovation and economic growth in Afghanistan.</p>
               </div>
               <div className="vl-about-grid">
                 <div className="vl-about-icon-box mb-30">
@@ -55,12 +57,12 @@ const About = () => {
                 height: '100%',
                 background: 'linear-gradient(to bottom, rgba(8, 25, 30, 0.1) 0%, rgba(8, 25, 30, 0.2) 50%, rgba(8, 25, 30, 0.4) 100%)',
                 pointerEvents: 'none',
-                transition: 'opacity 0.3s ease'
+                transition: 'opacity 0.15s ease'
               }} />
             </div>
           </Col>
           <Col lg={2} md={6} className="mb-30">
-            <div className="vl-about-sm-content" data-aos="zoom-in-up" data-aos-duration={1000} data-aos-delay={300}>
+            <div className="vl-about-sm-content" data-aos="zoom-in-up" data-aos-duration={400} data-aos-delay={150}>
               <p style={{color: '#666', fontSize: '14px', lineHeight: '1.6'}}>Our mission is to bridge the digital divide and empower Afghan youth with cutting-edge AI skills for a brighter future.</p>
               <div className="btn-area">
                 <Link href="/pages/team" className="header-btn1" style={{background: '#174555', color: '#fff', textDecoration: 'none'}}>Join Us <span style={{background: '#089a45'}}><FaArrowRight /></span></Link>
@@ -76,19 +78,41 @@ const About = () => {
                     bottom: 0,
                     background: 'linear-gradient(to bottom, rgba(8, 25, 30, 0.1) 0%, rgba(8, 25, 30, 0.2) 50%, rgba(8, 25, 30, 0.4) 100%)',
                     pointerEvents: 'none',
-                    transition: 'opacity 0.3s ease'
+                    transition: 'opacity 0.15s ease'
                   }} />
                 </div>
               </div>
             </div>
           </Col>
         </Row>
-      </Container>
+      </div>
     </section>
     <style jsx global>{`
       .vl-about-section {
         background: #ffffff !important;
       }
+      
+      .about-container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0 15px;
+        max-width: 1200px;
+      }
+      
+      @media (max-width: 768px) {
+        .about-container {
+          width: 95%;
+          padding: 0 10px;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .about-container {
+          width: 90%;
+          padding: 0 8px;
+        }
+      }
+      
       .vl-about-icon-box:hover .vl-about-icon {
         transform: none !important;
       }

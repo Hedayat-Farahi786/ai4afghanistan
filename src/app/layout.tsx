@@ -24,7 +24,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "AI4Afghanistan - Empowering Afghan Youth Through AI Innovation",
+  title: "AI for Afghanistan - Empowering Afghan Youth Through AI Innovation",
   description: "Training the next generation of Afghan innovators through AI education and innovation",
   icons: {
     icon: '/favicon.ico',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'AI4Afghanistan'
+    title: 'AI for Afghanistan'
   }
 };
 
@@ -126,7 +126,7 @@ export default function RootLayout({
           <div>
             <img
               src="/logo-loader.png"
-              alt="AI4Afghanistan Logo"
+              alt="AI for Afghanistan Logo"
               className="loader-logo"
               width="80"
               height="80"

@@ -60,7 +60,7 @@ const SingleMobileMenu = () => {
               <Link href="/home" onClick={() => isOpen && toggle()}>
                 <Image src={logo1} alt='logo1' width={40} height={40} />
                 <div className="logo-text-mobile">
-                  <span className="logo-text">AI<span className="logo-number">4</span>Afghanistan</span>
+                  <span className="logo-text">AI <span className="logo-number">for</span> Afghanistan</span>
                   <span className="logo-slogan">we grow beyond boundaries</span>
                 </div>
               </Link>
@@ -157,19 +157,27 @@ const SingleMobileMenu = () => {
         }
         
         .logo-text-mobile .logo-text {
-          font-size: 0.9rem !important;
+          font-size: 0.7rem !important;
           font-weight: 700 !important;
           color: #fafafa !important;
           line-height: 1.2 !important;
+          width: 120px !important;
+          text-align: left !important;
         }
         
         .logo-text-mobile .logo-number {
-          color: #089a45 !important;
+          color: #fafafa !important;
+          font-weight: 700 !important;
         }
         
         .logo-text-mobile .logo-slogan {
-          font-size: 0.55rem !important;
+          font-size: 0.42rem !important;
           color: #eee !important;
+          font-weight: 400 !important;
+          margin-top: 1px !important;
+          width: 120px !important;
+          text-align: left !important;
+          letter-spacing: 0.5px !important;
         }
         
         .mobile-nav-icon {

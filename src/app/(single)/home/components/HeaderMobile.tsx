@@ -30,7 +30,7 @@ const HeaderMobile = () => {
                   <div className="site-logo-mobile">
                     <Image src={logo1Img} alt='logo1Img' width={40} height={40} priority />
                     <div className="logo-text-mobile">
-                      <span className="logo-text">AI<span className="logo-number">4</span>Afghanistan</span>
+                      <span className="logo-text">AI <span className="logo-number">for</span> Afghanistan</span>
                       <span className="logo-slogan">we grow beyond boundaries</span>
                     </div>
                   </div>
@@ -66,7 +66,7 @@ const HeaderMobile = () => {
                 <div className="site-logo-mobile" onClick={handleLogoClick}>
                   <Image src={logo1Img} alt='logo1Img' width={40} height={40} priority />
                   <div className="logo-text-mobile">
-                    <span className="logo-text">AI<span className="logo-number">4</span>Afghanistan</span>
+                    <span className="logo-text">AI <span className="logo-number">for</span> Afghanistan</span>
                     <span className="logo-slogan">we grow beyond boundaries</span>
                   </div>
                 </div>
@@ -109,23 +109,27 @@ const HeaderMobile = () => {
         }
         
         .logo-text-mobile .logo-text {
-          font-size: 1rem !important;
+          font-size: 0.7rem !important;
           font-weight: 700 !important;
           color: #fafafa !important;
           line-height: 1.2 !important;
+          width: 120px !important;
+          text-align: left !important;
         }
         
         .logo-text-mobile .logo-number {
-          color: #089a45 !important;
+          color: #fafafa !important;
           font-weight: 700 !important;
-          margin: 0 2px !important;
         }
         
         .logo-text-mobile .logo-slogan {
-          font-size: 0.6rem !important;
+          font-size: 0.4rem !important;
           color: #eee !important;
           font-weight: 400 !important;
           margin-top: 1px !important;
+          width: 120px !important;
+          text-align: left !important;
+          letter-spacing: 0.5px !important;
         }
         
         .header-area.homepage1.sticky-mobile {
@@ -153,11 +157,13 @@ const HeaderMobile = () => {
         
         @media (max-width: 576px) {
           .logo-text-mobile .logo-text {
-            font-size: 0.9rem !important;
+            font-size: 0.65rem !important;
+            width: 110px !important;
           }
           
           .logo-text-mobile .logo-slogan {
-            font-size: 0.55rem !important;
+            font-size: 0.35rem !important;
+            width: 110px !important;
           }
           
           .header-elements-mobile {

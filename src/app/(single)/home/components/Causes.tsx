@@ -3,7 +3,7 @@ import React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import { LuBrain, LuUsers } from 'react-icons/lu'
 import { BiCodeAlt } from 'react-icons/bi'
-import { Col, Container, Row } from 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
 
 import Image from 'next/image'
 import causes1 from '@/assets/img/cause/causes1.jpg'
@@ -83,17 +83,37 @@ const Causes = () => {
         .tag-text {
           color: #fafafa !important;
         }
+        .causes-container {
+          width: 80%;
+          margin: 0 auto;
+          padding: 0 15px;
+          max-width: 1200px;
+        }
+        
+        @media (max-width: 768px) {
+          .causes-container {
+            width: 95%;
+            padding: 0 10px;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .causes-container {
+            width: 90%;
+            padding: 0 8px;
+          }
+        }
       `}</style>
       <section id="programs" style={{ padding: '80px 0', background: '#f8f9fa' }}>
-      <Container>
+      <div className="causes-container">
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <h5 style={{ color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block' }} className="causes-subtitle">
             Our Vision
           </h5>
-          <h2 style={{ color: '#174555', fontSize: '36px', fontWeight: 700, marginBottom: '16px' }}>
+          <h2 style={{ color: '#174555', fontSize: '28px', fontWeight: 700, marginBottom: '16px' }}>
             Building Afghanistan's AI Future
           </h2>
-          <p style={{ color: '#666', fontSize: '16px', maxWidth: '500px', margin: '0 auto' }}>
+          <p style={{ color: '#666', fontSize: '14px', maxWidth: '450px', margin: '0 auto' }}>
             We&apos;re just getting started. Join us in creating opportunities for Afghan youth through AI education.
           </p>
         </div>
@@ -279,7 +299,7 @@ const Causes = () => {
             Get Involved <span><FaArrowRight /></span>
           </a>
         </div>
-      </Container>
+      </div>
     </section>
     </>
   )

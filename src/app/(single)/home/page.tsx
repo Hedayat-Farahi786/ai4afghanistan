@@ -2,42 +2,54 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
-import TopBanner from '@/components/layouts/TopBanner'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import About from './components/About'
 
-// Lazy load below-the-fold components for better performance
+// Disable SSR for all components to prevent hydration issues
+const TopBanner = dynamic(() => import('@/components/layouts/TopBanner'), {
+  ssr: false
+})
+
+const Header = dynamic(() => import('./components/Header'), {
+  ssr: false
+})
+
+const Hero = dynamic(() => import('./components/Hero'), {
+  ssr: false
+})
+
+const About = dynamic(() => import('./components/About'), {
+  ssr: false
+})
+
 const Causes = dynamic(() => import('./components/Causes'), {
-  loading: () => <div style={{ minHeight: '400px' }} />
+  ssr: false
 })
 
 const EventArea = dynamic(() => import('./components/EventArea'), {
-  loading: () => <div style={{ minHeight: '400px' }} />
+  ssr: false
 })
 
 const Team = dynamic(() => import('./components/Team'), {
-  loading: () => <div style={{ minHeight: '400px' }} />
+  ssr: false
 })
 
 const Donation = dynamic(() => import('./components/Donation'), {
-  loading: () => <div style={{ minHeight: '400px' }} />
+  ssr: false
 })
 
 const Blog = dynamic(() => import('./components/Blog'), {
-  loading: () => <div style={{ minHeight: '400px' }} />
+  ssr: false
 })
 
 const Contact = dynamic(() => import('./components/Contact'), {
-  loading: () => <div style={{ minHeight: '400px' }} />
+  ssr: false
 })
 
 const CtaArea = dynamic(() => import('@/components/layouts/CtaArea'), {
-  loading: () => <div style={{ minHeight: '200px' }} />
+  ssr: false
 })
 
 const HomeFooter = dynamic(() => import('@/components/layouts/Footer/HomeFooter'), {
-  loading: () => <div style={{ minHeight: '300px' }} />
+  ssr: false
 })
 
 const HomeSinglePage = () => {
