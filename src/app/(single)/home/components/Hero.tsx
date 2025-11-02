@@ -7,6 +7,8 @@ import titleIcon from '@/assets/img/icons/vl-sub-title-icon.svg'
 import {FaFacebookF, FaInstagram, FaArrowRight, FaMouse, FaLinkedinIn} from "react-icons/fa";
 import {FaXTwitter} from "react-icons/fa6";
 import {Col, Container, Row} from 'react-bootstrap'
+import HeroMobile from './HeroMobile'
+import HeroTablet from './HeroTablet'
 
 const Slider = dynamic(() => import('react-slick'), {
   ssr: false,
@@ -32,7 +34,9 @@ const Hero = () => {
   const sliderRef = useRef<Slider | null>(null);
 
   return (
-      <div className="vl-banner p-relative fix">
+    <>
+      {/* Desktop Hero */}
+      <div className="vl-banner p-relative fix d-none d-lg-block">
         <Slider ref={sliderRef} {...settings} className="slider-active-1">
           <div className="vl-hero-slider vl-hero-bg slick-slide slick-current slick-active">
             <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2))', zIndex: 1}}></div>
@@ -90,8 +94,6 @@ const Hero = () => {
               </Row>
             </Container>
           </div>
-
-
         </Slider>
 
         <div style={{position: 'absolute', bottom: '80px', right: '50px', zIndex: 3}}>
@@ -117,6 +119,13 @@ const Hero = () => {
           }
         `}</style>
       </div>
+      
+      {/* Tablet Hero */}
+      <HeroTablet />
+      
+      {/* Mobile Hero */}
+      <HeroMobile />
+    </>
 
 
   )

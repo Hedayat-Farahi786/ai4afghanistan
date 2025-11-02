@@ -1,112 +1,120 @@
-'use client'
-import { useState, memo, useCallback } from 'react'
-import { useRouter } from 'next/navigation'
-import Image from 'next/image'
-import Link from 'next/link'
-import { FaCalendarAlt, FaUser, FaArrowRight, FaClock } from 'react-icons/fa'
+"use client";
+import { useState, memo, useCallback } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { FaCalendarAlt, FaUser, FaArrowRight, FaClock } from "react-icons/fa";
 
-import Blog1 from '@/assets/img/blog/blog1.jpg'
-import Blog2 from '@/assets/img/blog/blog2.jpeg'
-import Blog3 from '@/assets/img/blog/blog3.webp'
+import Blog1 from "@/assets/img/blog/blog1.jpg";
+import Blog2 from "@/assets/img/blog/blog2.jpeg";
+import Blog3 from "@/assets/img/blog/blog3.png";
 
 const blogData = [
   {
     id: 1,
     title: "Empowering Afghan Youth Through AI Education Programs",
-    excerpt: "Discover how our comprehensive AI curriculum is transforming young minds and creating future tech leaders in Afghanistan.",
+    excerpt:
+      "Discover how our comprehensive AI curriculum is transforming young minds and creating future tech leaders in Afghanistan.",
     author: "Ahmad Sirat",
     date: "October 16, 2024",
     readTime: "5 min read",
     image: Blog1,
     category: "Education",
-    slug: "/blog/1"
+    slug: "/blog/1",
   },
   {
     id: 2,
     title: "Building Tomorrow's Tech Leaders: Student Success Stories",
-    excerpt: "Meet our graduates who are now working in tech companies and making a difference in their communities worldwide.",
+    excerpt:
+      "Meet our graduates who are now working in tech companies and making a difference in their communities worldwide.",
     author: "Hedayat Farahi",
     date: "October 14, 2024",
     readTime: "7 min read",
     image: Blog2,
     category: "Success Stories",
-    slug: "/blog/2"
+    slug: "/blog/2",
   },
   {
     id: 3,
     title: "The Future of AI Education in Afghanistan: Our Vision",
-    excerpt: "Learn about our roadmap for expanding AI education and creating sustainable tech opportunities across Afghanistan.",
+    excerpt:
+      "Learn about our roadmap for expanding AI education and creating sustainable tech opportunities across Afghanistan.",
     author: "Fatima Ahmadi",
     date: "October 12, 2024",
     readTime: "6 min read",
     image: Blog3,
     category: "Vision",
-    slug: "/blog/3"
-  }
-]
+    slug: "/blog/3",
+  },
+];
 
 // Memoized blog card component to prevent unnecessary re-renders
-const BlogCard = memo(({ post, onCardClick, onMouseEnter, onMouseLeave }: any) => (
-  <article
-    className="blog-card blog-card-loading"
-    onMouseEnter={onMouseEnter}
-    onMouseLeave={onMouseLeave}
-    onClick={() => onCardClick(post.slug)}
-  >
-    <div className="blog-image-container">
-      <Link href={post.slug}>
-        <Image
-          src={post.image}
-          alt={post.title}
-          className="blog-image"
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          loading="eager"
-          quality={75}
-        />
-      </Link>
-      <span className="blog-category">{post.category}</span>
-    </div>
-
-    <div className="blog-content">
-      <div className="blog-meta">
-        <div className="blog-meta-item">
-          <FaCalendarAlt className="blog-meta-icon" />
-          <span>{post.date}</span>
-        </div>
-        <div className="blog-meta-item">
-          <FaUser className="blog-meta-icon" />
-          <span>{post.author}</span>
-        </div>
-        <div className="blog-meta-item">
-          <FaClock className="blog-meta-icon" />
-          <span>{post.readTime}</span>
-        </div>
+const BlogCard = memo(
+  ({ post, onCardClick, onMouseEnter, onMouseLeave }: any) => (
+    <article
+      className="blog-card blog-card-loading"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onClick={() => onCardClick(post.slug)}
+    >
+      <div className="blog-image-container">
+        <Link href={post.slug}>
+          <Image
+            src={post.image}
+            alt={post.title}
+            className="blog-image"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="eager"
+            quality={75}
+          />
+        </Link>
+        <span className="blog-category">{post.category}</span>
       </div>
 
-      <h3 className="blog-card-title">
-        <Link href={post.slug}>{post.title}</Link>
-      </h3>
+      <div className="blog-content">
+        <div className="blog-meta">
+          <div className="blog-meta-item">
+            <FaCalendarAlt className="blog-meta-icon" />
+            <span>{post.date}</span>
+          </div>
+          <div className="blog-meta-item">
+            <FaUser className="blog-meta-icon" />
+            <span>{post.author}</span>
+          </div>
+          <div className="blog-meta-item">
+            <FaClock className="blog-meta-icon" />
+            <span>{post.readTime}</span>
+          </div>
+        </div>
 
-      <p className="blog-excerpt">{post.excerpt}</p>
+        <h3 className="blog-card-title">
+          <Link href={post.slug}>{post.title}</Link>
+        </h3>
 
-      <Link href={post.slug} className="blog-read-more">
-        Read More
-        <FaArrowRight className="blog-read-more-icon" />
-      </Link>
-    </div>
-  </article>
-))
+        <p className="blog-excerpt">{post.excerpt}</p>
 
-BlogCard.displayName = 'BlogCard'
+        <Link href={post.slug} className="blog-read-more">
+          Read More
+          <FaArrowRight className="blog-read-more-icon" />
+        </Link>
+      </div>
+    </article>
+  )
+);
+
+BlogCard.displayName = "BlogCard";
 
 const Blog = () => {
-  const [, setHoveredCard] = useState<number | null>(null)
-  const router = useRouter()
+  const [, setHoveredCard] = useState<number | null>(null);
+  const router = useRouter();
 
-  const handleCardClick = useCallback((slug: string) => {
-    router.push(slug)
-  }, [router])
+  const handleCardClick = useCallback(
+    (slug: string) => {
+      router.push(slug);
+    },
+    [router]
+  );
 
   return (
     <>
@@ -120,14 +128,22 @@ const Blog = () => {
           contain: layout style paint;
         }
         .blog-section::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          background: radial-gradient(circle at 20% 80%, rgba(8, 154, 69, 0.03) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, rgba(23, 69, 85, 0.03) 0%, transparent 50%);
+          background: radial-gradient(
+              circle at 20% 80%,
+              rgba(8, 154, 69, 0.03) 0%,
+              transparent 50%
+            ),
+            radial-gradient(
+              circle at 80% 20%,
+              rgba(23, 69, 85, 0.03) 0%,
+              transparent 50%
+            );
           pointer-events: none;
         }
         .blog-container {
@@ -152,7 +168,7 @@ const Blog = () => {
           display: inline-block;
         }
         .blog-subtitle::after {
-          content: '';
+          content: "";
           position: absolute;
           bottom: -8px;
           left: 50%;
@@ -314,18 +330,18 @@ const Blog = () => {
         .blog-read-more:hover .blog-read-more-icon {
           transform: translateX(4px);
         }
-        
+
         .blog-section-header {
           display: flex;
           justify-content: flex-end;
           margin-bottom: 10px;
         }
-        
+
         .view-all-btn {
           display: inline-flex;
           align-items: center;
           gap: 4px;
-          background: ##E6F5EC !important;
+          background: ##e6f5ec !important;
           color: #089a45 !important;
           padding: 6px 12px;
           border-radius: 15px;
@@ -336,21 +352,21 @@ const Blog = () => {
           white-space: nowrap;
           opacity: 1;
         }
-        
+
         .view-all-btn:hover {
           background: #089a45 !important;
           color: #fafafa !important;
           transform: translateY(-1px);
         }
-        
+
         .view-all-icon {
           transition: transform 0.3s ease;
         }
-        
+
         .view-all-btn:hover .view-all-icon {
           transform: translateX(4px);
         }
-        
+
         @media (max-width: 768px) {
           .blog-section {
             padding: 60px 0;
@@ -380,19 +396,24 @@ const Blog = () => {
             gap: 16px;
           }
         }
-        
+
         .blog-card-loading {
           position: relative;
           overflow: hidden;
         }
         .blog-card-loading::after {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           left: -100%;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(8, 154, 69, 0.1), transparent);
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(8, 154, 69, 0.1),
+            transparent
+          );
           animation: shimmer 1.5s infinite;
           pointer-events: none;
           opacity: 0;
@@ -402,10 +423,14 @@ const Blog = () => {
           opacity: 1;
         }
         @keyframes shimmer {
-          0% { left: -100%; }
-          100% { left: 100%; }
+          0% {
+            left: -100%;
+          }
+          100% {
+            left: 100%;
+          }
         }
-        
+
         @media (max-width: 480px) {
           .blog-grid {
             grid-template-columns: 1fr;
@@ -421,18 +446,19 @@ const Blog = () => {
           }
         }
       `}</style>
-      
+
       <section id="blog" className="blog-section">
         <div className="blog-container">
           <div className="blog-header">
             <h5 className="blog-subtitle">Latest Updates</h5>
             <h2 className="blog-title">AI Education & Innovation Stories</h2>
             <p className="blog-description">
-              Discover how AI4Afghanistan is transforming lives through technology education. 
-              Read about our programs, student success stories, and the future of AI in Afghanistan.
+              Discover how AI4Afghanistan is transforming lives through
+              technology education. Read about our programs, student success
+              stories, and the future of AI in Afghanistan.
             </p>
           </div>
-          
+
           <div className="blog-section-header">
             <Link href="/blogs" className="view-all-btn">
               View All
@@ -454,7 +480,7 @@ const Blog = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Blog
+export default Blog;

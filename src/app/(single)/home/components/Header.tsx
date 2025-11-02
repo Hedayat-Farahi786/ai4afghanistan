@@ -7,6 +7,8 @@ import useScrollEvent from '@/hooks/useScrollEvent'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 
 import SingleMobileMenu from './SingleMobileMenu'
+import HeaderMobile from './HeaderMobile'
+import HeaderTablet from './HeaderTablet'
 import { FaArrowRight } from 'react-icons/fa6'
 import { Col, Container, Row } from 'react-bootstrap'
 
@@ -79,6 +81,7 @@ const Header = () => {
 
   return (
     <>
+      {/* Desktop Header */}
       <header>
         <div className={`header-area homepage1 header header-sticky d-none d-lg-block mt-16 ${scrollY > 100 && 'sticky'}`} id="header">
           <Container>
@@ -121,6 +124,13 @@ const Header = () => {
           </Container>
         </div>
       </header>
+      
+      {/* Tablet Header */}
+      <HeaderTablet />
+      
+
+      
+      {/* Mobile Menu */}
       <SingleMobileMenu />
       <style jsx global>{`
         .logo-text {

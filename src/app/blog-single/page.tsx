@@ -1,18 +1,26 @@
-'use client'
-import { useState, useEffect } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { FaCalendarAlt, FaUser, FaClock, FaArrowLeft, FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa'
-import Blog1 from '@/assets/img/blog/blog1.jpg'
-import Blog2 from '@/assets/img/blog/blog2.jpeg'
-import Blog3 from '@/assets/img/blog/blog3.webp'
+"use client";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  FaCalendarAlt,
+  FaUser,
+  FaClock,
+  FaArrowLeft,
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+} from "react-icons/fa";
+import Blog1 from "@/assets/img/blog/blog1.jpg";
+import Blog2 from "@/assets/img/blog/blog2.jpeg";
+import Blog3 from "@/assets/img/blog/blog3.png";
 
 const BlogSingle = () => {
-  const [, setIsLoaded] = useState(false)
+  const [, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true)
-  }, [])
+    setIsLoaded(true);
+  }, []);
 
   const blogPost = {
     id: 1,
@@ -44,8 +52,8 @@ const BlogSingle = () => {
     date: "October 16, 2024",
     readTime: "5 min read",
     image: Blog1,
-    category: "Education"
-  }
+    category: "Education",
+  };
 
   const relatedPosts = [
     {
@@ -53,16 +61,16 @@ const BlogSingle = () => {
       title: "Building Tomorrow's Tech Leaders: Student Success Stories",
       image: Blog2,
       date: "October 14, 2024",
-      slug: "/blog-single"
+      slug: "/blog-single",
     },
     {
       id: 3,
       title: "The Future of AI Education in Afghanistan: Our Vision",
       image: Blog3,
       date: "October 12, 2024",
-      slug: "/blog-single"
-    }
-  ]
+      slug: "/blog-single",
+    },
+  ];
 
   return (
     <>
@@ -72,20 +80,20 @@ const BlogSingle = () => {
           background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
           padding: 120px 0 80px;
         }
-        
+
         .blog-single-container {
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 20px;
         }
-        
+
         .blog-single-content {
           display: grid;
           grid-template-columns: 1fr 300px;
           gap: 60px;
           align-items: start;
         }
-        
+
         .blog-main {
           background: white;
           border-radius: 20px;
@@ -95,40 +103,40 @@ const BlogSingle = () => {
           opacity: 0;
           animation: slideUp 0.8s ease-out forwards;
         }
-        
+
         .blog-sidebar {
           transform: translateX(30px);
           opacity: 0;
           animation: slideRight 0.8s ease-out 0.2s forwards;
         }
-        
+
         @keyframes slideUp {
           to {
             transform: translateY(0);
             opacity: 1;
           }
         }
-        
+
         @keyframes slideRight {
           to {
             transform: translateX(0);
             opacity: 1;
           }
         }
-        
+
         .blog-header-image {
           position: relative;
           height: 400px;
           overflow: hidden;
         }
-        
+
         .blog-header-image img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           transition: transform 0.6s ease;
         }
-        
+
         .blog-category-badge {
           position: absolute;
           top: 30px;
@@ -144,7 +152,7 @@ const BlogSingle = () => {
           backdrop-filter: blur(10px);
           animation: fadeInScale 0.6s ease-out 0.4s both;
         }
-        
+
         @keyframes fadeInScale {
           from {
             opacity: 0;
@@ -155,11 +163,11 @@ const BlogSingle = () => {
             transform: scale(1);
           }
         }
-        
+
         .blog-content-wrapper {
           padding: 50px;
         }
-        
+
         .blog-back-link {
           display: inline-flex;
           align-items: center;
@@ -172,16 +180,18 @@ const BlogSingle = () => {
           opacity: 0;
           animation: fadeIn 0.6s ease-out 0.6s forwards;
         }
-        
+
         .blog-back-link:hover {
           color: #174555;
           gap: 15px;
         }
-        
+
         @keyframes fadeIn {
-          to { opacity: 1; }
+          to {
+            opacity: 1;
+          }
         }
-        
+
         .blog-title {
           color: #174555;
           font-size: 36px;
@@ -191,7 +201,7 @@ const BlogSingle = () => {
           opacity: 0;
           animation: fadeInUp 0.8s ease-out 0.8s forwards;
         }
-        
+
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -202,7 +212,7 @@ const BlogSingle = () => {
             transform: translateY(0);
           }
         }
-        
+
         .blog-meta {
           display: flex;
           align-items: center;
@@ -213,7 +223,7 @@ const BlogSingle = () => {
           opacity: 0;
           animation: fadeInUp 0.8s ease-out 1s forwards;
         }
-        
+
         .blog-meta-item {
           display: flex;
           align-items: center;
@@ -222,12 +232,12 @@ const BlogSingle = () => {
           font-size: 14px;
           font-weight: 500;
         }
-        
+
         .blog-meta-icon {
           color: #089a45;
           font-size: 14px;
         }
-        
+
         .blog-text {
           color: #444;
           font-size: 16px;
@@ -235,18 +245,18 @@ const BlogSingle = () => {
           opacity: 0;
           animation: fadeInUp 0.8s ease-out 1.2s forwards;
         }
-        
+
         .blog-text h3 {
           color: #174555;
           font-size: 24px;
           font-weight: 600;
           margin: 35px 0 20px;
         }
-        
+
         .blog-text p {
           margin-bottom: 20px;
         }
-        
+
         .blog-share {
           background: white;
           border-radius: 15px;
@@ -254,19 +264,19 @@ const BlogSingle = () => {
           box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
           margin-bottom: 30px;
         }
-        
+
         .blog-share h4 {
           color: #174555;
           font-size: 18px;
           font-weight: 600;
           margin-bottom: 20px;
         }
-        
+
         .share-buttons {
           display: flex;
           gap: 15px;
         }
-        
+
         .share-btn {
           width: 45px;
           height: 45px;
@@ -279,30 +289,36 @@ const BlogSingle = () => {
           transition: all 0.3s ease;
           font-size: 16px;
         }
-        
-        .share-btn.facebook { background: #3b5998; }
-        .share-btn.twitter { background: #1da1f2; }
-        .share-btn.linkedin { background: #0077b5; }
-        
+
+        .share-btn.facebook {
+          background: #3b5998;
+        }
+        .share-btn.twitter {
+          background: #1da1f2;
+        }
+        .share-btn.linkedin {
+          background: #0077b5;
+        }
+
         .share-btn:hover {
           transform: translateY(-3px);
           box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
-        
+
         .related-posts {
           background: white;
           border-radius: 15px;
           padding: 30px;
           box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
         }
-        
+
         .related-posts h4 {
           color: #174555;
           font-size: 18px;
           font-weight: 600;
           margin-bottom: 25px;
         }
-        
+
         .related-post {
           display: flex;
           gap: 15px;
@@ -312,17 +328,17 @@ const BlogSingle = () => {
           text-decoration: none;
           transition: all 0.3s ease;
         }
-        
+
         .related-post:last-child {
           margin-bottom: 0;
           padding-bottom: 0;
           border-bottom: none;
         }
-        
+
         .related-post:hover {
           transform: translateX(5px);
         }
-        
+
         .related-post-image {
           width: 80px;
           height: 60px;
@@ -330,13 +346,13 @@ const BlogSingle = () => {
           overflow: hidden;
           flex-shrink: 0;
         }
-        
+
         .related-post-image img {
           width: 100%;
           height: 100%;
           object-fit: cover;
         }
-        
+
         .related-post-content h5 {
           color: #174555;
           font-size: 14px;
@@ -344,32 +360,32 @@ const BlogSingle = () => {
           line-height: 1.4;
           margin-bottom: 5px;
         }
-        
+
         .related-post-date {
           color: #666;
           font-size: 12px;
         }
-        
+
         @media (max-width: 768px) {
           .blog-single-content {
             grid-template-columns: 1fr;
             gap: 40px;
           }
-          
+
           .blog-content-wrapper {
             padding: 30px 25px;
           }
-          
+
           .blog-title {
             font-size: 28px;
           }
-          
+
           .blog-meta {
             flex-direction: column;
             align-items: flex-start;
             gap: 15px;
           }
-          
+
           .blog-sidebar {
             transform: none;
             animation: none;
@@ -383,8 +399,8 @@ const BlogSingle = () => {
           <div className="blog-single-content">
             <article className="blog-main">
               <div className="blog-header-image">
-                <Image 
-                  src={blogPost.image} 
+                <Image
+                  src={blogPost.image}
                   alt={blogPost.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 70vw"
@@ -392,15 +408,15 @@ const BlogSingle = () => {
                 />
                 <span className="blog-category-badge">{blogPost.category}</span>
               </div>
-              
+
               <div className="blog-content-wrapper">
                 <Link href="/#blog" className="blog-back-link">
                   <FaArrowLeft />
                   Back to Blog
                 </Link>
-                
+
                 <h1 className="blog-title">{blogPost.title}</h1>
-                
+
                 <div className="blog-meta">
                   <div className="blog-meta-item">
                     <FaCalendarAlt className="blog-meta-icon" />
@@ -415,14 +431,14 @@ const BlogSingle = () => {
                     <span>{blogPost.readTime}</span>
                   </div>
                 </div>
-                
-                <div 
+
+                <div
                   className="blog-text"
                   dangerouslySetInnerHTML={{ __html: blogPost.content }}
                 />
               </div>
             </article>
-            
+
             <aside className="blog-sidebar">
               <div className="blog-share">
                 <h4>Share This Post</h4>
@@ -438,14 +454,14 @@ const BlogSingle = () => {
                   </a>
                 </div>
               </div>
-              
+
               <div className="related-posts">
                 <h4>Related Posts</h4>
                 {relatedPosts.map((post) => (
                   <Link key={post.id} href={post.slug} className="related-post">
                     <div className="related-post-image">
-                      <Image 
-                        src={post.image} 
+                      <Image
+                        src={post.image}
                         alt={post.title}
                         width={80}
                         height={60}
@@ -463,7 +479,7 @@ const BlogSingle = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default BlogSingle
+export default BlogSingle;

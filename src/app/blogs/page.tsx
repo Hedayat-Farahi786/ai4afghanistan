@@ -1,67 +1,79 @@
-'use client'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import Image from 'next/image'
-import Link from 'next/link'
-import { FaCalendarAlt, FaUser, FaClock, FaArrowRight, FaArrowLeft, FaSearch } from 'react-icons/fa'
-import Blog1 from '@/assets/img/blog/blog1.jpg'
-import Blog2 from '@/assets/img/blog/blog2.jpeg'
-import Blog3 from '@/assets/img/blog/blog3.webp'
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  FaCalendarAlt,
+  FaUser,
+  FaClock,
+  FaArrowRight,
+  FaArrowLeft,
+  FaSearch,
+} from "react-icons/fa";
+import Blog1 from "@/assets/img/blog/blog1.jpg";
+import Blog2 from "@/assets/img/blog/blog2.jpeg";
+import Blog3 from "@/assets/img/blog/blog3.png";
 
 const blogData = [
   {
     id: 1,
     title: "Empowering Afghan Youth Through AI Education Programs",
-    excerpt: "Discover how our comprehensive AI curriculum is transforming young minds and creating future tech leaders in Afghanistan.",
+    excerpt:
+      "Discover how our comprehensive AI curriculum is transforming young minds and creating future tech leaders in Afghanistan.",
     author: "Ahmad Sirat",
     date: "October 16, 2024",
     readTime: "5 min read",
     image: Blog1,
     category: "Education",
-    slug: "/blog/1"
+    slug: "/blog/1",
   },
   {
     id: 2,
     title: "Building Tomorrow's Tech Leaders: Student Success Stories",
-    excerpt: "Meet our graduates who are now working in tech companies and making a difference in their communities worldwide.",
+    excerpt:
+      "Meet our graduates who are now working in tech companies and making a difference in their communities worldwide.",
     author: "Hedayat Farahi",
     date: "October 14, 2024",
     readTime: "7 min read",
     image: Blog2,
     category: "Success Stories",
-    slug: "/blog/2"
+    slug: "/blog/2",
   },
   {
     id: 3,
     title: "The Future of AI Education in Afghanistan: Our Vision",
-    excerpt: "Learn about our roadmap for expanding AI education and creating sustainable tech opportunities across Afghanistan.",
+    excerpt:
+      "Learn about our roadmap for expanding AI education and creating sustainable tech opportunities across Afghanistan.",
     author: "Fatima Ahmadi",
     date: "October 12, 2024",
     readTime: "6 min read",
     image: Blog3,
     category: "Vision",
-    slug: "/blog/3"
-  }
-]
+    slug: "/blog/3",
+  },
+];
 
 const BlogsPage = () => {
-  const router = useRouter()
-  const [, setHoveredCard] = useState<number | null>(null)
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('All')
+  const router = useRouter();
+  const [, setHoveredCard] = useState<number | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categories = ['All', 'Education', 'Success Stories', 'Vision']
+  const categories = ["All", "Education", "Success Stories", "Vision"];
 
-  const filteredBlogs = blogData.filter(blog => {
-    const matchesSearch = blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === 'All' || blog.category === selectedCategory
-    return matchesSearch && matchesCategory
-  })
+  const filteredBlogs = blogData.filter((blog) => {
+    const matchesSearch =
+      blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      blog.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory =
+      selectedCategory === "All" || blog.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
 
   const handleCardClick = (slug: string) => {
-    router.push(slug)
-  }
+    router.push(slug);
+  };
 
   return (
     <>
@@ -76,12 +88,12 @@ const BlogsPage = () => {
           max-width: 1200px !important;
           border-radius: 20px !important;
         }
-        
+
         .header-elements {
           background: rgba(23, 69, 85, 0.9) !important;
           border-radius: 20px !important;
         }
-        
+
         .header-area.homepage1.sticky {
           background: rgba(23, 69, 85, 0.9) !important;
           position: fixed !important;
@@ -92,33 +104,33 @@ const BlogsPage = () => {
           border-radius: 20px !important;
           top: 10px !important;
         }
-        
+
         .header-area.homepage1 .main-menu ul li a {
           color: #ffffff !important;
         }
-        
+
         .header-area.homepage1 .header-btn1 {
           background: #089a45 !important;
           color: #ffffff !important;
         }
-        
+
         .blogs-page {
           min-height: 100vh;
           background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
           padding: 120px 0 80px;
         }
-        
+
         .blogs-container {
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 20px;
         }
-        
+
         .blogs-back {
           margin-top: 30px;
           margin-bottom: 30px;
         }
-        
+
         .back-link {
           display: inline-flex;
           align-items: center;
@@ -128,17 +140,17 @@ const BlogsPage = () => {
           font-weight: 600;
           transition: all 0.3s ease;
         }
-        
+
         .back-link:hover {
           color: #174555;
           gap: 15px;
         }
-        
+
         .blogs-header {
           text-align: center;
           margin-bottom: 40px;
         }
-        
+
         .blogs-filters {
           display: flex;
           justify-content: space-between;
@@ -146,13 +158,13 @@ const BlogsPage = () => {
           margin-bottom: 40px;
           gap: 20px;
         }
-        
+
         .search-box {
           position: relative;
           flex: 1;
           max-width: 400px;
         }
-        
+
         .search-input {
           width: 100%;
           padding: 12px 16px 12px 50px !important;
@@ -163,16 +175,16 @@ const BlogsPage = () => {
           color: #174555;
           transition: all 0.3s ease;
         }
-        
+
         .search-input::placeholder {
           color: #999;
         }
-        
+
         .search-input:focus {
           outline: none;
           border-color: #089a45;
         }
-        
+
         .search-icon {
           position: absolute;
           left: 18px;
@@ -180,12 +192,12 @@ const BlogsPage = () => {
           transform: translateY(-50%);
           color: #174555;
         }
-        
+
         .category-filters {
           display: flex;
           gap: 10px;
         }
-        
+
         .category-btn {
           padding: 8px 16px;
           border: 2px solid #e9ecef;
@@ -197,7 +209,7 @@ const BlogsPage = () => {
           cursor: pointer;
           transition: all 0.3s ease;
         }
-        
+
         .category-btn.active {
           background: #089a45 !important;
           border-color: #089a45 !important;
@@ -205,47 +217,47 @@ const BlogsPage = () => {
           box-shadow: 0 4px 12px rgba(8, 154, 69, 0.3);
           transform: translateY(-1px);
         }
-        
+
         .category-btn:hover {
           border-color: #089a45;
           color: #089a45;
         }
-        
+
         .category-btn.active:hover {
           color: #fafafa;
         }
-        
+
         .blogs-title {
           color: #174555;
           font-size: 42px;
           font-weight: 700;
           margin-bottom: 20px;
         }
-        
+
         .blogs-description {
           color: #666;
           font-size: 18px;
           max-width: 600px;
           margin: 0 auto;
         }
-        
+
         .blogs-results {
           margin-bottom: 20px;
           color: #666;
           font-size: 14px;
         }
-        
+
         .blogs-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
           gap: 40px;
         }
-        
+
         .blogs-grid .blog-card {
           max-width: 400px;
           width: 100%;
         }
-        
+
         .blog-card {
           background: white;
           border-radius: 20px;
@@ -261,9 +273,15 @@ const BlogsPage = () => {
           animation: fadeInUp 0.6s ease forwards;
           opacity: 0;
         }
-        .blog-card:nth-child(1) { animation-delay: 0.1s; }
-        .blog-card:nth-child(2) { animation-delay: 0.2s; }
-        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+        .blog-card:nth-child(1) {
+          animation-delay: 0.1s;
+        }
+        .blog-card:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+        .blog-card:nth-child(3) {
+          animation-delay: 0.3s;
+        }
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -274,35 +292,35 @@ const BlogsPage = () => {
             transform: translateY(0);
           }
         }
-        
+
         .blog-card:hover {
           transform: translateY(-12px);
           box-shadow: 0 20px 60px rgba(8, 154, 69, 0.15);
           border-color: #089a45;
         }
-        
+
         .blog-card:active {
           transform: translateY(-8px) scale(0.98);
           transition: all 0.15s ease;
         }
-        
+
         .blog-image-container {
           position: relative;
           height: 240px;
           overflow: hidden;
         }
-        
+
         .blog-image {
           width: 100%;
           height: 100%;
           object-fit: cover;
           transition: transform 0.6s ease;
         }
-        
+
         .blog-card:hover .blog-image {
           transform: scale(1.08);
         }
-        
+
         .blog-category {
           position: absolute;
           top: 20px;
@@ -317,14 +335,14 @@ const BlogsPage = () => {
           letter-spacing: 0.5px;
           backdrop-filter: blur(10px);
         }
-        
+
         .blog-content {
           padding: 32px 28px;
           flex-grow: 1;
           display: flex;
           flex-direction: column;
         }
-        
+
         .blog-meta {
           display: flex;
           align-items: center;
@@ -332,7 +350,7 @@ const BlogsPage = () => {
           margin-bottom: 16px;
           flex-wrap: wrap;
         }
-        
+
         .blog-meta-item {
           display: flex;
           align-items: center;
@@ -341,12 +359,12 @@ const BlogsPage = () => {
           font-size: 13px;
           font-weight: 500;
         }
-        
+
         .blog-meta-icon {
           color: #089a45;
           font-size: 12px;
         }
-        
+
         .blog-card-title {
           color: #174555;
           font-size: 20px;
@@ -360,11 +378,11 @@ const BlogsPage = () => {
           text-overflow: ellipsis;
           min-height: 56px;
         }
-        
+
         .blog-card-title:hover {
           color: #089a45;
         }
-        
+
         .blog-excerpt {
           color: #666;
           font-size: 14px;
@@ -377,7 +395,7 @@ const BlogsPage = () => {
           text-overflow: ellipsis;
           flex-grow: 1;
         }
-        
+
         .blog-read-more {
           display: inline-flex;
           align-items: center;
@@ -390,44 +408,44 @@ const BlogsPage = () => {
           margin-top: auto;
           width: fit-content;
         }
-        
+
         .blog-read-more:hover {
           color: #174555;
           gap: 12px;
         }
-        
+
         .blog-read-more-icon {
           transition: transform 0.3s ease;
           font-size: 12px;
         }
-        
+
         .blog-read-more:hover .blog-read-more-icon {
           transform: translateX(4px);
         }
-        
+
         @media (max-width: 768px) {
           .blogs-page {
             padding: 80px 0 60px;
           }
-          
+
           .blogs-container {
             padding: 0 16px;
           }
-          
+
           .blogs-title {
             font-size: 32px;
           }
-          
+
           .blogs-grid {
             grid-template-columns: 1fr;
             gap: 30px;
           }
-          
+
           .blogs-filters {
             flex-direction: column;
             align-items: stretch;
           }
-          
+
           .category-filters {
             flex-wrap: wrap;
             justify-content: center;
@@ -443,14 +461,15 @@ const BlogsPage = () => {
               Back to Home
             </Link>
           </div>
-          
+
           <div className="blogs-header">
             <h1 className="blogs-title">All Blog Posts</h1>
             <p className="blogs-description">
-              Explore our complete collection of stories, insights, and updates about AI education and innovation in Afghanistan.
+              Explore our complete collection of stories, insights, and updates
+              about AI education and innovation in Afghanistan.
             </p>
           </div>
-          
+
           <div className="blogs-filters">
             <div className="search-box">
               <FaSearch className="search-icon" />
@@ -462,12 +481,14 @@ const BlogsPage = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
-            
+
             <div className="category-filters">
               {categories.map((category) => (
                 <button
                   key={category}
-                  className={`category-btn ${selectedCategory === category ? 'active' : ''}`}
+                  className={`category-btn ${
+                    selectedCategory === category ? "active" : ""
+                  }`}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category}
@@ -475,15 +496,15 @@ const BlogsPage = () => {
               ))}
             </div>
           </div>
-          
+
           <div className="blogs-results">
             Showing {filteredBlogs.length} of {blogData.length} posts
           </div>
-          
+
           <div className="blogs-grid">
             {filteredBlogs.map((post) => (
-              <article 
-                key={post.id} 
+              <article
+                key={post.id}
                 className="blog-card"
                 onMouseEnter={() => setHoveredCard(post.id)}
                 onMouseLeave={() => setHoveredCard(null)}
@@ -491,8 +512,8 @@ const BlogsPage = () => {
               >
                 <div className="blog-image-container">
                   <Link href={post.slug}>
-                    <Image 
-                      src={post.image} 
+                    <Image
+                      src={post.image}
                       alt={post.title}
                       className="blog-image"
                       fill
@@ -501,7 +522,7 @@ const BlogsPage = () => {
                   </Link>
                   <span className="blog-category">{post.category}</span>
                 </div>
-                
+
                 <div className="blog-content">
                   <div className="blog-meta">
                     <div className="blog-meta-item">
@@ -517,13 +538,13 @@ const BlogsPage = () => {
                       <span>{post.readTime}</span>
                     </div>
                   </div>
-                  
+
                   <h3 className="blog-card-title">
                     <Link href={post.slug}>{post.title}</Link>
                   </h3>
-                  
+
                   <p className="blog-excerpt">{post.excerpt}</p>
-                  
+
                   <Link href={post.slug} className="blog-read-more">
                     Read More
                     <FaArrowRight className="blog-read-more-icon" />
@@ -535,7 +556,7 @@ const BlogsPage = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default BlogsPage
+export default BlogsPage;

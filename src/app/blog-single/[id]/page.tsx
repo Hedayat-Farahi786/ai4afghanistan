@@ -1,12 +1,20 @@
-'use client'
-import { useState, useEffect } from 'react'
-import { useParams } from 'next/navigation'
-import Image from 'next/image'
-import Link from 'next/link'
-import { FaCalendarAlt, FaUser, FaClock, FaArrowLeft, FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa'
-import Blog1 from '@/assets/img/blog/blog1.jpg'
-import Blog2 from '@/assets/img/blog/blog2.jpeg'
-import Blog3 from '@/assets/img/blog/blog3.webp'
+"use client";
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  FaCalendarAlt,
+  FaUser,
+  FaClock,
+  FaArrowLeft,
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+} from "react-icons/fa";
+import Blog1 from "@/assets/img/blog/blog1.jpg";
+import Blog2 from "@/assets/img/blog/blog2.jpeg";
+import Blog3 from "@/assets/img/blog/blog3.png";
 
 const blogData = [
   {
@@ -39,7 +47,7 @@ const blogData = [
     date: "October 16, 2024",
     readTime: "5 min read",
     image: Blog1,
-    category: "Education"
+    category: "Education",
   },
   {
     id: 2,
@@ -66,7 +74,7 @@ const blogData = [
     date: "October 14, 2024",
     readTime: "7 min read",
     image: Blog2,
-    category: "Success Stories"
+    category: "Success Stories",
   },
   {
     id: 3,
@@ -98,27 +106,29 @@ const blogData = [
     date: "October 12, 2024",
     readTime: "6 min read",
     image: Blog3,
-    category: "Vision"
-  }
-]
+    category: "Vision",
+  },
+];
 
 const BlogSingle = () => {
-  const params = useParams()
-  const [, setIsLoaded] = useState(false)
-  const [blogPost, setBlogPost] = useState(null)
+  const params = useParams();
+  const [, setIsLoaded] = useState(false);
+  const [blogPost, setBlogPost] = useState(null);
 
   useEffect(() => {
-    const id = parseInt(params.id as string)
-    const post = blogData.find(post => post.id === id)
-    setBlogPost(post || blogData[0])
-    setIsLoaded(true)
-  }, [params.id])
+    const id = parseInt(params.id as string);
+    const post = blogData.find((post) => post.id === id);
+    setBlogPost(post || blogData[0]);
+    setIsLoaded(true);
+  }, [params.id]);
 
   if (!blogPost) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
-  const relatedPosts = blogData.filter(post => post.id !== blogPost.id).slice(0, 2)
+  const relatedPosts = blogData
+    .filter((post) => post.id !== blogPost.id)
+    .slice(0, 2);
 
   return (
     <>
@@ -133,12 +143,12 @@ const BlogSingle = () => {
           max-width: 1200px !important;
           border-radius: 20px !important;
         }
-        
+
         .header-elements {
           background: rgba(23, 69, 85, 0.9) !important;
           border-radius: 20px !important;
         }
-        
+
         .header-area.homepage1.sticky {
           background: rgba(23, 69, 85, 0.9) !important;
           position: fixed !important;
@@ -149,35 +159,35 @@ const BlogSingle = () => {
           border-radius: 20px !important;
           top: 10px !important;
         }
-        
+
         .header-area.homepage1 .main-menu ul li a {
           color: #ffffff !important;
         }
-        
+
         .header-area.homepage1 .header-btn1 {
           background: #089a45 !important;
           color: #ffffff !important;
         }
-        
+
         .blog-single-page {
           min-height: 100vh;
           background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
           padding: 120px 0 80px;
         }
-        
+
         .blog-single-container {
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 20px;
         }
-        
+
         .blog-single-content {
           display: grid;
           grid-template-columns: 1fr 300px;
           gap: 60px;
           align-items: start;
         }
-        
+
         .blog-main {
           background: white;
           border-radius: 20px;
@@ -187,40 +197,40 @@ const BlogSingle = () => {
           opacity: 0;
           animation: slideUp 0.8s ease-out forwards;
         }
-        
+
         .blog-sidebar {
           transform: translateX(30px);
           opacity: 0;
           animation: slideRight 0.8s ease-out 0.2s forwards;
         }
-        
+
         @keyframes slideUp {
           to {
             transform: translateY(0);
             opacity: 1;
           }
         }
-        
+
         @keyframes slideRight {
           to {
             transform: translateX(0);
             opacity: 1;
           }
         }
-        
+
         .blog-header-image {
           position: relative;
           height: 400px;
           overflow: hidden;
         }
-        
+
         .blog-header-image img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           transition: transform 0.6s ease;
         }
-        
+
         .blog-category-badge {
           position: absolute;
           top: 30px;
@@ -236,7 +246,7 @@ const BlogSingle = () => {
           backdrop-filter: blur(10px);
           animation: fadeInScale 0.6s ease-out 0.4s both;
         }
-        
+
         @keyframes fadeInScale {
           from {
             opacity: 0;
@@ -247,11 +257,11 @@ const BlogSingle = () => {
             transform: scale(1);
           }
         }
-        
+
         .blog-content-wrapper {
           padding: 50px;
         }
-        
+
         .blog-back-link {
           display: inline-flex;
           align-items: center;
@@ -264,16 +274,18 @@ const BlogSingle = () => {
           opacity: 0;
           animation: fadeIn 0.6s ease-out 0.6s forwards;
         }
-        
+
         .blog-back-link:hover {
           color: #174555;
           gap: 15px;
         }
-        
+
         @keyframes fadeIn {
-          to { opacity: 1; }
+          to {
+            opacity: 1;
+          }
         }
-        
+
         .blog-title {
           color: #174555;
           font-size: 36px;
@@ -283,7 +295,7 @@ const BlogSingle = () => {
           opacity: 0;
           animation: fadeInUp 0.8s ease-out 0.8s forwards;
         }
-        
+
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -294,7 +306,7 @@ const BlogSingle = () => {
             transform: translateY(0);
           }
         }
-        
+
         .blog-meta {
           display: flex;
           align-items: center;
@@ -305,7 +317,7 @@ const BlogSingle = () => {
           opacity: 0;
           animation: fadeInUp 0.8s ease-out 1s forwards;
         }
-        
+
         .blog-meta-item {
           display: flex;
           align-items: center;
@@ -314,12 +326,12 @@ const BlogSingle = () => {
           font-size: 14px;
           font-weight: 500;
         }
-        
+
         .blog-meta-icon {
           color: #089a45;
           font-size: 14px;
         }
-        
+
         .blog-text {
           color: #444;
           font-size: 16px;
@@ -327,18 +339,18 @@ const BlogSingle = () => {
           opacity: 0;
           animation: fadeInUp 0.8s ease-out 1.2s forwards;
         }
-        
+
         .blog-text h3 {
           color: #174555;
           font-size: 24px;
           font-weight: 600;
           margin: 35px 0 20px;
         }
-        
+
         .blog-text p {
           margin-bottom: 20px;
         }
-        
+
         .blog-share {
           background: white;
           border-radius: 15px;
@@ -346,19 +358,19 @@ const BlogSingle = () => {
           box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
           margin-bottom: 30px;
         }
-        
+
         .blog-share h4 {
           color: #174555;
           font-size: 18px;
           font-weight: 600;
           margin-bottom: 20px;
         }
-        
+
         .share-buttons {
           display: flex;
           gap: 15px;
         }
-        
+
         .share-btn {
           width: 42px;
           height: 42px;
@@ -373,32 +385,32 @@ const BlogSingle = () => {
           background: rgba(8, 154, 69, 0.1);
           border: 1px solid rgba(8, 154, 69, 0.2);
         }
-        
+
         .share-btn:hover {
           color: #fafafa !important;
           background: #089a45;
           transform: translateY(-2px);
           box-shadow: 0 4px 12px rgba(8, 154, 69, 0.3);
         }
-        
+
         .blog-category-badge {
           color: #fafafa !important;
         }
-        
+
         .related-posts {
           background: white;
           border-radius: 15px;
           padding: 30px;
           box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
         }
-        
+
         .related-posts h4 {
           color: #174555;
           font-size: 18px;
           font-weight: 600;
           margin-bottom: 25px;
         }
-        
+
         .related-post {
           display: flex;
           gap: 15px;
@@ -408,17 +420,17 @@ const BlogSingle = () => {
           text-decoration: none;
           transition: all 0.3s ease;
         }
-        
+
         .related-post:last-child {
           margin-bottom: 0;
           padding-bottom: 0;
           border-bottom: none;
         }
-        
+
         .related-post:hover {
           transform: translateX(5px);
         }
-        
+
         .related-post-image {
           width: 80px;
           height: 60px;
@@ -426,13 +438,13 @@ const BlogSingle = () => {
           overflow: hidden;
           flex-shrink: 0;
         }
-        
+
         .related-post-image img {
           width: 100%;
           height: 100%;
           object-fit: cover;
         }
-        
+
         .related-post-content h5 {
           color: #174555;
           font-size: 14px;
@@ -440,32 +452,32 @@ const BlogSingle = () => {
           line-height: 1.4;
           margin-bottom: 5px;
         }
-        
+
         .related-post-date {
           color: #666;
           font-size: 12px;
         }
-        
+
         @media (max-width: 768px) {
           .blog-single-content {
             grid-template-columns: 1fr;
             gap: 40px;
           }
-          
+
           .blog-content-wrapper {
             padding: 30px 25px;
           }
-          
+
           .blog-title {
             font-size: 28px;
           }
-          
+
           .blog-meta {
             flex-direction: column;
             align-items: flex-start;
             gap: 15px;
           }
-          
+
           .blog-sidebar {
             transform: none;
             animation: none;
@@ -479,8 +491,8 @@ const BlogSingle = () => {
           <div className="blog-single-content">
             <article className="blog-main">
               <div className="blog-header-image">
-                <Image 
-                  src={blogPost.image} 
+                <Image
+                  src={blogPost.image}
                   alt={blogPost.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 70vw"
@@ -488,15 +500,15 @@ const BlogSingle = () => {
                 />
                 <span className="blog-category-badge">{blogPost.category}</span>
               </div>
-              
+
               <div className="blog-content-wrapper">
                 <Link href="/#blog" className="blog-back-link">
                   <FaArrowLeft />
                   Back to Blog
                 </Link>
-                
+
                 <h1 className="blog-title">{blogPost.title}</h1>
-                
+
                 <div className="blog-meta">
                   <div className="blog-meta-item">
                     <FaCalendarAlt className="blog-meta-icon" />
@@ -511,14 +523,14 @@ const BlogSingle = () => {
                     <span>{blogPost.readTime}</span>
                   </div>
                 </div>
-                
-                <div 
+
+                <div
                   className="blog-text"
                   dangerouslySetInnerHTML={{ __html: blogPost.content }}
                 />
               </div>
             </article>
-            
+
             <aside className="blog-sidebar">
               <div className="blog-share">
                 <h4>Share This Post</h4>
@@ -534,14 +546,18 @@ const BlogSingle = () => {
                   </a>
                 </div>
               </div>
-              
+
               <div className="related-posts">
                 <h4>Related Posts</h4>
                 {relatedPosts.map((post) => (
-                  <Link key={post.id} href={`/blog-single/${post.id}`} className="related-post">
+                  <Link
+                    key={post.id}
+                    href={`/blog-single/${post.id}`}
+                    className="related-post"
+                  >
                     <div className="related-post-image">
-                      <Image 
-                        src={post.image} 
+                      <Image
+                        src={post.image}
                         alt={post.title}
                         width={80}
                         height={60}
@@ -559,7 +575,7 @@ const BlogSingle = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default BlogSingle
+export default BlogSingle;

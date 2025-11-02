@@ -17,9 +17,17 @@ const SingleMobileMenu = () => {
   const router = useRouter()
   const pathname = usePathname()
   const [mounted, setMounted] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+    
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100)
+    }
+    
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   if (!mounted) {
@@ -28,38 +36,44 @@ const SingleMobileMenu = () => {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault()
-    toggle() // Close mobile menu
-    if (pathname === '/home') {
-      scrollToSection(sectionId)
-    } else {
-      router.push(`/home#${sectionId}`)
-    }
+    toggle() // Close sidebar first
+    
+    setTimeout(() => {
+      if (pathname === '/home') {
+        scrollToSection(sectionId)
+      } else {
+        router.push(`/home#${sectionId}`)
+      }
+    }, 300) // Wait for sidebar close animation
   }
+  
+  const handleSocialClick = () => {
+    toggle() // Close sidebar when social links are clicked
+  }
+
   return (
     <>
-      <div className="mobile-header mobile-haeder1 d-block d-lg-none">
-        <Container>
-          <Col xs={12}>
-            <div className="mobile-header-elements">
-              <div className="mobile-logo">
-                <Link href="/home"><Image src={logo1} alt='logo1' style={{width: '54px', height: 'auto'}} /></Link>
-              </div>
-              <div onClick={toggle} className="mobile-nav-icon dots-menu">
-                <FaBars className="fa-solid fa-bars" />
-              </div>
+      <div className={`mobile-header mobile-haeder1 d-block d-md-none ${isOpen ? 'mobile-menu-active' : ''} ${isScrolled ? 'scrolled' : ''}`}>
+        <div className="mobile-header-container">
+          <div className="mobile-header-elements">
+            <div className="mobile-logo">
+              <Link href="/home" onClick={() => isOpen && toggle()}>
+                <Image src={logo1} alt='logo1' width={40} height={40} />
+                <div className="logo-text-mobile">
+                  <span className="logo-text">AI<span className="logo-number">4</span>Afghanistan</span>
+                  <span className="logo-slogan">we grow beyond boundaries</span>
+                </div>
+              </Link>
             </div>
-          </Col>
-        </Container>
-      </div>
-      <div className={`mobile-sidebar mobile-sidebar1 ${isOpen && 'mobile-menu-active'}`}>
-        <div className="logosicon-area">
-          <div className="logos">
-            <Image src={footerLogo1} alt='footerLogo1' loading="lazy" />
-          </div>
-          <div onClick={toggle} className="menu-close">
-            <FaXmark className="fa-solid fa-xmark" />
+            <div onClick={toggle} className="mobile-nav-icon">
+              {isOpen ? <FaXmark size={20} /> : <FaBars size={20} />}
+            </div>
           </div>
         </div>
+      </div>
+      
+      <div className={`mobile-sidebar mobile-sidebar1 ${isOpen && 'mobile-menu-active'}`}>
+
         <div className="mobile-nav mobile-nav1">
           <ul className="mobile-nav-list nav-list1">
             <li><a href="/home#about" onClick={(e) => handleNavClick(e, 'about')}>About</a></li>
@@ -71,51 +85,158 @@ const SingleMobileMenu = () => {
             <li><a href="/home#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a></li>
           </ul>
           <div className="allmobilesection">
-            <a href="/home#donate" className="header-mobile-btn1" onClick={(e) => handleNavClick(e, 'donate')}>Donate Now <span><FaArrowRight /></span></a>
+            <a href="/home#donate" className="header-btn1" style={{fontSize: '16px', fontWeight: '600', padding: '14px 28px'}} onClick={(e) => handleNavClick(e, 'donate')}>
+              Donate <span><FaArrowRight /></span>
+            </a>
             <div className="vl-mobile-contact1">
-              <h3 className="title">Contact Info</h3>
-              <div className="footer1-contact-info">
-                <div className="contact-info-single">
-                  <div className="contact-info-icon">
-                    <FaPhoneVolume size={16} className="fa-solid fa-phone-volume" />
-                  </div>
-                  <div className="contact-info-text">
-                    <a href="tel:+3(924)4596512">+3(924)4596512</a>
-                  </div>
-                </div>
-                <div className="contact-info-single">
-                  <div className="contact-info-icon">
-                    <FaEnvelope size={16} className="fa-solid fa-envelope" />
-                  </div>
-                  <div className="contact-info-text">
-                    <a href="mailto:info@example.com">info@example.com</a>
-                  </div>
-                </div>
-                <div className="contact-info-single">
-                  <div className="contact-info-icon">
-                    <FaLocationDot size={16} width={16} height={16} className="fa-solid fa-location-dot" />
-                  </div>
-                  <div className="contact-info-text">
-                    <a href="mailto:info@example.com">55 East Birchwood Ave.Brooklyn, <br /> New York 11201,United States</a>
-                  </div>
-                </div>
-                <div className="vl-mobile-contact1">
-                  <h3 className="title">Social Links</h3>
-                  <div className="social-links-mobile-menu">
-                    <ul>
-                      <li><a className='d-flex align-items-center justify-content-center' href="#"><FaFacebookF className="fa-brands fa-facebook-f" /></a></li>
-                      <li><a className='d-flex align-items-center justify-content-center' href="#"><FaInstagram className="fa-brands fa-instagram" /></a></li>
-                      <li><a className='d-flex align-items-center justify-content-center' href="#"><FaLinkedinIn className="fa-brands fa-linkedin-in" /></a></li>
-                      <li><a className='d-flex align-items-center justify-content-center' href="#"><FaYoutube className="fa-brands fa-youtube" /></a></li>
-                    </ul>
-                  </div>
-                </div>
+              <h3 className="title">Social Links</h3>
+              <div className="social-links-mobile-menu">
+                <ul>
+                  <li><a className='d-flex align-items-center justify-content-center' href="https://www.facebook.com/ai4afgorg/" target="_blank" rel="noopener noreferrer" onClick={handleSocialClick}><FaFacebookF /></a></li>
+                  <li><a className='d-flex align-items-center justify-content-center' href="#" onClick={handleSocialClick}><FaInstagram /></a></li>
+                  <li><a className='d-flex align-items-center justify-content-center' href="https://www.linkedin.com/in/ai4afgorg" target="_blank" rel="noopener noreferrer" onClick={handleSocialClick}><FaLinkedinIn /></a></li>
+                  <li><a className='d-flex align-items-center justify-content-center' href="#" onClick={handleSocialClick}><FaYoutube /></a></li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
 
+      <style jsx global>{`
+        body {
+          overflow-x: hidden !important;
+        }
+        
+        .mobile-header {
+          position: fixed !important;
+          top: 12px !important;
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+          width: calc(100vw - 32px) !important;
+          max-width: 480px !important;
+          z-index: 99999999 !important;
+          background: transparent !important;
+        }
+        
+        .mobile-header-container {
+          background: rgba(255, 255, 255, 0.1) !important;
+          backdrop-filter: blur(12px) !important;
+          -webkit-backdrop-filter: blur(12px) !important;
+          border: none !important;
+          border-width: 0 !important;
+          border-style: none !important;
+          border-color: transparent !important;
+          outline: none !important;
+          border-radius: 50px !important;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+          transition: all 0.3s ease !important;
+        }
+        
+        .mobile-header.scrolled .mobile-header-container {
+          background: rgba(23, 69, 85, 0.9) !important;
+        }
+        
+        .mobile-header-elements {
+          padding: 8px 20px !important;
+          display: flex !important;
+          justify-content: space-between !important;
+          align-items: center !important;
+        }
+        
+        .mobile-logo a {
+          display: flex !important;
+          align-items: center !important;
+          gap: 8px !important;
+          text-decoration: none !important;
+        }
+        
+        .logo-text-mobile {
+          display: flex !important;
+          flex-direction: column !important;
+        }
+        
+        .logo-text-mobile .logo-text {
+          font-size: 0.9rem !important;
+          font-weight: 700 !important;
+          color: #fafafa !important;
+          line-height: 1.2 !important;
+        }
+        
+        .logo-text-mobile .logo-number {
+          color: #089a45 !important;
+        }
+        
+        .logo-text-mobile .logo-slogan {
+          font-size: 0.55rem !important;
+          color: #eee !important;
+        }
+        
+        .mobile-nav-icon {
+          cursor: pointer !important;
+          padding: 12px !important;
+          border-radius: 50% !important;
+          transition: all 0.3s ease !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: center !important;
+          align-items: center !important;
+          width: 48px !important;
+          height: 48px !important;
+        }
+        
+        .mobile-nav-icon:hover {
+          background: rgba(255, 255, 255, 0.1) !important;
+        }
+        
+        .mobile-nav-icon svg {
+          color: #fafafa !important;
+          transition: all 0.3s ease !important;
+        }
+        
+        .mobile-sidebar {
+          z-index: 9999999 !important;
+          padding: 80px 20px 20px 20px !important;
+        }
+        
+        .mobile-header.mobile-menu-active .mobile-nav-icon svg {
+          color: #174555 !important;
+        }
+        
+        .mobile-header.mobile-menu-active .logo-text-mobile .logo-text {
+          color: #174555 !important;
+        }
+        
+        .mobile-header.mobile-menu-active .logo-text-mobile .logo-slogan {
+          color: #174555 !important;
+        }
+        
+        .mobile-header.mobile-menu-active.scrolled .mobile-nav-icon svg {
+          color: #fafafa !important;
+        }
+        
+        .mobile-header.mobile-menu-active.scrolled .logo-text-mobile .logo-text {
+          color: #fafafa !important;
+        }
+        
+        .mobile-header.mobile-menu-active.scrolled .logo-text-mobile .logo-slogan {
+          color: #eee !important;
+        }
+        
+        .mobile-sidebar .header-btn1 {
+          width: 100% !important;
+          margin: 20px 0 !important;
+          background: #174555 !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          gap: 8px !important;
+        }
+        
+        .mobile-sidebar .header-btn1:hover {
+          background: #0f3a47 !important;
+        }
+      `}</style>
     </>
   )
 }
