@@ -399,10 +399,10 @@ const EventArea = () => {
       <section id="events" className="events-vertical-section">
         <div className="events-container">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h5 style={{ color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block' }} className="events-subtitle">
+            <h5 className="events-subtitle responsive-subtitle" style={{ color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block' }}>
               Upcoming Events
             </h5>
-            <h2 style={{ color: '#174555', fontSize: '28px', fontWeight: 700, marginBottom: '16px' }}>
+            <h2 className="events-title responsive-title-h2" style={{ color: '#174555', fontSize: '28px', fontWeight: 700, marginBottom: '16px' }}>
               Join Our Community Events
             </h2>
             <p style={{ color: '#666', fontSize: '14px', maxWidth: '450px', margin: '0 auto' }}>
@@ -427,7 +427,7 @@ const EventArea = () => {
                       <FaCalendarAlt className="event-vertical-date-icon" style={{ color: '#fafafa' }} />
                       <span className="event-vertical-date-text" style={{ color: '#fafafa', fontSize: '10px' }}>{events[0].date} {events[0].month} {events[0].year}</span>
                     </div>
-                    <h2 style={{ marginBottom: '8px', fontSize: '20px', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>{events[0].title}</h2>
+                    <h2 className="responsive-title-h2" style={{ marginBottom: '8px', fontSize: '20px', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>{events[0].title}</h2>
                     <div style={{ display: 'flex', gap: '12px', marginBottom: '12px', fontSize: '12px', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                         <FaClock size={10} />
@@ -456,7 +456,7 @@ const EventArea = () => {
                         <span className="event-vertical-date-text">{event.date} {event.month} {event.year}</span>
                       </div>
                       
-                      <h3 className="event-vertical-title">{event.title}</h3>
+                      <h3 className="event-vertical-title responsive-title-h3">{event.title}</h3>
                       
                       <div className="event-vertical-meta">
                         <div className="event-vertical-meta-item">

@@ -88,7 +88,7 @@ const BlogCard = memo(
           </div>
         </div>
 
-        <h3 className="blog-card-title">
+        <h3 className="blog-card-title responsive-title-h3">
           <Link href={post.slug}>{post.title}</Link>
         </h3>
 
@@ -553,8 +553,8 @@ const Blog = () => {
       <section id="blog" className="blog-section">
         <div className="blog-container">
           <div className="blog-header">
-            <h5 className="blog-subtitle">Latest Updates</h5>
-            <h2 className="blog-title">AI Education & Innovation Stories</h2>
+            <h5 className="blog-subtitle responsive-subtitle">Latest Updates</h5>
+            <h2 className="blog-title responsive-title-h2">AI Education & Innovation Stories</h2>
             <p className="blog-description">
               Discover how AI4Afghanistan is transforming lives through
               technology education. Read about our programs, student success

@@ -23,12 +23,13 @@ const SingleMobileMenu = () => {
     setMounted(true)
     
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100)
+      setIsScrolled(window.scrollY > 100 || pathname !== '/home')
     }
     
+    handleScroll() // Check initial state
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [pathname])
 
   if (!mounted) {
     return null

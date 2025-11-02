@@ -84,7 +84,7 @@ const Header = () => {
     <>
       {/* Desktop Header */}
       <header>
-        <div className={`header-area homepage1 header header-sticky d-none d-lg-block mt-16 ${scrollY > 100 && 'sticky'}`} id="header">
+        <div className={`header-area homepage1 header header-sticky d-none d-lg-block mt-16 ${(scrollY > 100 || pathname !== '/home') && 'sticky'}`} id="header">
           <Container>
             <Row>
               <Col lg={12}>
@@ -232,9 +232,9 @@ const Header = () => {
         .header-area.homepage1.sticky {
           background: rgba(23, 69, 85, 0.9) !important;
           backdrop-filter: blur(10px) !important;
-          border-radius: 50px !important;
-          margin: 8px auto 0 auto !important;
-          width: 80% !important;
+          border-radius: 70px !important;
+          margin: 12px auto 0 auto !important;
+          width: 70% !important;
           left: 50% !important;
           transform: translateX(-50%) !important;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;

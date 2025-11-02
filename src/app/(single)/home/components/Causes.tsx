@@ -107,10 +107,10 @@ const Causes = () => {
       <section id="programs" style={{ padding: '80px 0', background: '#f8f9fa' }}>
       <div className="causes-container">
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h5 style={{ color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block' }} className="causes-subtitle">
+          <h5 className="causes-subtitle responsive-subtitle" style={{ color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block' }}>
             Our Vision
           </h5>
-          <h2 style={{ color: '#174555', fontSize: '28px', fontWeight: 700, marginBottom: '16px' }}>
+          <h2 className="causes-title responsive-title-h2" style={{ color: '#174555', fontSize: '28px', fontWeight: 700, marginBottom: '16px' }}>
             Building Afghanistan's AI Future
           </h2>
           <p style={{ color: '#666', fontSize: '14px', maxWidth: '450px', margin: '0 auto' }}>
@@ -166,7 +166,7 @@ const Causes = () => {
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
                   <LuBrain style={{ fontSize: '24px', color: '#089a45', strokeWidth: 2 }} />
-                  <h4 style={{ color: '#174555 !important', fontSize: '22px', fontWeight: 600, margin: 0 }}>
+                  <h4 className="responsive-title-h4" style={{ color: '#174555 !important', fontSize: '22px', fontWeight: 600, margin: 0 }}>
                     AI Education
                   </h4>
                 </div>
@@ -224,7 +224,7 @@ const Causes = () => {
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
                   <BiCodeAlt style={{ fontSize: '24px', color: '#089a45' }} />
-                  <h4 style={{ color: '#174555 !important', fontSize: '22px', fontWeight: 600, margin: 0 }}>
+                  <h4 className="responsive-title-h4" style={{ color: '#174555 !important', fontSize: '22px', fontWeight: 600, margin: 0 }}>
                     Skills Training
                   </h4>
                 </div>
@@ -282,7 +282,7 @@ const Causes = () => {
               <div style={{ padding: '24px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
                   <LuUsers style={{ fontSize: '24px', color: '#089a45', strokeWidth: 2 }} />
-                  <h4 style={{ color: '#174555 !important', fontSize: '22px', fontWeight: 600, margin: 0 }}>
+                  <h4 className="responsive-title-h4" style={{ color: '#174555 !important', fontSize: '22px', fontWeight: 600, margin: 0 }}>
                     Community Building
                   </h4>
                 </div>

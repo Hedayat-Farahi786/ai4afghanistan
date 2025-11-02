@@ -207,6 +207,9 @@ const Team = () => {
           overflow: hidden;
           text-overflow: ellipsis;
         }
+        .team-name.responsive-title-h3 {
+          font-size: clamp(14px, 3vw, 18px) !important;
+        }
         .team-divider {
           width: 50%;
           height: 2px;
@@ -507,13 +510,13 @@ const Team = () => {
       <section id="team" className="team-section">
         <div className="team-main-container">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h5 style={{ color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block' }} className="team-subtitle">
+            <h5 className="team-subtitle responsive-subtitle" style={{ color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block' }}>
               Our Team
             </h5>
-            <h2 style={{ color: '#174555', fontSize: '28px', fontWeight: 700, marginBottom: '16px' }}>
+            <h2 className="team-title responsive-title-h2" style={{ color: '#174555', fontSize: '28px', fontWeight: 700, marginBottom: '16px' }}>
               Meet Our Dedicated Team
             </h2>
-            <p style={{ color: '#666', fontSize: '14px', maxWidth: '550px', margin: '0 auto' }}>
+            <p style={{ color: '#666', fontSize: '14px', maxWidth: '550px', margin: '0 auto' }} className="team-description">
               Our passionate team of educators, technologists, and community leaders working together to empower Afghan youth through AI and technology education.
             </p>
           </div>
@@ -524,7 +527,7 @@ const Team = () => {
                 {displayedMembers.map((member, idx) => {
                   const memberIndex = showAll ? idx : idx;
                   return (
-                    <div key={idx} className="team-card team-card-mobile">
+                    <div key={idx} className="team-card team-card-mobile team-card">
                       <div className="team-image">
                         <Image 
                           src={member.image} 
@@ -535,7 +538,7 @@ const Team = () => {
                       </div>
                       <div className="team-content">
                         <div>
-                          <h3 className="team-name">{member.name}</h3>
+                          <h3 className="team-name responsive-title-h3">{member.name}</h3>
                           <div className="team-divider"></div>
                           <p className="team-role">{member.role}</p>
                         </div>
@@ -587,7 +590,7 @@ const Team = () => {
                       </div>
                       <div className="team-content">
                         <div>
-                          <h3 className="team-name">{member.name}</h3>
+                          <h3 className="team-name responsive-title-h3">{member.name}</h3>
                           <div className="team-divider"></div>
                           <p className="team-role">{member.role}</p>
                         </div>
@@ -649,7 +652,7 @@ const Team = () => {
           {isMobile && teamData.length > 4 && (
             <div style={{ textAlign: 'center', marginTop: '30px' }}>
               <button 
-                className="show-more-btn"
+                className="show-more-btn team-show-more"
                 onClick={() => setShowAll(!showAll)}
               >
                 {showAll ? 'Show Less' : 'Show More'} <FaArrowRight size={12} />

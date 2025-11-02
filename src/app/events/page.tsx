@@ -110,13 +110,42 @@ const EventsPage = () => {
         .events-page {
           min-height: 100vh;
           background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-          padding: 120px 0 80px;
+          padding: 140px 0 80px;
         }
         
         .events-container {
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 20px;
+        }
+        
+        @media (max-width: 1024px) {
+          .events-container {
+            max-width: 95%;
+            padding: 0 15px;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .events-page {
+            padding: 120px 0 60px;
+          }
+          
+          .events-container {
+            max-width: 90%;
+            padding: 0 10px;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .events-page {
+            padding: 110px 0 50px;
+          }
+          
+          .events-container {
+            max-width: 95%;
+            padding: 0 8px;
+          }
         }
         
         .events-back {
@@ -432,6 +461,7 @@ const EventsPage = () => {
           .events-filters {
             flex-direction: column;
             align-items: stretch;
+            gap: 15px;
           }
           
           .category-filters {
@@ -440,11 +470,79 @@ const EventsPage = () => {
           }
           
           .events-title {
-            font-size: 32px;
+            font-size: clamp(24px, 5vw, 32px);
+          }
+          
+          .events-description {
+            font-size: 16px;
           }
           
           .events-grid {
             grid-template-columns: 1fr;
+            gap: 25px;
+          }
+          
+          .event-card {
+            height: auto;
+            min-height: 350px;
+          }
+          
+          .event-header {
+            padding: 20px 25px;
+          }
+          
+          .event-content {
+            padding: 25px;
+          }
+          
+          .event-title {
+            font-size: 18px;
+          }
+          
+          .event-actions {
+            flex-direction: column;
+            gap: 10px;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .events-title {
+            font-size: clamp(20px, 6vw, 28px);
+          }
+          
+          .events-description {
+            font-size: 14px;
+          }
+          
+          .search-input {
+            padding: 10px 14px 10px 45px !important;
+            font-size: 13px;
+          }
+          
+          .category-btn {
+            padding: 6px 12px;
+            font-size: 12px;
+          }
+          
+          .event-header {
+            padding: 18px 20px;
+          }
+          
+          .event-content {
+            padding: 20px;
+          }
+          
+          .event-title {
+            font-size: 16px;
+          }
+          
+          .event-description {
+            font-size: 13px;
+          }
+          
+          .event-btn {
+            padding: 8px 16px;
+            font-size: 12px;
           }
         }
       `}</style>

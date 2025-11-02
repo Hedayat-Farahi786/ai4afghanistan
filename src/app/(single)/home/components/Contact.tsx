@@ -44,16 +44,19 @@ const Contact = () => {
           position: relative;
           display: inline-block;
         }
-        .contact-title::after {
+        .contact-subtitle {
+          position: relative;
+          display: inline-block;
+        }
+        .contact-subtitle::after {
           content: '';
           position: absolute;
-          bottom: -12px;
+          bottom: -8px;
           left: 50%;
           transform: translateX(-50%);
-          width: 50%;
-          height: 3px;
+          width: 40px;
+          height: 2px;
           background: #089a45;
-          border-radius: 2px;
         }
         .contact-description {
           color: #666;
@@ -359,8 +362,8 @@ const Contact = () => {
       <section id="contact" className="contact-section">
         <div className="contact-main-container">
           <div className="contact-header">
-            <h5 className="contact-subtitle">Get In Touch</h5>
-            <h2 className="contact-title section-title-divider">Contact AI for Afghanistan</h2>
+            <h5 className="contact-subtitle responsive-subtitle">Get In Touch</h5>
+            <h2 className="contact-title section-title-divider responsive-title-h2">Contact AI for Afghanistan</h2>
             <p className="contact-description">
               Ready to join our mission? Have questions about our programs? 
               We&apos;d love to hear from you and explore how we can work together.

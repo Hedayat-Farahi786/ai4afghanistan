@@ -324,10 +324,10 @@ const Donation = () => {
       <section id="donate" className="donation-section">
         <div className="donation-main-container">
           <div className="section-title">
-            <h5 style={{ color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block' }} className="donation-subtitle">
+            <h5 className="donation-subtitle responsive-subtitle" style={{ color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block' }}>
               Make a Difference
             </h5>
-            <h2 style={{ color: '#174555', fontSize: '36px', fontWeight: 700, marginBottom: '16px' }}>
+            <h2 className="donation-title responsive-title-h2" style={{ color: '#174555', fontSize: '36px', fontWeight: 700, marginBottom: '16px' }}>
               Support Afghan Youth
             </h2>
             <p style={{ color: '#666', fontSize: '16px', maxWidth: '500px', margin: '0 auto' }}>
@@ -340,7 +340,7 @@ const Donation = () => {
               <div className="donation-content">
                 <div style={{ marginBottom: '20px' }}>
                   <FaHeart style={{ fontSize: '32px', color: '#089a45', marginBottom: '12px', display: 'block' }} />
-                  <h3 style={{ color: '#174555', fontSize: '22px', fontWeight: 700, marginBottom: '8px', lineHeight: 1.3 }}>
+                  <h3 className="responsive-title-h3" style={{ color: '#174555', fontSize: '22px', fontWeight: 700, marginBottom: '8px', lineHeight: 1.3 }}>
                     Support Our Mission
                   </h3>
                   <p style={{ color: '#666', fontSize: '14px', lineHeight: 1.5 }}>

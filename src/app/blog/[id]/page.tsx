@@ -208,7 +208,7 @@ const BlogSingle = () => {
         .blog-single-page {
           min-height: 100vh;
           background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-          padding: 120px 0 80px;
+          padding: 160px 0 80px;
         }
 
         .blog-single-container {
@@ -514,7 +514,7 @@ const BlogSingle = () => {
           }
           
           .blog-single-page {
-            padding: 100px 0 60px;
+            padding: 140px 0 60px;
           }
           
           .blog-back-link {
@@ -630,7 +630,7 @@ const BlogSingle = () => {
           }
           
           .blog-single-page {
-            padding: 80px 0 50px;
+            padding: 130px 0 50px;
           }
           
           .blog-back-link {

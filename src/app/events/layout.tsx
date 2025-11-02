@@ -8,7 +8,6 @@ import CtaArea from '@/components/layouts/CtaArea'
 const layout = ({children}: ChildrenType) => {
     return (
         <>
-            <TopBanner/>
             <Header/>
             {children}
             <CtaArea/>

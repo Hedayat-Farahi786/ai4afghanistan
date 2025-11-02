@@ -63,7 +63,7 @@ const HeaderTablet = () => {
 
   return (
     <header>
-      <div className={`header-area homepage1 header header-sticky d-none d-md-block d-lg-none ${scrollY > 80 ? 'sticky-tablet' : 'hidden-tablet'}`} id="header-tablet">
+      <div className={`header-area homepage1 header header-sticky d-none d-md-block d-lg-none ${(scrollY > 80 || pathname !== '/home') ? 'sticky-tablet' : 'hidden-tablet'}`} id="header-tablet">
         <Container>
           <Row>
             <Col md={12}>

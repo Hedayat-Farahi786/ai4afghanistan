@@ -463,7 +463,7 @@ const TeamMemberSingle = () => {
           }
           
           .team-single-page {
-            padding: 80px 0 40px;
+            padding: 130px 0 40px;
           }
           
           .team-back {

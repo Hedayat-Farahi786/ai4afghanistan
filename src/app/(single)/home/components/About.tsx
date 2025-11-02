@@ -8,9 +8,10 @@ import about2 from '@/assets/img/about/vl-about-1.2.png'
 import { FaArrowRight } from 'react-icons/fa6'
 import { Col, Row } from 'react-bootstrap'
 import Link from 'next/link'
+import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
 
 const About = () => {
-
+  useGSAPAnimations()
 
   return (
     <>
@@ -20,17 +21,17 @@ const About = () => {
           <Col lg={6}>
             <div className="vl-about-content">
               <div className="vl-section-title-1">
-                <h5 className="subtitle" data-aos="fade-right" data-aos-duration={300} data-aos-delay={50} style={{color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block'}}>About AI4Afghanistan</h5>
-                <h2 className="title text-anime-style-3" style={{color: '#174555'}}>Empowering Afghanistan Through AI Education</h2>
-                <p className="pb-32" data-aos="fade-right" data-aos-duration={300} data-aos-delay={100} style={{color: '#666', fontSize: '16px', lineHeight: '1.6'}}>We are dedicated to training Afghan youth in artificial intelligence and technology, creating opportunities for innovation and economic growth in Afghanistan.</p>
+                <h5 className="subtitle about-subtitle responsive-subtitle" style={{color: '#174555', fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '16px', position: 'relative', display: 'inline-block'}}>About AI4Afghanistan</h5>
+                <h2 className="title text-anime-style-3 about-title responsive-title-h2" style={{color: '#174555'}}>Empowering Afghanistan Through AI Education</h2>
+                <p className="pb-32 about-description" style={{color: '#666', fontSize: '16px', lineHeight: '1.6'}}>We are dedicated to training Afghan youth in artificial intelligence and technology, creating opportunities for innovation and economic growth in Afghanistan.</p>
               </div>
-              <div className="vl-about-grid">
+              <div className="vl-about-grid about-grid">
                 <div className="vl-about-icon-box mb-30">
                   <div className="vl-about-icon">
                     <span><Image src={aboutIcons1} alt='AI Training' loading="lazy" /></span>
                   </div>
                   <div className="vl-icon-content">
-                    <h3 className="title" style={{color: '#174555'}}><Link href="/pages/service" style={{color: '#174555', textDecoration: 'none'}}>Comprehensive AI Training Programs</Link></h3>
+                    <h3 className="title responsive-title-h3" style={{color: '#174555'}}><Link href="/pages/service" style={{color: '#174555', textDecoration: 'none'}}>Comprehensive AI Training Programs</Link></h3>
                     <p style={{color: '#666', fontSize: '14px', lineHeight: '1.5'}}>We provide hands-on training in machine learning, <br /> data science, and AI development to Afghan students.</p>
                   </div>
                 </div>
@@ -39,7 +40,7 @@ const About = () => {
                     <span><Image src={aboutIcons2} alt='Community Impact' loading="lazy" /></span>
                   </div>
                   <div className="vl-icon-content">
-                    <h3 className="title" style={{color: '#174555'}}><Link href="/pages/service" style={{color: '#174555', textDecoration: 'none'}}>Building Afghanistan's Tech Future</Link></h3>
+                    <h3 className="title responsive-title-h3" style={{color: '#174555'}}><Link href="/pages/service" style={{color: '#174555', textDecoration: 'none'}}>Building Afghanistan's Tech Future</Link></h3>
                     <p style={{color: '#666', fontSize: '14px', lineHeight: '1.5'}}>Creating pathways for Afghan youth to contribute to global technology innovation.</p>
                   </div>
                 </div>
@@ -47,7 +48,7 @@ const About = () => {
             </div>
           </Col>
           <Col lg={4} md={6} className="mb-30">
-            <div className="vl-about-large-thumb reveal" style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px', cursor: 'pointer' }}>
+            <div className="vl-about-large-thumb reveal about-image-large" style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px', cursor: 'pointer' }}>
               <Image className="w-100" src={about1} alt='about1' loading="lazy" />
               <div className="image-overlay" style={{
                 position: 'absolute',
@@ -62,7 +63,7 @@ const About = () => {
             </div>
           </Col>
           <Col lg={2} md={6} className="mb-30">
-            <div className="vl-about-sm-content" data-aos="zoom-in-up" data-aos-duration={400} data-aos-delay={150}>
+            <div className="vl-about-sm-content about-side-content">
               <p style={{color: '#666', fontSize: '14px', lineHeight: '1.6'}}>Our mission is to bridge the digital divide and empower Afghan youth with cutting-edge AI skills for a brighter future.</p>
               <div className="btn-area">
                 <Link href="/pages/team" className="header-btn1" style={{background: '#174555', color: '#fff', textDecoration: 'none'}}>Join Us <span style={{background: '#089a45'}}><FaArrowRight /></span></Link>
@@ -143,6 +144,8 @@ const About = () => {
         width: 100% !important;
         height: 100% !important;
       }
+      
+
     `}</style>
     </>
   )

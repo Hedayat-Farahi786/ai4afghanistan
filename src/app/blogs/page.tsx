@@ -153,7 +153,7 @@ const BlogsPage = () => {
         .blogs-page {
           min-height: 100vh;
           background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-          padding: 120px 0 80px;
+          padding: 140px 0 80px;
         }
 
         .blogs-container {
@@ -479,7 +479,7 @@ const BlogsPage = () => {
           }
           
           .blogs-page {
-            padding: 100px 0 60px;
+            padding: 120px 0 60px;
           }
           
           .blogs-back {
@@ -579,7 +579,7 @@ const BlogsPage = () => {
           }
           
           .blogs-page {
-            padding: 80px 0 50px;
+            padding: 110px 0 50px;
           }
           
           .blogs-back {

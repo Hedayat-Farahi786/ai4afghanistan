@@ -7,6 +7,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/autoplay'
 import 'aos/dist/aos.css';
 import '@/assets/scss/main.scss'
+import '@/styles/responsive-titles.css'
 
 
 import AppProvidersWrapper from "../components/wrappers/AppProvidersWrapper";

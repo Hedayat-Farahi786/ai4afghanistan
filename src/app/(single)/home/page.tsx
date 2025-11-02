@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import dynamic from 'next/dynamic'
+import { usePathname } from 'next/navigation'
 import { useSmoothScroll } from '@/hooks/useSmoothScroll'
 
 // Disable SSR for all components to prevent hydration issues
@@ -53,11 +54,12 @@ const HomeFooter = dynamic(() => import('@/components/layouts/Footer/HomeFooter'
 })
 
 const HomeSinglePage = () => {
+  const pathname = usePathname()
   useSmoothScroll()
 
   return (
     <>
-      <TopBanner />
+      {pathname === '/home' && <TopBanner />}
       <Header />
       <Hero />
       <About />

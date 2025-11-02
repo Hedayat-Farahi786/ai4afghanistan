@@ -7,12 +7,15 @@ import titleIcon from '@/assets/img/icons/vl-sub-title-icon.svg'
 import { FaFacebookF, FaInstagram, FaArrowRight, FaMouse, FaLinkedinIn } from "react-icons/fa"
 import { FaXTwitter } from "react-icons/fa6"
 import { Col, Container, Row } from 'react-bootstrap'
+import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
 const Slider = dynamic(() => import('react-slick'), {
   ssr: false,
   loading: () => <div style={{minHeight: '100vh'}} />
 });
 
 const HeroMobile = () => {
+  useGSAPAnimations()
+  
   const settings = {
     draggable: true,
     autoplay: false,
@@ -166,47 +169,7 @@ const HeroMobile = () => {
           }
         }
         
-        .hero-subtitle {
-          animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-        
-        .hero-title {
-          animation: fadeInUp 1s ease-out 0.4s both;
-        }
-        
-        .hero-description {
-          animation: fadeInUp 0.8s ease-out 0.6s both;
-        }
-        
-        .hero-button {
-          animation: slideInRight 0.8s ease-out 0.8s both;
-        }
-        
-        @keyframes slideInRight {
-          0% {
-            opacity: 0;
-            transform: translateX(-30px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        
-        @keyframes fadeInUp {
-          0% {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .hero-title span {
-          animation: fadeInUp 1s ease-out 0.4s both;
-        }
+
       `}</style>
     </div>
   )
